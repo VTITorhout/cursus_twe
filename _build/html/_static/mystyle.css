@@ -1,0 +1,15 @@
+.theorem {
+    border-color:#c566df;
+}
+.admonition.theorem .admonition-title {
+    background-color: #edddf4;
+}
+.admonition.theorem .admonition-title::before {
+    color: #c566df;
+    content: "T";
+}
+
+.myblockimg:after {
+  clear: both;
+  display: block;
+}

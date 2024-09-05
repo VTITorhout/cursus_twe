@@ -1,0 +1,954 @@
+
+<!DOCTYPE html>
+
+
+<html lang="nl" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>1. Sequentie en variabelen &#8212; Cursus Python TW&amp;E</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/_static/mystyle.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystyle.css?v=67192463" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=b028fc25"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/translations.js?v=5ce3cdba"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tw&e_theo_01_sequentie_en_variabelen';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Zoeken" href="search.html" />
+    <link rel="next" title="2. Operatoren" href="tw%26e_theo_02_operatoren.html" />
+    <link rel="prev" title="Inleiding Python" href="tw%26e_theo_00_inleiding.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="nl"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="tw%26e_theo_00_inleiding.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Cursus Python TW&E</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Zoeken</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="tw%26e_theo_00_inleiding.html">
+                    Inleiding Python
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Sequentie en variabelen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_02_operatoren.html">2. Operatoren</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_03_beslissingen.html">3. Beslissingen</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download deze pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/tw&e_theo_01_sequentie_en_variabelen.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download het bronbestand"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Afdrukken naar pdf"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Volledig scherm"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Sequentie en variabelen</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhoud </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sequentie">1.1. Sequentie</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variabelen">1.2. Variabelen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creeeren-van-variabelen">1.2.1. Creëeren van variabelen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#soorten-variabelen">1.2.2. Soorten variabelen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#typecasting">1.2.3. Typecasting</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-en-escape-characters">1.3. Strings en escape characters</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#escape-characters">1.3.1. Escape characters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f-strings">1.3.2. f-strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiline-strings">1.3.3. Multiline strings</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="sequentie-en-variabelen">
+<h1><span class="section-number">1. </span>Sequentie en variabelen<a class="headerlink" href="#sequentie-en-variabelen" title="Link to this heading">#</a></h1>
+<section id="sequentie">
+<h2><span class="section-number">1.1. </span>Sequentie<a class="headerlink" href="#sequentie" title="Link to this heading">#</a></h2>
+<p>De sequentie is een programmeerstructuur waarbij regels code één voor één, van boven naar beneden doorlopen en uitgevoerd worden. Eerst wordt de eerste regel code uitgevoerd, erna de tweede, daarna de derde, enzoverder… Bij alle programmeertalen die bedoeld zijn om op een processor te draaien zal dit zo gebeuren. <em>Merk wel op dat de meeste processoren bestaan uit meerdere kernen. Elke kern zal een bepaald stuk code voor zich nemen en uitvoeren. Op deze manier worden verschillende sequenties naast elkaar uitgevoerd. De code moet hiervoor wel geschikt zijn.</em></p>
+<p>Bij Python zal de code ook sequentieel worden uitgevoerd. Volgend voorbeeld verduidelijkt dit:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dit wordt eerst uitgevoerd&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dit zal als tweede uitgevoerd worden&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dit wordt eerst uitgevoerd
+Dit zal als tweede uitgevoerd worden
+</pre></div>
+</div>
+</div>
+</div>
+<p>Meteen is al één van de belangrijkste commando’s in Python gedemonstreerd, namelijk de <code class="docutils literal notranslate"><span class="pre">print()</span></code> methode. Deze methode laat dus toe om tekst te sturen naar de CLI (Command Line Interface) van je editor. De CLI is een basis input/output mogelijkheid om te communiceren met een python script (bestand met daarin verschillende regels Python code). In Python, en veel andere programmeertalen kan een methode herkend worden doordat deze bestaat uit de naam van de methode gevolgd door een <code class="docutils literal notranslate"><span class="pre">()</span></code>, waarbij tussen de haken er parameters kunnen meegegeven worden met de methode. De parameter die wij hier meegeven is een tekst, ook wel <code class="docutils literal notranslate"><span class="pre">string</span></code> genaamd in programmeren. Zie hiervoor het onderdeel <a class="reference internal" href="#target-vars">variabelen</a> voor meer informatie. <em>De methode accepteert meestal verschillende (soorten) parameters. Dit wordt <strong>overloading</strong> van een methode genaamd, waarop later zeker nog wordt teruggekomen.</em></p>
+<p>In het begin zul je deze methode frequent moeten gebruiken. Dit is momenteel de enige manier om te interfacen met de gebruiker. Eveneens laat deze methode toe om op banale manier je programma te debuggen. Later zullen we zien dat dit beter kan gebeuren door een <a class="reference external" href="https://nl.wikipedia.org/wiki/Debugger">debugger</a> te gebruiken.</p>
+<p>Ook kan de gebruiker informatie via de CLI doorgeven aan het Python programma. Dit gebeurt a.d.h.v. een tweede methode, namelijk <code class="docutils literal notranslate"><span class="pre">input()</span></code>. Deze methode geeft de ingegeven waarde terug aan de oproepende methode. Een combinatie van de twee geziene methodes is als volgt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Koen
+</pre></div>
+</div>
+</div>
+</div>
+<p>Men kan zich afvragen waarom er nu twee identieke zaken onder elkaar komen te staan? Op de eerste lijn is het de waarde die de gebruiker ingeeft die meteen wordt weergegeven. De <code class="docutils literal notranslate"><span class="pre">input()</span></code> methode wordt beïndigd op het moment je de <code class="docutils literal notranslate"><span class="pre">enter</span></code> indrukt op het toetsenbord. De CLI gaat hierdoor naar de volgende lijn. Het Python programma neemt de input van de gebruiker en geeft dit door aan de <code class="docutils literal notranslate"><span class="pre">print()</span></code> methode. Deze drukt wat de gebruiker ingegeven geeft integraal af.</p>
+<p>Optioneel kan met de <code class="docutils literal notranslate"><span class="pre">input()</span></code> methode nog een parameter meegegeven worden. De parameter (van het type <code class="docutils literal notranslate"><span class="pre">string</span></code>) zal op dezelfde lijn van de input eerst worden weergegeven. Volgend voorbeeld verduidelijkt dit:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wat is je naam? &quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Koen
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="variabelen">
+<span id="target-vars"></span><h2><span class="section-number">1.2. </span>Variabelen<a class="headerlink" href="#variabelen" title="Link to this heading">#</a></h2>
+<p>Een variabele is een plaats in het computergeheugen waarin je één iets tegelijk, zoals tekst of een getal, kan bewaren om het nadien terug te raadplegen. Je kan dit het best vergelijken met een archiefkast:</p>
+<ul class="simple">
+<li><p>De <strong>lade</strong> is de <code class="docutils literal notranslate"><span class="pre">variabele</span></code></p></li>
+<li><p>Het <strong>label</strong> op de lade is de <code class="docutils literal notranslate"><span class="pre">naam</span></code> van de variabele</p></li>
+<li><p>De <strong>inhoud</strong> van de lade is de <code class="docutils literal notranslate"><span class="pre">waarde</span></code> van de variabele</p></li>
+</ul>
+<figure class="myblockimg align-left" id="id1">
+<a class="reference internal image-reference" href="_images/archiefkast.jpg"><img alt="_images/archiefkast.jpg" src="_images/archiefkast.jpg" style="width: 350px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1.1 </span><span class="caption-text">Een archiefkast als voorbeeld van een variabele.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="creeeren-van-variabelen">
+<h3><span class="section-number">1.2.1. </span>Creëeren van variabelen<a class="headerlink" href="#creeeren-van-variabelen" title="Link to this heading">#</a></h3>
+<p>Elke programmeertaal maakt gebruik van variabelen. Een variabele krijgt een naam (<code class="docutils literal notranslate"><span class="pre">variabele</span> <span class="pre">name</span></code>) en aan de variabele kan je een waarde (<code class="docutils literal notranslate"><span class="pre">value</span></code>) toekennen.</p>
+<figure class="myblockimg align-left" id="id2">
+<a class="reference internal image-reference" href="_images/variabele.png"><img alt="_images/variabele.png" src="_images/variabele.png" style="width: 350px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1.2 </span><span class="caption-text">De variabele voorgesteld als opslagdoos.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>De naam van de variabele is vrij te kiezen, maar er zijn enkele regels die moeten gerespecteerd worden:</p>
+<ul class="simple">
+<li><p>De naam van een variabele moet met een letter beginnen.</p></li>
+<li><p>Variabelen mogen geen spaties bevatten. Volgens de Python stijlgids vervang je de spatie door een liggend streepje <code class="docutils literal notranslate"><span class="pre">_</span></code>, zoals in <code class="docutils literal notranslate"><span class="pre">aantal_leerlingen</span></code> en <code class="docutils literal notranslate"><span class="pre">aantal_dagen</span></code>. Dit wordt ook wel <em>snake casing</em> genoemd. Er zijn echter andere programmeertalen zoals Java en C# waar het 2de woord start met een hoofdletter, zoals in <code class="docutils literal notranslate"><span class="pre">aantalLeerlingen</span></code> en <code class="docutils literal notranslate"><span class="pre">aantalDagen</span></code>. Deze manier van werken wordt <em>camel casing</em> genoemd.</p></li>
+<li><p>Hoofdletters en kleine letters worden als verschillende variabelen aanzien. De variabele <code class="docutils literal notranslate"><span class="pre">hoofdpersonage</span></code> is <strong>niet dezelfde</strong> als de variabele <code class="docutils literal notranslate"><span class="pre">Hoofdpersonage</span></code>.</p></li>
+<li><p>Er mogen geen gereserveerde woorden uit Python gebruikt worden als variabele. Zie hiervoor de <a class="reference external" href="https://realpython.com/lessons/reserved-keywords/">lijst</a> met gereserveerde woorden (<em>key words</em> genaamd).</p></li>
+<li><p>Je kan zoveel variabelen maken als nodig. Omdat variabelen geheugenruimte innemen, streef je het best naar <ins>zo weinig mogelijk</ins> variabelen tenzij dit de verstaanbaarheid van de code in het gedrang brengt.</p></li>
+<li><p>De naam van de variabele staat steeds links van het <code class="docutils literal notranslate"><span class="pre">=</span></code> teken (de toekenningsoperator) en de waarde die erin bewaard wordt rechts.</p></li>
+<li><p>Voorzie logische namen die het doel van de variabele duidelijk maken.</p></li>
+</ul>
+<p>Volgende voorbeeldcode demonstreert het gebruik:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mijn_naam</span> <span class="o">=</span> <span class="s2">&quot;Koen&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mijn_naam</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Koen
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wat je links van het <code class="docutils literal notranslate"><span class="pre">=</span></code> teken schrijft hoeft niet expliciet een <code class="docutils literal notranslate"><span class="pre">literal</span></code> te zijn (een <code class="docutils literal notranslate"><span class="pre">literal</span></code> is letterlijk vertaald <em>letterlijk</em>, dus eigenlijk exact wat er staat). Dit kan ook de waarde zijn die van een andere methode komt, die op het moment dat het programma wordt uitgevoerd ingevuld word. De vorige voorbeelden kunnen tot volgend voorbeeld gecombineerd worden:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">input_gebruiker</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wat is je naam? &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">input_gebruiker</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Koen
+</pre></div>
+</div>
+</div>
+</div>
+<div class="danger admonition">
+<p class="admonition-title">Waarschuwing</p>
+<p>Je kan een variabele pas gebruiken als deze geïnitialiseerd werd! Met andere woorden, je krijgt een foutmelding (NameError) als je deze gebruikt vooraleer er een waarde aan toegekend werd.</p>
+</div>
+<p>Onderstaand voorbeeld demonstreert dit (waarbij ook nog eens de nadruk wordt gelegd op het feit dat variabelen <em>case sensitive</em> zijn):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">Input_gebruiker</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">18</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">Input_gebruiker</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;Input_gebruiker&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="soorten-variabelen">
+<h3><span class="section-number">1.2.2. </span>Soorten variabelen<a class="headerlink" href="#soorten-variabelen" title="Link to this heading">#</a></h3>
+<p>Python is een niet strikte taal. Hiermee wordt (gedeeltelijk) bedoeld dat je vooraf niet moet opgeven wat je in de variabele zal opslaan. <em>De variabelen worden allemaal opgeslagen in het heap geheugen, terwijl op de stack er enkel referenties worden bijgehouden. Door deze manier van werken kan de inhoud van een variabele wijzigen doorheen het programma, en wordt het voor de gebruiker intuïtiever deze taal te gebruiken, dit cfr. de eisen gesteld door Guido van Rossum.</em></p>
+<p>Dit wil echter niet zeggen dat er geen verschillende soorten variabelen bestaan. Python maakt onderscheid tussen de volgende types variabelen:</p>
+<ul class="simple">
+<li><p>Gehele getallen (zoals 5, 20, -16, …)</p></li>
+<li><p>Rationale getallen (zoals 2.5, 0.4, -100.1, maar eveneens gehele getallen, dus alles wat als breuk kan geschreven worden)</p></li>
+<li><p>Tekst (dit kan een enkele letter/leesteken zijn of een sliert van letters/leestekens)</p></li>
+</ul>
+<p>Men spreekt in het Engels (dus eveneens in andere programmeertalen) over volgende type variabelen:</p>
+<ul class="simple">
+<li><p>integer (geheel getal)</p></li>
+<li><p>float (rationaal getal)</p></li>
+<li><p>string</p></li>
+</ul>
+<div class="warning admonition">
+<p class="admonition-title">Opgelet</p>
+<p>Houd echter wel rekening met volgende zaken:</p>
+<ul class="simple">
+<li><p>Een <code class="docutils literal notranslate"><span class="pre">float</span></code> wordt bekomen door gebruik te maken van een literal met daarin een <code class="docutils literal notranslate"><span class="pre">punt</span></code> en geen <code class="docutils literal notranslate"><span class="pre">komma</span></code>! <em>Men spreekt dan ook over floating <strong>point</strong> getallen…</em></p></li>
+<li><p>Voor een <code class="docutils literal notranslate"><span class="pre">string</span></code> kan gebruik gemaakt worden van enkele of dubbele aanhalingstekens.<em>De keuze hangt volledig af van de gebruiker, en men wisselt meestal als er <strong>in</strong> de string een bepaald type aanhalingstekens voorkomt.</em></p></li>
+</ul>
+</div>
+<p>Volgend voorbeeld demonstreert dit alles.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_int</span> <span class="o">=</span> <span class="mi">123</span>
+<span class="n">my_float</span> <span class="o">=</span> <span class="mf">3.14</span>
+<span class="n">my_string1</span> <span class="o">=</span> <span class="s2">&quot;&#39;dhr&#39; Koen&quot;</span>
+<span class="n">my_string2</span> <span class="o">=</span> <span class="s1">&#39;Geeraert &quot;aka&quot; GEKO&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_int</span><span class="p">,</span> <span class="n">my_float</span><span class="p">,</span> <span class="n">my_string1</span><span class="p">,</span> <span class="n">my_string2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>123 3.14 &#39;dhr&#39; Koen Geeraert &quot;aka&quot; GEKO
+</pre></div>
+</div>
+</div>
+</div>
+<p>In het voorbeeld hierboven is een andere manier gebruikt om parameters door te geven naar de methode <code class="docutils literal notranslate"><span class="pre">print()</span></code>. Een lijst van variabelen wordt doorgegeven, gescheiden door een <code class="docutils literal notranslate"><span class="pre">,</span></code>. Deze worden vervolgens elk om beurt afgedrukt op de CLI, gescheiden door een spatie. <em>Python zal op de achtergrond de verschillende variabelen doorgeven als een <a class="reference external" href="https://www.w3schools.com/Python/python_tuples.asp">tuple</a>, waarbij de tuple in de methode print terug uitgepakt zal worden en vervolgens via een iteratie zal doorlopen worden. Later in deze cursus meer hierover.</em></p>
+</section>
+<section id="typecasting">
+<h3><span class="section-number">1.2.3. </span>Typecasting<a class="headerlink" href="#typecasting" title="Link to this heading">#</a></h3>
+<p>Python zal altijd zijn best doen om het voor de gebruiker zo eenvoudig mogelijk te maken, en dit door het meest geschikte type variabele te kiezen. Bij het gebruik van methodes zal de methode echter beslissen wat wordt teruggegeven aan de oproepende code. Bij de <code class="docutils literal notranslate"><span class="pre">input()</span></code> methode zal altijd een <code class="docutils literal notranslate"><span class="pre">string</span></code> worden teruggegeven, los of de gebruiker al dan niet een <code class="docutils literal notranslate"><span class="pre">integer</span></code> of <code class="docutils literal notranslate"><span class="pre">float</span></code> heeft ingegeven. De methode <code class="docutils literal notranslate"><span class="pre">input()</span></code> doet namelijk geen controle op wat de gebruiker ingeeft. Indien hier geen rekening mee gehouden wordt kan men problemen krijgen. Volgend voorbeeld demonstreert dit:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_wrong_int</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Geef een integer op: &quot;</span><span class="p">)</span>
+<span class="n">my_wrong_int</span> <span class="o">=</span> <span class="n">my_wrong_int</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_wrong_int</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">my_wrong_int</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Geef een integer op: &quot;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">my_wrong_int</span> <span class="o">=</span> <span class="n">my_wrong_int</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">my_wrong_int</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: can only concatenate str (not &quot;int&quot;) to str
+</pre></div>
+</div>
+</div>
+</div>
+<p>De methode <code class="docutils literal notranslate"><span class="pre">input()</span></code> heeft dus een <code class="docutils literal notranslate"><span class="pre">string</span></code> terug gegeven, die opgeslagen is in de variabele <code class="docutils literal notranslate"><span class="pre">my_wrong_int</span></code>. De type van de variabele wordt hierdoor een <code class="docutils literal notranslate"><span class="pre">string</span></code>, en geen <code class="docutils literal notranslate"><span class="pre">int</span></code>! De wiskundige bewerking die nadien op lijn 2 gebeurd werkt niet, aangezien Python niet weet hoe je het getal <code class="docutils literal notranslate"><span class="pre">1</span></code> moet optellen bij een sliert van tekens (<code class="docutils literal notranslate"><span class="pre">&quot;15&quot;</span></code>). <em>Python spreekt hier over concatenate, wat samenvoegen betekent. Twee slierten van tekens kunnen aan elkaar geplakt worden tot één grote sliert van tekens, en twee integers kunnen opgeteld worden tot één grote integer. De combinatie van een integer en een string lukt niet, evenmin een integer en een float, een float en een string en alles vice versa.</em></p>
+<p>Om toch tot een gewenste oplossing te komen zullen we gebruik maken van wat <em>typecasting</em> wordt genaamd. Dit is een type variabele omzetten van één soort naar een andere. Houd er wel mee rekening dat de omzetting mogelijk moet zijn. Indien het onmogelijk is zal een fout gegeven worden.</p>
+<ul class="simple">
+<li><p>Een string met daarin enkel en alleen een integer literal kan omgezet worden naar zowel een <code class="docutils literal notranslate"><span class="pre">int</span></code> als een <code class="docutils literal notranslate"><span class="pre">float</span></code>.</p></li>
+<li><p>Een string met daarin enkel en alleen een float literal kan omgezet worden naar een <code class="docutils literal notranslate"><span class="pre">float</span></code>, maar niet naar een <code class="docutils literal notranslate"><span class="pre">int</span></code></p></li>
+<li><p>Een integer kan omgezet worden naar een <code class="docutils literal notranslate"><span class="pre">float</span></code> en naar een <code class="docutils literal notranslate"><span class="pre">string</span></code></p></li>
+<li><p>Een float kan omgezet worden naar een <code class="docutils literal notranslate"><span class="pre">string</span></code>, maar niet naar een <code class="docutils literal notranslate"><span class="pre">int</span></code></p></li>
+</ul>
+<p>Volgend voorbeelde demonstreert het proces van <em>typecasting</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_string</span> <span class="o">=</span> <span class="s2">&quot;123&quot;</span>
+<span class="n">my_int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">my_string</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_int</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">my_string</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>124 123
+</pre></div>
+</div>
+</div>
+</div>
+<p>In vorig voorbeeld is opnieuw een <code class="docutils literal notranslate"><span class="pre">tuple</span></code> meegegeven met de <code class="docutils literal notranslate"><span class="pre">print()</span></code> methode, waarbij het eerste element het getal <code class="docutils literal notranslate"><span class="pre">my_int</span></code> was, maar verhoogd met 1. Het tweede element was de oorspronkelijke <code class="docutils literal notranslate"><span class="pre">string</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_string</span> <span class="o">=</span> <span class="s2">&quot;123.0&quot;</span>
+<span class="n">my_float</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">my_string</span><span class="p">)</span>
+<span class="n">my_int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">my_string</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_int</span><span class="p">,</span><span class="n">my_float</span><span class="p">,</span><span class="n">my_string</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">22</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">my_string</span> <span class="o">=</span> <span class="s2">&quot;123.0&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">my_float</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">my_string</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">my_int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">my_string</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="n">my_int</span><span class="p">,</span><span class="n">my_float</span><span class="p">,</span><span class="n">my_string</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: invalid literal for int() with base 10: &#39;123.0&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Zoals te verwachten wordt er een foutmelding gegeven op lijn 3. De <code class="docutils literal notranslate"><span class="pre">string</span></code> bevatte een <code class="docutils literal notranslate"><span class="pre">literal</span> <span class="pre">float</span></code> waarde, die niet kan opgeslagen worden in een variabele van het type <code class="docutils literal notranslate"><span class="pre">int</span></code>. <em>Later zullen we zien hoe we dit probleem kunnen opvangen met een try except, aangezien we niet altijd gaan weten wat de (eind)gebruiker zal ingeven.</em></p>
+<p>Als laatste voorbeeld wordt er <em>getypecast</em> naar het type <code class="docutils literal notranslate"><span class="pre">string</span></code> en vervolgens <code class="docutils literal notranslate"><span class="pre">geconcateneerd</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_int</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">my_float</span> <span class="o">=</span> <span class="mf">3.14</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">my_int</span><span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">my_float</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>123.14
+</pre></div>
+</div>
+</div>
+</div>
+<p>Je kan ook ten aller tijde achterhalen met welk type variabele je te maken hebt. Gebruik hiervoor de methode <code class="docutils literal notranslate"><span class="pre">type()</span></code> die je toepast op een variabele. Volgend voorbeeld demonstreert dit:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">my_int</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">my_float</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">my_string</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;int&#39;&gt;
+&lt;class &#39;float&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="strings-en-escape-characters">
+<h2><span class="section-number">1.3. </span>Strings en escape characters<a class="headerlink" href="#strings-en-escape-characters" title="Link to this heading">#</a></h2>
+<p>In vorig hoofdstuk is gesproken over het feit dat een string variabele niets anders is dan een sliert van tekens. Deze tekens zijn in feite karakters die in tekst gebruikt worden, al dan niet zichtbaar.</p>
+<p>Om dit voldoende te kunnen uitleggen moet men teruggaan naar de tijd van de <a class="reference external" href="https://nl.wikipedia.org/wiki/Telex_(communicatie)">telex</a>. Dit was een manier van werken om tekst te verzenden van locatie A naar locatie B, en dit zonder gebruik te maken van een brief en/of postduiven. Langs de éné kant van de (elektrische) verbinding had je een toetsenbord, langs de andere kant een (mechanische) printer. Bij het indrukken van een toets langs de verzendkant werd een signaal gegenereerd die elektrisch verstuurd werd. Dit signaal bevatte de informatie van één karakter, namelijk de aangelagen toets. De printer langs de andere kant kon dit karakter decoderen en de juiste hamer selecteren om het gewenste karakter over te brengen op het blad papier. Dit waren de <strong>zichtbare</strong> karakters. Wanneer men echter naar de volgende lijn wenst te gaan moest dit ook kunnen verstuurd worden. Hiervoor zijn er <strong>onzichtbare</strong> karakters.</p>
+<p>Tot op heden wordt er nog altijd frequent gebruik gemaakt van <a class="reference external" href="https://nl.wikipedia.org/wiki/ASCII_(tekenset)">ASCII</a>-karakters. Zaken die men in Python ingeeft op de CLI worden nog altijd doorgegeven in dit formaat. Wat men terugkrijgt eveneens. <em>Aangezien er vandaag echter meer tekens zijn dan in de 8-bit ASCII tabel kunnen opgenomen worden heeft men <a class="reference external" href="https://nl.wikipedia.org/wiki/UTF-8">UTF-8</a> in het leven geroepen. Deze manier van coderen laat toe een variabele lengte aan karakters te geven. De karakters met een lengte van 1 byte stemmen nog altijd overeen met de ASCII karakters. Alle overige karakters (tekens uit vreemde geschriften, emoticons, …) worden gecodeerd met meer bytes.</em></p>
+<figure class="myblockimg align-left" id="id3">
+<a class="reference internal image-reference" href="_images/640px-USASCII_code_chart.png"><img alt="_images/640px-USASCII_code_chart.png" src="_images/640px-USASCII_code_chart.png" style="width: 350px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1.3 </span><span class="caption-text">Alle tekens van de ASCII-I tekenset.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In de tabel is duidelijk te zien dat de <strong>zichtbare</strong> (lees)tekens pas beginnen vanaf kolom 3. De eerste twee kolommen zijn de <strong>onzichtbare</strong> tekens. De belangrijkste <strong>onzichtbare</strong> tekens (voor ons) zijn de volgende:</p>
+<ul class="simple">
+<li><p>BS (<strong>B</strong>ack <strong>S</strong>pace): Verplaats de schrijfpositie één positie (naar links)</p></li>
+<li><p>LF (<strong>L</strong>ine <strong>F</strong>eed): Verplaats de schrijfpositie naar de volgende lijn</p></li>
+<li><p>CR (<strong>C</strong>arriage <strong>R</strong>eturn): Verplaats de schrijfpositie naar het begin van de lijn</p></li>
+<li><p>HT (<strong>H</strong>orizontal <strong>T</strong>ab): Verplaats de schrijfpositie één tabulatie (naar rechts)</p></li>
+</ul>
+<p>Wanneer men de <code class="docutils literal notranslate"><span class="pre">print()</span></code> methode gebruikt zal Python automatisch op het einde van de weergegeven string enkele onzichtbare karakters toevoegen, namelijk een LF en/of een CR. Hierdoor zal op de CLI de volgende keer een <code class="docutils literal notranslate"><span class="pre">print()</span></code> methode gebruikt wordt deze op de <strong>volgende</strong> lijn te komen staan. <em>Afhankelijk van de implementatie van de CLI zal deze meestal voldoende hebben met een enkele CR of een enkele LF. Vroeger moest dit altijd een LF <strong>en</strong> een CR zijn, want de schrijfpositie moest naar de volgende regel <strong>en</strong> terugkeren naar het begin van de pagina. Een CR en een LF mag nog altijd, maar de CLI zal slechts één lijn verder gaan.</em></p>
+<p>Je kan voorkomen dat Python zelf deze karakters toevoegt door een extra parameter mee te geven met de <code class="docutils literal notranslate"><span class="pre">print()</span></code> methode, namelijk de <code class="docutils literal notranslate"><span class="pre">end=&quot;&quot;</span></code> parameter. Volgend voorbeeld verduidelijkt dit:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dit is lijn één. &quot;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ook dit is lijn één&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dit is lijn één. Ook dit is lijn één
+</pre></div>
+</div>
+</div>
+</div>
+<p>Indien je geen <code class="docutils literal notranslate"><span class="pre">end</span></code> parameter meegeeft met de <code class="docutils literal notranslate"><span class="pre">print()</span></code> methode voegt Python deze zelf toe, ingevuld met een CR en een LF. Indien wij deze zelf meegeven kunnen wij kiezen wat wij op het eind van de string wensen toe te voegen. In bovenstaand voorbeeld voegden we een lege string toe, namelijk <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>. Tussen de dubbele aanhalingstekens kunnen wij zelf kiezen wat er moet komen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dit is de eerste parameter. &quot;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s2">&quot;En dit is de tweede parameter. &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;En dit is nog altijd lijn één!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dit is de eerste parameter. En dit is de tweede parameter. En dit is nog altijd lijn één!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Merk op dat de CR en de LF <strong>niet</strong> worden toegevoegd bij de eerste <code class="docutils literal notranslate"><span class="pre">print()</span></code> methode, dit doordat we gebruik hebben gemaakt van de <code class="docutils literal notranslate"><span class="pre">end</span></code> parameter.</p>
+<section id="escape-characters">
+<h3><span class="section-number">1.3.1. </span>Escape characters<a class="headerlink" href="#escape-characters" title="Link to this heading">#</a></h3>
+<p>Aangezien het onmogelijk is om in een string <em>onzichtbare</em> karakters neer te pennen, moet er een manier bestaan om dit toch te kunnen bewerkstellingen. Hiervoor moeten we in de string bepaalde karakters <strong>escapen</strong>. Het <em>escapen</em> gebeurd door een karakter te laten voorafgaan door een <em>backslash</em> (<code class="docutils literal notranslate"><span class="pre">\</span></code>). De compiler zal in de string de <em>escape</em> aanduiding <code class="docutils literal notranslate"><span class="pre">\</span></code> herkennen, en zal het volgende karakter interpreteren als een <em>ander</em>, al dan niet <em>onzichtbaar</em>, karakter.</p>
+<p>De vier meest gebruikte <em>escape</em> karakters zijn de volgende:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">\n</span></code>: Dit stemt overeen met een LF karakter. Hiermee wordt naar de volgende lijn gegaan.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">\r</span></code>: Dit stemt overeen met een CR karakter. Hiermee wordt naar het begin van de lijn gegaan.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">\b</span></code>: Dit stemt overeen met een BS karakter. Hiermee wordt er één positie naar links gegaan.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">\t</span></code>: Dit stemt overeen met een HT karakter. Hiermee wordt een tabulatie ingevoegd.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dit is lijn 1.</span><span class="se">\r</span><span class="s2">Dit is nog steeds lijn 1.</span><span class="se">\n</span><span class="s2">En dit zou moeten lijn 2 zijn.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;En hier volgt een </span><span class="se">\t</span><span class="s2"> tab.</span><span class="se">\b</span><span class="s2">, en we voegen nog iets toe.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dit is nog steeds lijn 1.
+En dit zou moeten lijn 2 zijn.
+En hier volgt een 	 tab, en we voegen nog iets toe.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Meteen is duidelijk dat de CLI van Python de regels niet 100% respecteert. Een LF voert eveneens een CR uit, terwijl deze enkel naar de volgende regel zou mogen gaan, en de positie in de lijn niet zou mogen wijzigen. <em>Iedere CLI implementeert dit op zijn eigen wijze, en het is dan ook nooit slecht dit vooraf te controleren.</em></p>
+<p>Ook zichtbare tekens kunnen <em>geëscaped</em> worden. We weten ondertussen dat het begin en het einde van een string wordt gemarkeerd a.d.h.v. enkele of dubbele aanhalingstekens. En wat indien we dit nu willen opnemen in onze string, zonder dat Python veronderstelt dat dit het einde is van de string?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Het printen van een &quot;</span><span class="o">-</span><span class="n">teken</span> <span class="ow">in</span> <span class="n">een</span> <span class="n">string</span> <span class="n">zal</span> <span class="n">niet</span> <span class="n">lukken</span> <span class="n">zonder</span> <span class="n">escape</span> <span class="n">karakter</span><span class="o">.</span><span class="s2">&quot;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">28</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Het printen van een &quot;</span><span class="o">-</span><span class="n">teken</span> <span class="ow">in</span> <span class="n">een</span> <span class="n">string</span> <span class="n">zal</span> <span class="n">niet</span> <span class="n">lukken</span> <span class="n">zonder</span> <span class="n">escape</span> <span class="n">karakter</span><span class="o">.</span><span class="s2">&quot;)</span>
+                                                                                            <span class="o">^</span>
+<span class="ne">SyntaxError</span>: unterminated string literal (detected at line 1)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Python denkt in bovenstaand voorbeeld dat de string al wordt beïndigd na het 21<sup>ste</sup> teken. Het laatste <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> teken is dus onmogelijk, aangezien iedere opening van een string aanduiding ook terug moet afgesloten worden. Python vlagt dit met een foutmelding (SyntaxError).</p>
+<p>Lossen we dit op met een <em>escape</em> karakter:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Het printen van een </span><span class="se">\&quot;</span><span class="s2">-teken in een string zal wel lukken met een escape karakter.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Het printen van een &quot;-teken in een string zal wel lukken met een escape karakter.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Er zijn nog enkele <a class="reference external" href="https://en.wikipedia.org/wiki/Escape_character">standaard <em>escape</em> karakters</a>, zoals het <em>escapen</em> van een <em>escape</em> karakter, wat je kan tegenkomen bij UNC paden in Windows.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\\\</span><span class="s2">HOMESVR</span><span class="se">\\</span><span class="s2">Documents</span><span class="se">\\</span><span class="s2">file.txt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\\HOMESVR\Documents\file.txt
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="f-strings">
+<h3><span class="section-number">1.3.2. </span>f-strings<a class="headerlink" href="#f-strings" title="Link to this heading">#</a></h3>
+<p>Bij het werken met strings zul je al snel ondervinden dat je dikwijls variabelen hierin wil opnemen. Door gebruik te maken van <em>concatenatie</em> en <em>typecasting</em> lukt dit, maar dit blijft omslachtig.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_int</span> <span class="o">=</span> <span class="mi">39</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ik ben &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">my_int</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; jaar oud.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ik ben 39 jaar oud.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Een snellere manier is gebruik maken van f-strings, zodat de Python compiler al dit werk doet voor jou. Volgend voorbeeld verduidelijkt dit:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ik ben </span><span class="si">{</span><span class="n">my_int</span><span class="si">}</span><span class="s2"> jaar oud.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ik ben 39 jaar oud.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Je laat dus de string vooraf gaan door de letter <code class="docutils literal notranslate"><span class="pre">f</span></code>, en in de string zelf kun je willekeurige variabelen opnemen als je deze plaatst tussen <code class="docutils literal notranslate"><span class="pre">{}</span></code>. De compiler zal vooraf kijken wat het formaat is van de variabele, en <em>typecasting</em> uitvoeren zodat deze in de string kan opgenomen worden. Je kan zelf tussen de <code class="docutils literal notranslate"><span class="pre">{}</span></code> Python commando’s plaatsen die éérst zullen uitgevoerd worden vooraleer de string wordt uitgevoerd. <em>Het voorbeeld hieronder is puur als demonstratie. <strong>Deze manier van werken raad ik ook ten stelligste af</strong>, aangezien dit de leesbaarheid allesbehalve bevordert. Schrijf dit liever in twee lijnen!</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mijn naam is </span><span class="si">{</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wat is jouw naam? &quot;</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mijn naam is Koen.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="multiline-strings">
+<h3><span class="section-number">1.3.3. </span>Multiline strings<a class="headerlink" href="#multiline-strings" title="Link to this heading">#</a></h3>
+<p>Indien we te maken hebben met heel lange strings, verdeeld over meerdere regels, dan kan i.p.v. <em>escape</em> karakters te gebruiken, er geopteerd worden voor <em>multiline strings</em>. <em>Een typisch voorbeeld is wanneer we bijvoorbeeld HTML wensen toe te voegen aan een programma, om op een embedded webserver te plaatsen.</em></p>
+<p>Een <em>multiline string</em> wordt gestart met drie aanhalingstekens i.p.v. één. Python zal vervolgens zelf herkennen wanneer een LF en/of CR toegevoegd is, en dit vertalen naar de juiste <em>escape</em> karakters.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lange_str</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Dit is de eerste lijn.</span>
+<span class="s2">Dit is de tweede lijn.</span>
+<span class="s2">Dit is de derde lijn.&quot;&quot;&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lange_str</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dit is de eerste lijn.
+Dit is de tweede lijn.
+Dit is de derde lijn.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="tw%26e_theo_00_inleiding.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">vorige</p>
+        <p class="prev-next-title">Inleiding Python</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="tw%26e_theo_02_operatoren.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">volgende</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Operatoren</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhoud
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sequentie">1.1. Sequentie</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variabelen">1.2. Variabelen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creeeren-van-variabelen">1.2.1. Creëeren van variabelen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#soorten-variabelen">1.2.2. Soorten variabelen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#typecasting">1.2.3. Typecasting</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-en-escape-characters">1.3. Strings en escape characters</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#escape-characters">1.3.1. Escape characters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f-strings">1.3.2. f-strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiline-strings">1.3.3. Multiline strings</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Door Koen Geeraert
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
