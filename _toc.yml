@@ -1,0 +1,11 @@
+# In _toc.yml
+format: jb-book
+root: tw&e_theo_00_inleiding
+options:  # The options key will be applied to all chapters, but not sub-sections
+  numbered: True
+defaults:  # The defaults key will be applied to all chapters and sub-sections
+  titlesonly: True
+chapters:
+- file: tw&e_theo_01_sequentie_en_variabelen
+- file: tw&e_theo_02_operatoren
+- file: tw&e_theo_03_beslissingen
