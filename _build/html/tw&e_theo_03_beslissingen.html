@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="_static/_static/mystyle.css" />
@@ -438,11 +438,21 @@ False
 </div>
 </div>
 </div>
-<p>Bovenstaand voorbeeld kan op het eerste zicht raar lijken, maar a.d.h.v. de ASCII tabel kan dit snel verklaard worden.</p>
+<p>Bovenstaand voorbeeld kan op het eerste zicht raar lijken, maar a.d.h.v. de ASCII tabel kan dit snel verklaard worden. Je vindt de ASCII tabel terug in <a class="reference internal" href="tw%26e_theo_01_sequentie_en_variabelen.html#ascii-target"><span class="std std-ref">module 1</span></a>.</p>
 <ul class="simple">
 <li><p>K = 0b<strong>100</strong>1011 = 0d75</p></li>
 <li><p>k = 0b<strong>110</strong>1011 = 0d107</p></li>
 </ul>
+<div class="tip admonition">
+<p class="admonition-title">Tip</p>
+<p>Indien je moeite hebt om de ASCII tabel te gebruiken kun je ook gebruik maken van Python methodes <code class="docutils literal notranslate"><span class="pre">ord()</span></code> en <code class="docutils literal notranslate"><span class="pre">chr()</span></code> die toelaten een karakter om te zetten van en naar het corresponderende Unicode-code-punt (waar de eerste 128 symbolen deze van de ASCII tabel zijn). Onderstaande code demonstreert dit.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;K&#39;</span><span class="p">))</span>
+ <span class="mi">75</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="mi">107</span><span class="p">))</span>
+ <span class="n">k</span>
+</pre></div>
+</div>
+</div>
 <p>Er wordt gestart met de eerste letter van de string te vergelijken. De letter <code class="docutils literal notranslate"><span class="pre">K</span></code> heeft een ASCII-waarde die 75 bedraagt, wat beduidend kleiner is dan de letter <code class="docutils literal notranslate"><span class="pre">k</span></code> die een ASCII-waarde heeft van 107. Bij de eerste letter kan Python dus al beslissen dat de relationele verhouding <code class="docutils literal notranslate"><span class="pre">True</span></code> is, want 75 is inderdaad kleiner dan 107.</p>
 </section>
 <section id="booleaanse-operatoren">
@@ -512,7 +522,10 @@ een specifieke booleaanse expressie evalueert naar de waarde <code class="docuti
 <span class="o">&lt;</span><span class="n">deze</span> <span class="n">code</span> <span class="n">wordt</span> <span class="n">altijd</span> <span class="n">uitgevoerd</span><span class="o">&gt;</span>
 </pre></div>
 </div>
+<div class="warning admonition">
+<p class="admonition-title">Opgelet</p>
 <p><em>Vergeet zeker niet het dubbelpunt <code class="docutils literal notranslate"><span class="pre">:</span></code> na het if-statement!</em></p>
+</div>
 <p>Hernemen we ons voorbeeld om te controleren of een getal even is:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

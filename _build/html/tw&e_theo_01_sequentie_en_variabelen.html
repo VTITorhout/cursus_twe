@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="_static/_static/mystyle.css" />
@@ -361,13 +361,13 @@ document.write(`
 <p>Bij Python zal de code ook sequentieel worden uitgevoerd. Volgend voorbeeld verduidelijkt dit:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dit wordt eerst uitgevoerd&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dit wordt eerst uitgevoerd!&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dit zal als tweede uitgevoerd worden&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dit wordt eerst uitgevoerd
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dit wordt eerst uitgevoerd!
 Dit zal als tweede uitgevoerd worden
 </pre></div>
 </div>
@@ -392,7 +392,7 @@ Dit zal als tweede uitgevoerd worden
 <p>Optioneel kan met de <code class="docutils literal notranslate"><span class="pre">input()</span></code> methode nog een parameter meegegeven worden. De parameter (van het type <code class="docutils literal notranslate"><span class="pre">string</span></code>) zal op dezelfde lijn van de input eerst worden weergegeven. Volgend voorbeeld verduidelijkt dit:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wat is je naam? &quot;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wat is je naam hallo? &quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -419,16 +419,25 @@ Dit zal als tweede uitgevoerd worden
 </figure>
 <section id="creeeren-van-variabelen">
 <h3><span class="section-number">1.2.1. </span>Creëeren van variabelen<a class="headerlink" href="#creeeren-van-variabelen" title="Link to this heading">#</a></h3>
-<p>Elke programmeertaal maakt gebruik van variabelen. Een variabele krijgt een naam (<code class="docutils literal notranslate"><span class="pre">variabele</span> <span class="pre">name</span></code>) en aan de variabele kan je een waarde (<code class="docutils literal notranslate"><span class="pre">value</span></code>) toekennen.</p>
+<p>Een computer bestaat uit een processor, een geheugen en enkele invoer- en uitvoerapparaten die toelaten om met de buitenwereld te communiceren. De processor is het onderdeel dat instaat voor het uitvoeren van het programma.</p>
+<p>Het geheugen van een computer is de fysieke plaats waar de processor gegevens bewaart, waarbij het geheugen bestaat uit een eindige verzameling van cellen die elk één enkel bit kunnen bevatten. Omdat de meeste gegevens uit meer dan één bit bestaan wordt het geheugen georganiseerd in rijen van 8 bit (voor 8 bit computers), tot 64 bit voor 64 bit systemen. Elke groep bits heeft een fysiek adres in het geheugen van de computer. Adressen worden meestal geschreven in hexadecimale notatie.</p>
 <figure class="myblockimg align-left" id="id2">
-<a class="reference internal image-reference" href="_images/variabele.png"><img alt="_images/variabele.png" src="_images/variabele.png" style="width: 350px;" /></a>
+<a class="reference internal image-reference" href="https://imgs.xkcd.com/comics/pointers.png"><img alt="https://imgs.xkcd.com/comics/pointers.png" src="https://imgs.xkcd.com/comics/pointers.png" style="width: 350px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.2 </span><span class="caption-text">De variabele voorgesteld als opslagdoos.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.2 </span><span class="caption-text">Geheugenlocaties worden meestal hexadecimaal genoteerd.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Omdat bij het werken met gegevens, adressen niet de meest leesbare verwijzingen zijn, maak je gebruik van benoemde variabelen, dit zijn dus namen die je zelf (verstandig en logisch) kiest. Je onthoudt echter dat de naam van een variabele vanuit het standpunt van de computer een geheugenadres is. Een variabele krijgt een naam (<code class="docutils literal notranslate"><span class="pre">variabele</span> <span class="pre">name</span></code>) en aan de variabele kan je een waarde (<code class="docutils literal notranslate"><span class="pre">value</span></code>) toekennen.</p>
+<figure class="myblockimg align-left" id="id3">
+<a class="reference internal image-reference" href="_images/variabele.png"><img alt="_images/variabele.png" src="_images/variabele.png" style="width: 200px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1.3 </span><span class="caption-text">De variabele voorgesteld als opslagdoos.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>De naam van de variabele is vrij te kiezen, maar er zijn enkele regels die moeten gerespecteerd worden:</p>
 <ul class="simple">
-<li><p>De naam van een variabele moet met een letter beginnen.</p></li>
+<li><p>Mag enkel bestaan uit letters, cijfers en <em>underscores</em> <code class="docutils literal notranslate"><span class="pre">_</span></code>.</p></li>
+<li><p>Mag niet beginnen met een cijfer.</p></li>
 <li><p>Variabelen mogen geen spaties bevatten. Volgens de Python stijlgids vervang je de spatie door een liggend streepje <code class="docutils literal notranslate"><span class="pre">_</span></code>, zoals in <code class="docutils literal notranslate"><span class="pre">aantal_leerlingen</span></code> en <code class="docutils literal notranslate"><span class="pre">aantal_dagen</span></code>. Dit wordt ook wel <em>snake casing</em> genoemd. Er zijn echter andere programmeertalen zoals Java en C# waar het 2de woord start met een hoofdletter, zoals in <code class="docutils literal notranslate"><span class="pre">aantalLeerlingen</span></code> en <code class="docutils literal notranslate"><span class="pre">aantalDagen</span></code>. Deze manier van werken wordt <em>camel casing</em> genoemd.</p></li>
 <li><p>Hoofdletters en kleine letters worden als verschillende variabelen aanzien. De variabele <code class="docutils literal notranslate"><span class="pre">hoofdpersonage</span></code> is <strong>niet dezelfde</strong> als de variabele <code class="docutils literal notranslate"><span class="pre">Hoofdpersonage</span></code>.</p></li>
 <li><p>Er mogen geen gereserveerde woorden uit Python gebruikt worden als variabele. Zie hiervoor de <a class="reference external" href="https://realpython.com/lessons/reserved-keywords/">lijst</a> met gereserveerde woorden (<em>key words</em> genaamd).</p></li>
@@ -500,14 +509,14 @@ Dit zal als tweede uitgevoerd worden
 <ul class="simple">
 <li><p>integer (geheel getal)</p></li>
 <li><p>float (rationaal getal)</p></li>
-<li><p>string</p></li>
+<li><p>string (sliert van karakters)</p></li>
 </ul>
 <div class="warning admonition">
 <p class="admonition-title">Opgelet</p>
 <p>Houd echter wel rekening met volgende zaken:</p>
 <ul class="simple">
 <li><p>Een <code class="docutils literal notranslate"><span class="pre">float</span></code> wordt bekomen door gebruik te maken van een literal met daarin een <code class="docutils literal notranslate"><span class="pre">punt</span></code> en geen <code class="docutils literal notranslate"><span class="pre">komma</span></code>! <em>Men spreekt dan ook over floating <strong>point</strong> getallen…</em></p></li>
-<li><p>Voor een <code class="docutils literal notranslate"><span class="pre">string</span></code> kan gebruik gemaakt worden van enkele of dubbele aanhalingstekens.<em>De keuze hangt volledig af van de gebruiker, en men wisselt meestal als er <strong>in</strong> de string een bepaald type aanhalingstekens voorkomt.</em></p></li>
+<li><p>Voor een <code class="docutils literal notranslate"><span class="pre">string</span></code> kan gebruik gemaakt worden van enkele of dubbele aanhalingstekens.<em>De keuze hangt volledig af van de gebruiker, en men wisselt meestal als er <strong>in</strong> de string een bepaald type aanhalingstekens voorkomt. In heel veel programmeertalen worden enkele aanhalingstekens gebruikt voor karakters, terwijl dubbele aanhalingstekens een string aanduiden.</em></p></li>
 </ul>
 </div>
 <p>Volgend voorbeeld demonstreert dit alles.</p>
@@ -639,11 +648,14 @@ Dit zal als tweede uitgevoerd worden
 <h2><span class="section-number">1.3. </span>Strings en escape characters<a class="headerlink" href="#strings-en-escape-characters" title="Link to this heading">#</a></h2>
 <p>In vorig hoofdstuk is gesproken over het feit dat een string variabele niets anders is dan een sliert van tekens. Deze tekens zijn in feite karakters die in tekst gebruikt worden, al dan niet zichtbaar.</p>
 <p>Om dit voldoende te kunnen uitleggen moet men teruggaan naar de tijd van de <a class="reference external" href="https://nl.wikipedia.org/wiki/Telex_(communicatie)">telex</a>. Dit was een manier van werken om tekst te verzenden van locatie A naar locatie B, en dit zonder gebruik te maken van een brief en/of postduiven. Langs de éné kant van de (elektrische) verbinding had je een toetsenbord, langs de andere kant een (mechanische) printer. Bij het indrukken van een toets langs de verzendkant werd een signaal gegenereerd die elektrisch verstuurd werd. Dit signaal bevatte de informatie van één karakter, namelijk de aangelagen toets. De printer langs de andere kant kon dit karakter decoderen en de juiste hamer selecteren om het gewenste karakter over te brengen op het blad papier. Dit waren de <strong>zichtbare</strong> karakters. Wanneer men echter naar de volgende lijn wenst te gaan moest dit ook kunnen verstuurd worden. Hiervoor zijn er <strong>onzichtbare</strong> karakters.</p>
+<div class="note admonition" id="ascii-target">
+<p class="admonition-title">Info</p>
 <p>Tot op heden wordt er nog altijd frequent gebruik gemaakt van <a class="reference external" href="https://nl.wikipedia.org/wiki/ASCII_(tekenset)">ASCII</a>-karakters. Zaken die men in Python ingeeft op de CLI worden nog altijd doorgegeven in dit formaat. Wat men terugkrijgt eveneens. <em>Aangezien er vandaag echter meer tekens zijn dan in de 8-bit ASCII tabel kunnen opgenomen worden heeft men <a class="reference external" href="https://nl.wikipedia.org/wiki/UTF-8">UTF-8</a> in het leven geroepen. Deze manier van coderen laat toe een variabele lengte aan karakters te geven. De karakters met een lengte van 1 byte stemmen nog altijd overeen met de ASCII karakters. Alle overige karakters (tekens uit vreemde geschriften, emoticons, …) worden gecodeerd met meer bytes.</em></p>
-<figure class="myblockimg align-left" id="id3">
-<a class="reference internal image-reference" href="_images/640px-USASCII_code_chart.png"><img alt="_images/640px-USASCII_code_chart.png" src="_images/640px-USASCII_code_chart.png" style="width: 350px;" /></a>
+</div>
+<figure class="myblockimg align-left" id="id4">
+<a class="reference internal image-reference" href="_images/640px-USASCII_code_chart.png"><img alt="_images/640px-USASCII_code_chart.png" src="_images/640px-USASCII_code_chart.png" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.3 </span><span class="caption-text">Alle tekens van de ASCII-I tekenset.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.4 </span><span class="caption-text">Alle tekens van de ASCII-I tekenset.</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>In de tabel is duidelijk te zien dat de <strong>zichtbare</strong> (lees)tekens pas beginnen vanaf kolom 3. De eerste twee kolommen zijn de <strong>onzichtbare</strong> tekens. De belangrijkste <strong>onzichtbare</strong> tekens (voor ons) zijn de volgende:</p>
