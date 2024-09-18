@@ -1,0 +1,559 @@
+
+<!DOCTYPE html>
+
+
+<html lang="nl" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Inleiding Python &#8212; Cursus Python TW&amp;E</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/_static/mystyle.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystyle.css?v=67192463" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=b028fc25"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/translations.js?v=5ce3cdba"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tw&e_theo_00_inleiding';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Zoeken" href="search.html" />
+    <link rel="next" title="1. Sequentie en variabelen" href="tw%26e_theo_01_sequentie_en_variabelen.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="nl"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Cursus Python TW&E</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Zoeken</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    Inleiding Python
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_01_sequentie_en_variabelen.html">1. Sequentie en variabelen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_02_operatoren.html">2. Operatoren</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_03_beslissingen.html">3. Beslissingen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_04_itereren.html">4. Itereerbare objecten</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download deze pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/tw&e_theo_00_inleiding.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download het bronbestand"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Afdrukken naar pdf"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Volledig scherm"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Inleiding Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhoud </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geschiedenis">Geschiedenis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compilatie-versus-interpretatie">Compilatie versus interpretatie</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oefeningen-en-huistaken">Oefeningen en huistaken</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="inleiding-python">
+<h1>Inleiding Python<a class="headerlink" href="#inleiding-python" title="Link to this heading">#</a></h1>
+<section id="geschiedenis">
+<h2>Geschiedenis<a class="headerlink" href="#geschiedenis" title="Link to this heading">#</a></h2>
+<p>In de richting TW&amp;E zullen we vanaf dit jaar gebruik maken van de programmeertaal Python. In eerste instantie denk je wellicht bij Python meteen aan een slang, maar dit heeft hier totaal niets mee te maken. De naam van de programmeertaal is gekozen door de bedenker van deze, namelijk Guido van Rossum. Zijn favoriete TV-programma is namelijk de BBC-serie <a class="reference external" href="https://en.wikipedia.org/wiki/Monty_Python%27s_Flying_Circus">“Monty Python’s Flying Circus”</a>.</p>
+<figure class="myblockimg align-left" id="id1">
+<a class="reference internal image-reference" href="_images/guido-headshot-2019.jpg"><img alt="_images/guido-headshot-2019.jpg" src="_images/guido-headshot-2019.jpg" style="width: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Guido van Rossum, de bedenker van de programmeertaal Python.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In 1989 definieerde Guido van Rossum zijn doelen voor Python:</p>
+<ul class="simple">
+<li><p>Een gemakkelijke en intuïtieve taal die net zo krachtig is als die van de grote concurrenten.</p></li>
+<li><p>Open source, zodat iedereen kan bijdragen aan de ontwikkeling ervan.</p></li>
+<li><p>Code die net zo begrijpelijk is als gewoon Engels.</p></li>
+<li><p>Geschikt voor dagelijkse taken, waardoor korte ontwikkelingstijden mogelijk zijn.</p></li>
+</ul>
+<p>Ondertussen is het duidelijk dat al deze voornemens in vervulling zijn gegaan. Sommige bronnen zeggen dat Python de meest populaire programmeertaal ter wereld is, terwijl anderen beweren dat het de tweede of de derde is. Deze discussie staat buiten kijf, aangezien wij deze taal gaan gebruiken omdat deze veelvuldig voorkomt in onderzoeksprojecten (industrie, hoger onderwijs, ruimtevaart, …), en vervolgens kan gebruikt worden tijdens de GIP in het laatste jaar.</p>
+</section>
+<section id="compilatie-versus-interpretatie">
+<h2>Compilatie versus interpretatie<a class="headerlink" href="#compilatie-versus-interpretatie" title="Link to this heading">#</a></h2>
+<p>Een computer kan theoretisch geprogrammeerd worden in machinetaal. Deze taal is moeilijk en afhankelijk van de processorreeks (x86, x64, ARM, …). Praktisch worden hogere programmeertalen gebruikt zoals Python of C#. Deze talen voldoen aan de doelen die van Rossum heeft opgesteld, maar kunnen niet door een computer verwerkt worden. Er is hiervoor nood aan een compiler (die een hogere programmeertaal omzet naar machinetaal).</p>
+<p>Er zijn twee verschillende manieren om een programma om te zetten van een programmeertaal op hoog niveau naar machinetaal:</p>
+<ol class="arabic simple">
+<li><p><strong>Compilatie</strong>: het bronprogramma wordt één keer vertaald. Deze handeling moet echter elke keer wanneer de broncode aangepast wordt, worden herhaald. Code geschreven in C(++) of C# moet gecompileerd worden. <em>Merk op dat pure C volledig vertaald wordt naar machinetaal (<a class="reference external" href="https://en.wikipedia.org/wiki/Assembly_language">ASM</a>), terwijl C# vertaald wordt naar een tussentaal, genaamd <a class="reference external" href="https://en.wikipedia.org/wiki/Common_Intermediate_Language">CIL</a>, die op het moment van uitvoeren wordt vertaald naar de juiste machinetaal.</em></p></li>
+<li><p><strong>Interpretatie</strong>: iedere maal het programma uitgevoerd wordt, wordt het regel per regel vertaald en meteen uitgevoerd. Code geschreven in bijvoorbeeld Javascript of Python wordt geïnterpreteerd.</p></li>
+</ol>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-right"><p></p></th>
+<th class="head text-left"><p>Compileren</p></th>
+<th class="head text-left"><p>Interpreteren</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-right"><p>Voordelen</p></td>
+<td class="text-left"><p><ul><li>Het uitvoeren is meestal sneller.</li><li>De programmeur kan zijn code geheimhouden.</li></ul></p></td>
+<td class="text-left"><p>De code kan uitgevoerd worden direct na het schrijven.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>Nadelen</p></td>
+<td class="text-left"><p><ul><li>Bij iedere aanpassing in de code moet deze opnieuw gecompileerd worden (wat tijdrovend kan zijn).</li><li>Er is voor ieder type processor een andere compiler nodig.</li></ul></p></td>
+<td class="text-left"><p>Zal meestal trager zijn dan gecompileerde code.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Voor Python moet er dus gebruik gemaakt worden van een compiler die geschikt is voor het juiste besturingssysteem (in ons geval Windows) en die toelaat iedere lijn code meteen om te zetten naar de juiste machinetaal (in ons geval is dit meestal x64). Een x86 zal ook werken, maar dan zal Windows nog een vertaalslag uitvoeren naar de juiste machinetaal (wat extra performantieverlies teweeg zal brengen).</p>
+<div class="note admonition">
+<p class="admonition-title">Opmerking</p>
+<p>In de digitale cursus die gebruikt wordt in de les is Python inline verwerkt (en worden de commando’s rechtstreeks uitgevoerd op de achtergrond van de PC). Dit laat toe interactief les te geven. Dit is echter niet de normale manier van werken. Om Python te kunnen gebruiken moet je beschikken over een Python compiler.</p>
+<ul class="simple">
+<li><p>Je kan de juiste compiler vanuit het bedrijfsportal downloaden en installeren. Zodoende kan men vanop de commandoregel uit Windows Python commando’s uitvoeren.</p></li>
+<li><p><strong>Je download de <a class="reference external" href="https://github.com/thonny/thonny/releases/download/v4.1.4/thonny-4.1.4-windows-portable.zip">portabel editie van Thonny</a> die een geschikte Python compiler bevat</strong></p></li>
+<li><p>Je gebruikt een online platform (<a class="reference external" href="https://www.online-python.com">online-python</a>, <a class="reference external" href="https://www.w3schools.com/Python/python_compiler.asp">W3-schools</a>, <a class="reference external" href="https://replit.com/languages/online-python-compiler">Replit</a>, …) waarbij de compiler op de server staat</p></li>
+</ul>
+</div>
+</section>
+<section id="oefeningen-en-huistaken">
+<h2>Oefeningen en huistaken<a class="headerlink" href="#oefeningen-en-huistaken" title="Link to this heading">#</a></h2>
+<p>Goed leren programmeren vergt tijd en (extreem) veel oefenen. Er is voor dit vak een online platform voorzien, genaamd <a class="reference external" href="https://dodona.ugent.be/">Dodona</a>, waarop verschillende oefeningen staan per lessenreeks. De oefeningen zijn iedere keer geordend van eenvoudig naar moeilijk.</p>
+<figure class="align-left" id="id2">
+<a class="reference internal image-reference" href="_images/dodona1.png"><img alt="Aanmeldingsscherm Dodona" src="_images/dodona1.png" style="height: 150px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Aanmeldingsscherm van Dodona, met 2 mogelijke keuzes om zich aan te melden.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Je kan je aanmelden op Dodona a.d.h.v. Smartschool.</p>
+<figure class="align-left" id="id3">
+<a class="reference internal image-reference" href="_images/dodona2.png"><img alt="SmartSchool selecteren" src="_images/dodona2.png" style="height: 150px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Mogelijkheid om voor SmartSchool te kiezen.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Gebruik hiervoor het smartschooladres <code class="docutils literal notranslate"><span class="pre">vti-sint-rembert.smartschool.be</span></code> en je eigen gebruikersnaam en wachtwoord. Zoek vervolgens naar de cursussen van <code class="docutils literal notranslate"><span class="pre">VTI</span> <span class="pre">Torhout</span></code> en selecteer <code class="docutils literal notranslate"><span class="pre">TW&amp;E</span> <span class="pre">(2024-2025)</span></code>. In deze map zullen de oefeningen per les zichtbaar worden gemaakt.</p>
+<p>Tijdens de les zal er mogelijkheid zijn tot proberen, en zal de begeleidende leerkracht ondersteuning geven. Eveneens zullen er enkele oefeningen als huistaak gegeven worden, waarbij de leerkracht de voortgang digitaal kan controleren.</p>
+<div class="danger admonition">
+<p class="admonition-title">Opgelet</p>
+<p>De huistaken worden <strong>niet</strong> gequoteerd. Dit heeft te maken met volgende redenen:</p>
+<ol class="arabic simple">
+<li><p>Op het online platform kunnen meerdere oplossingen ingediend worden. Je kan blijven proberen tot het correct is.</p></li>
+<li><p>Je kan heel eenvoudig je oplossing doorspelen aan iemand anders.</p></li>
+<li><p>Je kan gebruik maken van AI (o.a. chatGPT) om tot een oplossing te komen.</p></li>
+</ol>
+</div>
+<p>Voornamelijk puntje 3 in bovenstaande opsomming is <strong>nefast</strong> voor leerlingen. Gebruik <strong>geen AI</strong>! Als je de oplossing (of een deel er van) door AI laat genereren lijkt de oplossing evident. Goed leren programmeren kun je enkel en alleen bereiken wanneer je zelf nadenkt om tot een oplossing te komen. <strong>Goed programmeren is niet enkel kennis van syntaxis, maar eveneens voldoende logisch inzicht.</strong> Dit laatste kun je enkel en alleen bekomen door te oefenen (basisoefeningen), en voornamelijk door nieuwe/uitdagende oefeningen te maken. Als je nooit de voldoening hebt gevoeld van urenlang te zitten zwoegen op een probleem om dan vast te stellen dat één spatie ervoor zorgt dat alles mooi op zijn plaats valt, maar in plaats de oplossing hebt gevraagd aan chatGPT, dan is deze cursus zijn doel voorbij geschoten.</p>
+<p>Overhoringen en examens worden natuurlijk wel gequoteerd. Gebruik van digitale communicatieplatformen en AI zal hierbij nooit toegelaten zijn. Maak dat je voor een overhoring volgende zaken kan afchecken:</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Ik ken de juiste syntaxis</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Ik herken in een vraagstelling de gewenste programmastructuur</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Ik weet hoe ik een stuk code kan debuggen</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Ik ben zeker van mijn stuk, want ik heb tenslotte voldoende geoefend…</p></li>
+</ul>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="right-next"
+       href="tw%26e_theo_01_sequentie_en_variabelen.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">volgende</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Sequentie en variabelen</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhoud
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geschiedenis">Geschiedenis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compilatie-versus-interpretatie">Compilatie versus interpretatie</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oefeningen-en-huistaken">Oefeningen en huistaken</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Door Koen Geeraert
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
