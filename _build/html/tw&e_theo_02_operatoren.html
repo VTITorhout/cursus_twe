@@ -335,7 +335,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geheelgetal-deling-en-restdeling">2.2. Geheelgetal deling en restdeling</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machtsverheffing">2.3. Machtsverheffing</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prioriteitsregels">2.4. Prioriteitsregels</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ingebouwde-methoden">2.5. Ingebouwde methoden</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ingebouwde-functies">2.5. Ingebouwde functies</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#abs-x">2.5.1. abs(x)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#round-x-y">2.5.2. round(x,y)</a></li>
 </ul>
@@ -479,7 +479,7 @@ Er zitten 102 minuten in 6145 seconden
 </div>
 </div>
 </div>
-<p><em>Indien je zowel het quotiënt als de rest nodig hebt kun je ook optioneel gebruik maken van de <code class="docutils literal notranslate"><span class="pre">divmod()</span></code> methode. Deze zal wel een <code class="docutils literal notranslate"><span class="pre">tuple</span></code> teruggeven met daarin beide waarden. De uitwerking van deze methode is terug te vinden bij de <a class="reference internal" href="tw%26e_theo_04_itereren.html#divmod-target"><span class="std std-ref">uitleg over de tuple</span></a>.</em></p>
+<p><em>Indien je zowel het quotiënt als de rest nodig hebt kun je ook optioneel gebruik maken van de <code class="docutils literal notranslate"><span class="pre">divmod()</span></code> functie. Deze zal wel een <code class="docutils literal notranslate"><span class="pre">tuple</span></code> teruggeven met daarin beide waarden. De uitwerking van deze functie is terug te vinden bij de <a class="reference internal" href="tw%26e_theo_04_itereren.html#divmod-target"><span class="std std-ref">uitleg over de tuple</span></a>.</em></p>
 </section>
 <section id="machtsverheffing">
 <h2><span class="section-number">2.3. </span>Machtsverheffing<a class="headerlink" href="#machtsverheffing" title="Link to this heading">#</a></h2>
@@ -570,12 +570,12 @@ Bij gelijkwaardige bewerkingen geldt steeds van links naar rechts. Als voorbeeld
 <p>Bij twijfel gebruik je het best altijd haken, aangezien deze de hoogste prioriteit kennen.</p>
 </div>
 </section>
-<section id="ingebouwde-methoden">
-<h2><span class="section-number">2.5. </span>Ingebouwde methoden<a class="headerlink" href="#ingebouwde-methoden" title="Link to this heading">#</a></h2>
-<p>Bovenstaande operatoren zijn de basis van Python om wiskundige bewerkingen mee uit te voeren. Er zijn echter tal van ingebouwde methoden (die onder de motorkap bovenstaande operatoren gebruiken) in Python die eveneens handig zijn in gebruik, en waarvan hier als extra er enkele vermeld worden. <em>in totaal zijn er een 70-tal methoden ingebouwd in Python. Een volledige lijst vind je <a class="reference external" href="https://docs.python.org/3/library/functions.html">hier</a> terug. Een groot deel van deze methoden zullen verder in deze cursus nog aan bod komen.</em></p>
+<section id="ingebouwde-functies">
+<h2><span class="section-number">2.5. </span>Ingebouwde functies<a class="headerlink" href="#ingebouwde-functies" title="Link to this heading">#</a></h2>
+<p>Bovenstaande operatoren zijn de basis van Python om wiskundige bewerkingen mee uit te voeren. Er zijn echter tal van ingebouwde functies (die onder de motorkap bovenstaande operatoren gebruiken) in Python die eveneens handig zijn in gebruik, en waarvan hier als extra er enkele vermeld worden. <em>in totaal zijn er een 70-tal functies ingebouwd in Python. Een volledige lijst vind je <a class="reference external" href="https://docs.python.org/3/library/functions.html">hier</a> terug. Een groot deel van deze funcies zullen verder in deze cursus nog aan bod komen.</em></p>
 <section id="abs-x">
 <h3><span class="section-number">2.5.1. </span>abs(x)<a class="headerlink" href="#abs-x" title="Link to this heading">#</a></h3>
-<p>De methode <code class="docutils literal notranslate"><span class="pre">abs(x)</span></code> geeft de absolute waarde van een gegeven getalwaarde <code class="docutils literal notranslate"><span class="pre">x</span></code> terug.</p>
+<p>De functie <code class="docutils literal notranslate"><span class="pre">abs(x)</span></code> geeft de absolute waarde van een gegeven getalwaarde <code class="docutils literal notranslate"><span class="pre">x</span></code> terug.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
@@ -596,7 +596,7 @@ Bij gelijkwaardige bewerkingen geldt steeds van links naar rechts. Als voorbeeld
 </section>
 <section id="round-x-y">
 <h3><span class="section-number">2.5.2. </span>round(x,y)<a class="headerlink" href="#round-x-y" title="Link to this heading">#</a></h3>
-<p>De methode <code class="docutils literal notranslate"><span class="pre">round(x,y)</span></code> rond het getal <code class="docutils literal notranslate"><span class="pre">x</span></code> af tot op het opgegeven aantal cijfers <code class="docutils literal notranslate"><span class="pre">y</span></code> na de komma.</p>
+<p>De functie <code class="docutils literal notranslate"><span class="pre">round(x,y)</span></code> rond het getal <code class="docutils literal notranslate"><span class="pre">x</span></code> af tot op het opgegeven aantal cijfers <code class="docutils literal notranslate"><span class="pre">y</span></code> na de komma.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="mf">5.1247</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
@@ -613,7 +613,7 @@ Bij gelijkwaardige bewerkingen geldt steeds van links naar rechts. Als voorbeeld
 </div>
 </div>
 </div>
-<p>Hier worden de standaard afrondingsregels gebruikt. Indien je naar boven of onder wil afronden bestaan ook de methodes <code class="docutils literal notranslate"><span class="pre">floor(x)</span></code> en <code class="docutils literal notranslate"><span class="pre">ceil(x)</span></code>, maar deze behoren niet tot de standaard methodes van Python. <em>Via de <code class="docutils literal notranslate"><span class="pre">math</span></code> bibliotheek kunnen deze wel gebruikt worden. Hieronder reeds een voorbeeld van hoe dit moet. Meer diepgang over bibliotheken komt later nog aan bod in deze cursus.</em></p>
+<p>Hier worden de standaard afrondingsregels gebruikt. Indien je naar boven of onder wil afronden bestaan ook de methodes <code class="docutils literal notranslate"><span class="pre">floor(x)</span></code> en <code class="docutils literal notranslate"><span class="pre">ceil(x)</span></code>, maar deze behoren niet tot de standaard functies van Python. <em>Via de <code class="docutils literal notranslate"><span class="pre">math</span></code> bibliotheek kunnen deze wel gebruikt worden. Hieronder reeds een voorbeeld van hoe dit moet. Meer diepgang over bibliotheken komt later nog aan bod in deze cursus.</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
@@ -701,7 +701,7 @@ Bij gelijkwaardige bewerkingen geldt steeds van links naar rechts. Als voorbeeld
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geheelgetal-deling-en-restdeling">2.2. Geheelgetal deling en restdeling</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machtsverheffing">2.3. Machtsverheffing</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prioriteitsregels">2.4. Prioriteitsregels</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ingebouwde-methoden">2.5. Ingebouwde methoden</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ingebouwde-functies">2.5. Ingebouwde functies</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#abs-x">2.5.1. abs(x)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#round-x-y">2.5.2. round(x,y)</a></li>
 </ul>

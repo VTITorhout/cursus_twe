@@ -346,6 +346,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">4.3. Dictionaries</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">4.3.1. Inleiding</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gebruik">4.3.2. Gebruik</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">4.3.3. Methodes</a></li>
 </ul>
 </li>
 </ul>
@@ -596,7 +597,7 @@ VTI-Torhouk
 </div>
 </div>
 <ul class="simple" id="divmod-target">
-<li><p>Als je een functie hebt die meerdere waarden teruggeeft, zal deze altijd de verschillende waarden in een tuple plaatsen. <em>Dit is reeds kort aangehaald bij de geheel getal delingen en de modulo operator. De methode <code class="docutils literal notranslate"><span class="pre">divmod()</span></code> geeft hierbij het resultaat van de geheel getal deling als eerste element terug en het resultaat van de modulo als tweede element van de tuple.</em></p></li>
+<li><p>Als je een functie/methode hebt die meerdere waarden teruggeeft, zal deze altijd de verschillende waarden in een tuple plaatsen. <em>Dit is reeds kort aangehaald bij de geheel getal delingen en de modulo operator. De functie <code class="docutils literal notranslate"><span class="pre">divmod()</span></code> geeft hierbij het resultaat van de geheel getal deling als eerste element terug en het resultaat van de modulo als tweede element van de tuple.</em></p></li>
 <li><p>Aan een lijst kun je ook zaken toevoegen via de <em>concatentatie</em> operator. <em>Opgelet met itereerbare items. Deze zullen als aparte elementen worden toegevoegd. Bij het toevoegen van een string zal ieder karakter apart worden toegevoegd!</em></p></li>
 </ul>
 <div class="cell docutils container">
@@ -658,8 +659,8 @@ VTI-Torhouk
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;lijst&gt;.remove(&lt;object&gt;)</span></code> laat je een object van de lijst verwijderen. Het object dat je wil verwijderen geef je mee als argument. Als dit element meerdere keren voorkomt in de lijst, wordt de eerste instantie (die met de laagste index) verwijderd. Als je een element probeert te verwijderen dat niet voorkomt in de lijst volgt er een runtime error.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;lijst&gt;.pop(&lt;positie&gt;)</span></code> verwijdert een object op een specifieke positie. Als geen argument wordt meegegeven, wordt het laatste object van de lijst verwijderd. Als een positie wordt meegegeven die buiten het bereik van de lijst valt, volgt een runtime error. <em>De methode retourneert het verwijderde object.</em></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;lijst&gt;.index(&lt;object&gt;)</span></code> retourneert de index van de eerste instantie in een lijst/tuple van het object dat als argument aan de methode is meegegeven. Een runtime error volgt als het object niet voorkomt in de lijst/tuple.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;lijst&gt;.count(&lt;object&gt;)</span></code> retourneert een integer die aangeeft hoe vaak het object dat als argument is meegegeven voorkomt in de lijst/tuple. _Opgelet dat je deze methode niet verwart met de functie <code class="docutils literal notranslate"><span class="pre">len(&lt;lijst&gt;/&lt;tuple&gt;)!</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;lijst&gt;.sort()</span></code> sorteert de elementen van de lijst, van laag naar hoog. Als de objecten strings zijn, betreft het een alfabetische sortering. Als de objecten getallen zijn, betreft het een numerieke sortering. Om van hoog naar laag te sorteren, kun je een argument <code class="docutils literal notranslate"><span class="pre">reverse</span> <span class="pre">=</span> <span class="pre">True</span></code> meegeven of de methode <code class="docutils literal notranslate"><span class="pre">&lt;lijst&gt;.reverse()</span></code> gebruiken. <em>Het sorteren zelf is iets die vrij complex is. Hoe zal er gesorteerd worden wanneer de lijst verschillende data types van objecten bevat? Het is soms beter dit te doen met een zelf geschreven methode a.d.h.v. <a class="reference external" href="https://blogboard.io/blog/knowledge/python-sorted-lambda/"><code class="docutils literal notranslate"><span class="pre">key</span></code> en <code class="docutils literal notranslate"><span class="pre">lambda</span></code> functie</a>, gecombineerd met de functie <code class="docutils literal notranslate"><span class="pre">sorted(&lt;object&gt;).</span></code></em></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;lijst&gt;.count(&lt;object&gt;)</span></code> retourneert een integer die aangeeft hoe vaak het object dat als argument is meegegeven voorkomt in de lijst/tuple. <em>Opgelet dat je deze methode niet verwart met de functie <code class="docutils literal notranslate"><span class="pre">len(&lt;lijst&gt;/&lt;tuple&gt;)!</span></code></em></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;lijst&gt;.sort()</span></code> sorteert de elementen van de lijst, van laag naar hoog. Als de objecten strings zijn, betreft het een alfabetische sortering. Als de objecten getallen zijn, betreft het een numerieke sortering. Om van hoog naar laag te sorteren, kun je een argument <code class="docutils literal notranslate"><span class="pre">reverse</span> <span class="pre">=</span> <span class="pre">True</span></code> meegeven of de methode <code class="docutils literal notranslate"><span class="pre">&lt;lijst&gt;.reverse()</span></code> gebruiken. <em>Het sorteren zelf is iets die vrij complex is. Hoe zal er gesorteerd worden wanneer de lijst verschillende data types van objecten bevat? Het is soms beter dit te doen met een zelf geschreven functie a.d.h.v. <a class="reference external" href="https://blogboard.io/blog/knowledge/python-sorted-lambda/"><code class="docutils literal notranslate"><span class="pre">key</span></code> en <code class="docutils literal notranslate"><span class="pre">lambda</span></code> functie</a>, gecombineerd met de functie <code class="docutils literal notranslate"><span class="pre">sorted(&lt;object&gt;).</span></code></em></p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -692,23 +693,146 @@ VTI-Torhouk
 <h2><span class="section-number">4.3. </span>Dictionaries<a class="headerlink" href="#dictionaries" title="Link to this heading">#</a></h2>
 <section id="id3">
 <h3><span class="section-number">4.3.1. </span>Inleiding<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
-<p>Strings, tuples en lists zijn geordende data structuren, wat inhoudt dat ze via indices benaderd kunnen worden. Maar niet alle data verzamelingen hebben een natuurlijke manier van numeriek geordend te zijn en deze kunnen dus niet (gemakkelijk) geïndiceerd worden. Python biedt zogenaamde dictionaries aan als een manier om ongeordende data te structureren.</p>
+<p>Strings, tuples en lists zijn geordende data structuren, wat inhoudt dat ze via indices benaderd kunnen worden. Maar niet alle data verzamelingen hebben een natuurlijke manier van numeriek geordend te zijn en deze kunnen dus niet (gemakkelijk) geïndiceerd worden. Python biedt zogenaamde <em>dictionaries</em> aan als een manier om ongeordende data te structureren.</p>
 <p>Een dictionary is een ongeordende data structuur die een verzameling objecten bevat. Een dictionary is eigenlijk een verzameling van <em>keys</em> met geassocieerde waardes. Om een object te vinden, moet je de <em>key</em> van het object kennen. Ieder onveranderbaar data type (strings, tuples, …) mag gebruikt worden als <em>key</em>. Een veelgebruikt data type dat als <em>key</em> wordt ingezet is de string, wat natuurlijk te maken heeft met de leesbaarheid die hierdoor bevordert wordt.</p>
 </section>
 <section id="gebruik">
 <h3><span class="section-number">4.3.2. </span>Gebruik<a class="headerlink" href="#gebruik" title="Link to this heading">#</a></h3>
 <p>Dictionaries creëer je middels accolades <code class="docutils literal notranslate"><span class="pre">{}</span></code>, vergelijkbaar met hoe je lists creëert met vierkante haken en tuples met ronde haken. Je kan een dictionary met inhoud creëren door ieder element dat je erin wilt hebben tussen de accolades te plaatsen, met als syntax <code class="docutils literal notranslate"><span class="pre">&lt;key&gt;:&lt;value&gt;</span></code> en met komma’s tussen de elementen. <em>Men spreekt dan ook dikwijls over <strong>KV-pairs</strong>, waarmee natuurlijk <strong>K</strong>ey en <strong>V</strong>alue bedoeld wordt.</em></p>
-<p>Volgend voorbeeld verduidelijkt dit:-</p>
+<p>Volgend voorbeeld verduidelijkt dit:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myDict</span> <span class="o">=</span> <span class="p">{}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myDict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;5TW&amp;E&quot;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;6TW&amp;E&quot;</span><span class="p">:</span><span class="mi">8</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">myDict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;5TW&amp;E&#39;: 10, &#39;6TW&amp;E&#39;: 8}
 </pre></div>
 </div>
 </div>
 </div>
+<p>Om een waarde te vinden die hoort bij een specifieke sleutel, gebruik je dezelfde syntax als voor een list, behalve dat waar je bij een list de index schrijft, je bij een dictionary de gezochte key schrijft.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Methodes</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">myDict</span><span class="p">[</span><span class="s2">&quot;6TW&amp;E&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+</pre></div>
+</div>
+</div>
+</div>
+<div class="danger admonition">
+<p class="admonition-title">Opgelet</p>
+<p>Als je een dictionary element probeert te benaderen met een key die niet voorkomt in de dictionary, krijg je een runtime error. Het is hier beter gebruik te maken van de methode <code class="docutils literal notranslate"><span class="pre">get()</span></code> die overweg kan met onbestaande keys. <em>In de toekomst zullen we zien dat we eveneens errors die mogelijk optreden kunnen opvangen met een <code class="docutils literal notranslate"><span class="pre">try</span></code> en <code class="docutils literal notranslate"><span class="pre">except</span></code>.</em></p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Tip</p>
+<p>Als je een nieuw element wilt toevoegen, kun je dat eenvoudigweg doen door een waarde toe te kennen aan een dictionary element met de nieuwe key. Op dezelfde wijze kun je een bestaand dictionary element overschrijven.</p>
+</div>
+<p>Bijvoorbeeld, om klas “5ICW” toe te voegen aan de dictionary, doe je het volgende:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myDict</span><span class="p">[</span><span class="s2">&quot;5ICW&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">myDict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;5TW&amp;E&#39;: 10, &#39;6TW&amp;E&#39;: 8, &#39;5ICW&#39;: 7}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Om een element te verwijderen uit een dictionary gebruik je het gereserveerde woord <code class="docutils literal notranslate"><span class="pre">del</span></code>. <em>Dit is geen functie, noch een methode, maar één van de ingebakken commando’s van Python.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">myDict</span><span class="p">[</span><span class="s2">&quot;6TW&amp;E&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">myDict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;5TW&amp;E&#39;: 10, &#39;5ICW&#39;: 7}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Je kan het aantal elementen in een dictionary bepaken met de <code class="docutils literal notranslate"><span class="pre">len()</span></code> functie.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">myDict</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Opmerking</p>
+<p>Omdat dictionaries ongeordend zijn, zijn vele concepten die gelden voor lists, niet van toepassing op dictionaries. Zo kan je bijvoorbeeld geen <em>subdictionary</em> maken door een key-bereik te definiëren (<em>slicing</em>), je kunt kunt een dictionary niet <em>sorteren</em> of <em>inverteren</em>. Dictionaries zijn daarom wat beperkt, maar ze kunnen nuttig zijn.</p>
+</div>
+</section>
+<section id="id4">
+<h3><span class="section-number">4.3.3. </span>Methodes<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>Voor dictionaries zijn er verschillende methoden beschikbaar. Volgende methoden worden het meest gebruikt:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;dictionary&gt;.keys()</span></code> levert een itereerbaar object dat alle keys van de dictionary genereert.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;dictionary&gt;.values()</span></code> levert een itereerbaar object dat alle waardes van een dictionary genereert.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;dictionary&gt;.items()</span></code> levert een itereerbaar object dat 2-tuples genereert die alle keys en waardes van de dictionary bevatten.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;dictionary&gt;.get(&lt;key&gt;)</span></code> kun je gebruiken om een waarde uit de dictionary te halen (zelfs als je niet weet of de <code class="docutils literal notranslate"><span class="pre">&lt;key&gt;</span></code> die je zoekt wel in de dictionary zit). Je roept de <code class="docutils literal notranslate"><span class="pre">get()</span></code> methode aan met de key die je zoekt als argument en het geeft de corresponderende waarde terug als de key bestaat of de speciale waarde <code class="docutils literal notranslate"><span class="pre">None</span></code> als de key niet bestaat in de dictionary. Als je in plaats van <code class="docutils literal notranslate"><span class="pre">None</span></code> een andere waarde terug wilt krijgen als de <code class="docutils literal notranslate"><span class="pre">&lt;key&gt;</span></code> niet bestaat, dan kun je die waarde meegeven als het tweede (optionele) argument.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">myDict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;5TW&amp;E&#39;, &#39;5ICW&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hierboven is duidelijk op te merken dat de methode <code class="docutils literal notranslate"><span class="pre">keys()</span></code> iets levert die er uit ziet als een <em>lijst</em>, maar geen <em>lijst</em> is. De methode levert een itereerbaar object. Om er een lijst van te maken moeten we dit oject casten naar een lijst:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">myDict</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;5TW&amp;E&#39;, &#39;5ICW&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Demonsteren we nog de andere methoden:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">myDict</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">myDict</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">myDict</span><span class="o">.</span><span class="n">items</span><span class="p">())[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">myDict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;5ICW&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">myDict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;6ICW&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">myDict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;6ICW&quot;</span><span class="p">,</span><span class="s2">&quot;Bestaat niet!&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10, 7]
+[(&#39;5TW&amp;E&#39;, 10), (&#39;5ICW&#39;, 7)]
+(&#39;5TW&amp;E&#39;, 10)
+7
+None
+Bestaat niet!
 </pre></div>
 </div>
 </div>
@@ -796,6 +920,7 @@ VTI-Torhouk
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">4.3. Dictionaries</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">4.3.1. Inleiding</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gebruik">4.3.2. Gebruik</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">4.3.3. Methodes</a></li>
 </ul>
 </li>
 </ul>
