@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>&lt;no title&gt; &#8212; Cursus Python TW&amp;E</title>
+    <title>5. Voorwaardelijke herhaling &#8212; Cursus Python TW&amp;E</title>
   
   
   
@@ -63,7 +63,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'tw&e_theo_05_while';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Zoeken" href="search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="tw%26e_theo_06_for.html" />
+    <link rel="next" title="6. De begrenzde herhaling" href="tw%26e_theo_06_for.html" />
     <link rel="prev" title="4. Itereerbare objecten" href="tw%26e_theo_04_itereren.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="nl"/>
@@ -176,11 +176,13 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_01_sequentie_en_variabelen.html">1. Sequentie en variabelen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_02_operatoren.html">2. Operatoren</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_03_beslissingen.html">3. Beslissingen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_04_itereren.html">4. Itereerbare objecten</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Voorwaardelijke herhaling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_06_for.html">6. De begrenzde herhaling</a></li>
 </ul>
 
     </div>
@@ -319,7 +321,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>Voorwaardelijke herhaling</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -328,9 +330,16 @@ document.write(`
                 <h2> Inhoud </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inleiding">5.1. Inleiding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opbouw">5.2. Opbouw</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jumps-of-goto-s">5.3. Jumps of GoTo’s</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#break">5.3.1. Break</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continue">5.3.2. Continue</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#while-true">5.4. While True</a></li>
+</ul>
             </nav>
         </div>
     </div>
@@ -341,13 +350,141 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <div class="cell docutils container">
+  <section class="tex2jax_ignore mathjax_ignore" id="voorwaardelijke-herhaling">
+<h1><span class="section-number">5. </span>Voorwaardelijke herhaling<a class="headerlink" href="#voorwaardelijke-herhaling" title="Link to this heading">#</a></h1>
+<section id="inleiding">
+<h2><span class="section-number">5.1. </span>Inleiding<a class="headerlink" href="#inleiding" title="Link to this heading">#</a></h2>
+<p>In de vorige modules leerden we hoe we met behulp van beslissingen onze code konden aftakken (enkel- of meerzijdige beslissing, ook wel <em>branching</em> genaamd) zodat andere code werd uitgevoerd afhankelijk van de staat van bepaalde variabelen of invoer van de gebruiker. Wat we nog niet konden was terug naar boven vertakken. Soms willen we dat een heel stuk code twee of meerdere malen moet uitgevoerd worden tot aan een bepaalde conditie wordt voldaan.</p>
+<p>Herhalingen (<em>lussen/loops</em> of <em>iteraties</em>) creëer je wanneer bepaalde code <em>een “aantal” keer</em> moet herhaald worden. Hoe vaak de herhaling moet duren is afhankelijk van de conditie die je hebt bepaald. Door herhalende code met loops te schrijven maken we onze code <strong>korter</strong> en bijgevolg ook <strong>minder foutgevoelig</strong> en <strong>beter onderhoudbaar</strong>.</p>
+<p>Indien vooraf geweten is hoeveel keer de code moet herhaald worden spreken we van een <strong>begrensde herhaling</strong>, die in de <a class="reference internal" href="#for-target"><span class="xref myst">volgende module</span></a> wordt behandeld. Indien de herhaling moet blijven duren totdat aan een voorwaarde is voldaan spreekt men van de <strong>voorwaardelijke herhaling</strong>, waar deze module over handelt.</p>
+</section>
+<section id="opbouw">
+<h2><span class="section-number">5.2. </span>Opbouw<a class="headerlink" href="#opbouw" title="Link to this heading">#</a></h2>
+<p>Een voorwaardelijke herhaling wordt opgebouwd met het <code class="docutils literal notranslate"><span class="pre">while</span></code> sleutelwoord. Het ingesprongen programmablok onder het while sleutelwoord wordt uitgevoerd zolang de booleaanse uitdrukking <code class="docutils literal notranslate"><span class="pre">&lt;expressie&gt;</span></code> het resultaat <code class="docutils literal notranslate"><span class="pre">True</span></code> heeft.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="o">&lt;</span><span class="n">expressie</span><span class="o">&gt;</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">code</span> <span class="n">indien</span> <span class="n">waar</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">en</span> <span class="n">nog</span> <span class="n">meer</span> <span class="n">code</span> <span class="n">bij</span> <span class="n">waar</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">deze</span> <span class="n">code</span> <span class="n">wordt</span> <span class="n">slechts</span> <span class="n">uitgevoerd</span> <span class="n">als</span> <span class="n">de</span> <span class="n">expressie</span> <span class="n">false</span> <span class="n">oplevert</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Je moet begrijpen dat het ingesprongen programmablok <strong>alleen</strong> doorlopen wordt als aan de voorwaarde voldaan is (het wordt dus niet sowieso één keer doorlopen) en dat het altijd <strong>volledig</strong> doorlopen wordt alvorens de voorwaarde opnieuw geëvalueerd wordt (het stopt dus niet onmiddellijk wanneer tijdens het uitvoeren de voorwaarde niet langer voldaan is).</p>
+<p>Volgend voorbeeld demonstreert de werking:</p>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Voorwaardelijke herhaling</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">teller</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span><span class="p">(</span><span class="n">teller</span><span class="o">!=</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">teller</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Iteratie #</span><span class="si">{</span><span class="n">teller</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Lus beïndigd&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteratie #1
+Iteratie #2
+Iteratie #3
+Lus beïndigd
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="jumps-of-goto-s">
+<h2><span class="section-number">5.3. </span>Jumps of GoTo’s<a class="headerlink" href="#jumps-of-goto-s" title="Link to this heading">#</a></h2>
+<p>Goed geschreven code is code die sequentieel wordt uitgevoerd. Het gebruik van <em>jumps</em> in code duid meestal op slecht geschreven code. Echter kan het gebruik van <em>jumps</em> soms een meerwaarde zijn, en omwille van deze reden staan een tweetal <em>jumps</em> die behoren tot de <code class="docutils literal notranslate"><span class="pre">while</span></code> dan ook hier vermeld:</p>
+<ul class="simple">
+<li><p>Break</p></li>
+<li><p>Continue</p></li>
+</ul>
+<section id="break">
+<h3><span class="section-number">5.3.1. </span>Break<a class="headerlink" href="#break" title="Link to this heading">#</a></h3>
+<p>Het codewoord <code class="docutils literal notranslate"><span class="pre">break</span></code> laat toe de <code class="docutils literal notranslate"><span class="pre">while</span></code> lus vroegtijdig te verlaten. Hierdoor zullen de overige regels code die in de while staan niet uitgevoerd worden en zal de <code class="docutils literal notranslate"><span class="pre">&lt;expressie&gt;</span></code> ook niet meer gecontroleerd worden. De while lus wordt verlaten en de code onder de while lus wordt verder uitgevoerd.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">isPriem</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">getal</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Geef een getal op: &quot;</span><span class="p">))</span>
+<span class="n">deler</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">while</span><span class="p">(</span><span class="n">deler</span><span class="o">&lt;</span><span class="n">getal</span><span class="o">/</span><span class="mi">2</span><span class="p">):</span>
+    <span class="k">if</span><span class="p">((</span><span class="n">getal</span><span class="o">%</span><span class="k">deler</span>)==0):
+        <span class="c1">#deelbaar! geen priem</span>
+        <span class="n">isPriem</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">break</span>
+    <span class="n">deler</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1">#controleer de volgende deler</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Het getal </span><span class="si">{</span><span class="n">getal</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="s1">&#39;g&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="ow">not</span><span class="w"> </span><span class="n">isPriem</span><span class="p">)</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="si">}</span><span class="s2">een priemgetal&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">isPriem</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">getal</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Geef een getal op: &quot;</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">deler</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">while</span><span class="p">(</span><span class="n">deler</span><span class="o">&lt;</span><span class="n">getal</span><span class="o">/</span><span class="mi">2</span><span class="p">):</span>
+
+<span class="nn">File C:\Python\Lib\site-packages\ipykernel\kernelbase.py:1281,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1279</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1280</span>     <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1281</span>     <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1282</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1283</span>     <span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1284</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_parent_ident</span><span class="p">[</span><span class="s2">&quot;shell&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1285</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_parent</span><span class="p">(</span><span class="s2">&quot;shell&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1286</span>     <span class="n">password</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1287</span> <span class="p">)</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Bovenstaande manier van werken gaat in tegen de sequentiële code, maar maakt wel dat er bespaard wordt op processor cycli. Bij heel grote getallen zal het controleren op delers vroegtijdig worden afgebroken. De code zou even correct werken zonder de <code class="docutils literal notranslate"><span class="pre">break</span></code>, maar het zou veel langer duren om alle (mogelijke) delers te doorlopen.</p>
+</section>
+<section id="continue">
+<h3><span class="section-number">5.3.2. </span>Continue<a class="headerlink" href="#continue" title="Link to this heading">#</a></h3>
+<p>Een tweede mogelijkheid die een soort <em>jump</em> toelaat in de <code class="docutils literal notranslate"><span class="pre">while</span></code> lus is het <code class="docutils literal notranslate"><span class="pre">continue</span></code> codewoord. Ook hier worden, net zoals bij de <code class="docutils literal notranslate"><span class="pre">break</span></code> de overige regels code die in de while lus staan niet meer uitgevoerd, maar wordt er wel teruggekeerd naar de <code class="docutils literal notranslate"><span class="pre">&lt;expressie&gt;</span></code> om te controleren of de lus nog moet herhaald worden.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="c1">#Bepaal (enkele) punten van een random 1/a.x functie</span>
+<span class="k">while</span><span class="p">(</span><span class="n">x</span><span class="o">!=</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="o">==</span><span class="mi">0</span><span class="p">):</span>
+        <span class="c1">#gedeeld door 0! Niet uitvoeren</span>
+        <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">continue</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;(</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Lus beïndigd&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-5,-0.07) (-4,-0.08) (-3,-0.11) (-2,-0.17) (-1,-0.33) (1,0.33) (2,0.17) (3,0.11) (4,0.08) 
+Lus beïndigd
+</pre></div>
+</div>
+</div>
+</div>
+<p>Bovenstaand voorbeeld voorkomt dat een deling door 0 wordt uitgevoerd, wat een foutmelding zou geven en het programma zou doen stoppen. <em>Merk op dat dit slechts een voorbeeld is, en een veel elegantere oplossing mogelijk is. Het gebruik van for-loops, try-excepts en MatPlotLib zullen in de toekomst gebruikt worden om de punten van de grafiek te bepalen en deze visueel voor te stellen.</em></p>
+</section>
+</section>
+<section id="while-true">
+<h2><span class="section-number">5.4. </span>While True<a class="headerlink" href="#while-true" title="Link to this heading">#</a></h2>
+<p>Een speciale <code class="docutils literal notranslate"><span class="pre">while</span></code> constructie die veelvuldig wordt gebruikt is de <code class="docutils literal notranslate"><span class="pre">While</span> <span class="pre">True</span></code>. De <code class="docutils literal notranslate"><span class="pre">&lt;expressie&gt;</span></code> die hier gebruikt wordt zal altijd evalueren naar <code class="docutils literal notranslate"><span class="pre">True</span></code>, waardoor de lus nooit of te nimmer kan verlaten worden (m.u.v. een <code class="docutils literal notranslate"><span class="pre">break</span></code>). Indien een programma moet ontworpen worden die voortdurend moet blijven uitgevoerd worden is deze constructie aangeraden. Dit zal dan ook veelvuldig op hardware voorkomen.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">While</span><span class="p">(</span><span class="kc">True</span><span class="p">):</span>
+    <span class="o">&lt;</span><span class="n">code</span> <span class="n">die</span> <span class="n">oneindig</span> <span class="n">moet</span> <span class="n">uitgevoerd</span> <span class="n">worden</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">en</span> <span class="n">nog</span> <span class="n">meer</span> <span class="n">code</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Opgelet</p>
+<p>Het gebruik van herhaling kan leiden tot een programma die <em>vast loop</em> of <em>crasht</em>. Dat wil zeggen dat Python voortdurend de herhaling zal blijven uitvoeren aangezien de <code class="docutils literal notranslate"><span class="pre">&lt;expressie&gt;</span></code> altijd evalueert naar <code class="docutils literal notranslate"><span class="pre">True</span></code>. Een programma kan onderbroken worden door de toetsencombinatie <code class="docutils literal notranslate"><span class="pre">ctrl</span></code> en <code class="docutils literal notranslate"><span class="pre">c</span></code> gelijktijdig in te drukken. <em>Bij hardware gaan we dit zelfs als een <code class="docutils literal notranslate"><span class="pre">try-except</span></code> moeten implementeren in onze <code class="docutils literal notranslate"><span class="pre">main</span></code> routine.</em></p>
+</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -393,7 +530,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">volgende</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>De begrenzde herhaling</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -412,9 +549,16 @@ document.write(`
     <i class="fa-solid fa-list"></i> Inhoud
   </div>
   <nav class="bd-toc-nav page-toc">
-    <ul class="simple visible nav section-nav flex-column">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inleiding">5.1. Inleiding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opbouw">5.2. Opbouw</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jumps-of-goto-s">5.3. Jumps of GoTo’s</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#break">5.3.1. Break</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continue">5.3.2. Continue</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#while-true">5.4. While True</a></li>
+</ul>
   </nav></div>
 
 </div></div>

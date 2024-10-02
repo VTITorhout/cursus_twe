@@ -65,7 +65,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'tw&e_theo_04_itereren';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Zoeken" href="search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="tw%26e_theo_05_while.html" />
+    <link rel="next" title="5. Voorwaardelijke herhaling" href="tw%26e_theo_05_while.html" />
     <link rel="prev" title="3. Beslissingen" href="tw%26e_theo_03_beslissingen.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="nl"/>
@@ -183,6 +183,8 @@
 <li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_02_operatoren.html">2. Operatoren</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_03_beslissingen.html">3. Beslissingen</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Itereerbare objecten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_05_while.html">5. Voorwaardelijke herhaling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_06_for.html">6. De begrenzde herhaling</a></li>
 </ul>
 
     </div>
@@ -516,6 +518,7 @@ Torhout
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">myStr</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">myStr</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">myStr</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;Torhout&quot;</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">myStr</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;VTI-&quot;</span><span class="p">))</span>
 <span class="n">myList</span> <span class="o">=</span> <span class="n">myStr</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span>
@@ -527,6 +530,7 @@ Torhout
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>vti-torhout
 VTI-TORHOUT
+4
 orhout
 [&#39;VTI&#39;, &#39;Torhout&#39;]
 VTI Torhout
@@ -626,7 +630,7 @@ VTI-Torhouk
 </ol>
 <div class="caution admonition">
 <p class="admonition-title">Opgelet</p>
-<p>Alvorens je deze functies kan gebruiken, moet je lijst/tuple natuurlijk wel gedefinieerd zijn! Je kan altijd een lege lijst/tuple gaan aanmaken door niets binnen de haakjes (<code class="docutils literal notranslate"><span class="pre">()</span></code> voor een tuple, <code class="docutils literal notranslate"><span class="pre">[]</span></code> voor een lijst) te plaatsen.</p>
+<p>Alvorens je deze functies kan gebruiken, moet je lijst natuurlijk wel gedefinieerd zijn! Je kan altijd een lege lijst gaan aanmaken door niets binnen de haakjes <code class="docutils literal notranslate"><span class="pre">[]</span></code> te plaatsen.</p>
 </div>
 </section>
 <section id="id2">
@@ -762,7 +766,7 @@ VTI-Torhouk
 </div>
 </div>
 </div>
-<p>Je kan het aantal elementen in een dictionary bepaken met de <code class="docutils literal notranslate"><span class="pre">len()</span></code> functie.</p>
+<p>Je kan het aantal elementen in een dictionary bepalen met de <code class="docutils literal notranslate"><span class="pre">len()</span></code> functie.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">myDict</span><span class="p">))</span>
@@ -885,7 +889,7 @@ Bestaat niet!
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">volgende</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Voorwaardelijke herhaling</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

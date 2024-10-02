@@ -183,6 +183,8 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Operatoren</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_03_beslissingen.html">3. Beslissingen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_04_itereren.html">4. Itereerbare objecten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_05_while.html">5. Voorwaardelijke herhaling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_06_for.html">6. De begrenzde herhaling</a></li>
 </ul>
 
     </div>
@@ -418,14 +420,14 @@ document.write(`
 <p>In voorgaande paragraaf kon opgemerkt worden dat bij een deling er altijd een <code class="docutils literal notranslate"><span class="pre">float</span></code> als resultaat was. In sommige toepassingen hebben we echter nood aan gehele getallen (<code class="docutils literal notranslate"><span class="pre">int</span></code>) om iets nuttigs mee te doen. Stel als voorbeeld een groep leerlingen (21) en een aantal stukken fruit (123) die evenredig moeten verdeeld worden:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aantal_leerlingen</span> <span class="o">=</span> <span class="mi">21</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aantal_leerlingen</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">stukken_fruit</span> <span class="o">=</span> <span class="mi">123</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Iedere leerling krijgt </span><span class="si">{</span><span class="n">stukken_fruit</span><span class="o">/</span><span class="n">aantal_leerlingen</span><span class="si">}</span><span class="s2"> stukken fruit&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iedere leerling krijgt 5.857142857142857 stukken fruit
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iedere leerling krijgt 12.3 stukken fruit
 </pre></div>
 </div>
 </div>
@@ -438,7 +440,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iedere leerling krijgt 5 stukken fruit
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iedere leerling krijgt 12 stukken fruit
 </pre></div>
 </div>
 </div>
@@ -451,7 +453,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Er blijven dan nog 18 stukken fruit over
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Er blijven dan nog 3 stukken fruit over
 </pre></div>
 </div>
 </div>
