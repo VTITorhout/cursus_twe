@@ -443,6 +443,47 @@ document.write(`
 </section>
 <section id="return-values">
 <h3><span class="section-number">7.2.2. </span>Return values<a class="headerlink" href="#return-values" title="Link to this heading">#</a></h3>
+<p>Als laatste stap kan een functie een object terugsturen naar de oproeper van deze. Dit object kan een itereerbaar item zijn (string, list, tuple, dictionary, …) en dusdanig meer dan één waarde bevatten. Je kan zelf kiezen om deze verschillende waarden in één object te stoppen en dit terug te zenden, of je kan dit werkje laten opknappen door Python zelf, die op zijn beurt alle waarden in één tuple zal plaatsen.</p>
+<p>Breiden we onze eerdere code uit:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myCoolFunction</span><span class="p">(</span><span class="n">naam</span><span class="p">,</span><span class="n">leeftijd</span><span class="p">):</span>
+    <span class="n">myStr</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">naam</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">leeftijd</span><span class="si">}</span><span class="s2"> jaar oud&quot;</span>
+    <span class="k">return</span> <span class="n">myStr</span>
+
+<span class="c1"># Hier start de eigenlijke code</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">myCoolFunction</span><span class="p">(</span><span class="s2">&quot;Koen&quot;</span><span class="p">,</span><span class="mi">39</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Koen is 39 jaar oud
+</pre></div>
+</div>
+</div>
+</div>
+<p>In bovenstaand voorbeeld wordt een string als object teruggegeven aan de oproepende code, die vervolgens integraal wordt doorgegeven aan de <code class="docutils literal notranslate"><span class="pre">print()</span></code> functie.</p>
+<p>Passen we nu onze kennis toe in een duidelijker voorbeeld:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myDivMod</span><span class="p">(</span><span class="n">getal</span><span class="p">,</span><span class="n">deler</span><span class="p">):</span>
+    <span class="n">geheel</span> <span class="o">=</span> <span class="n">getal</span><span class="o">//</span><span class="n">deler</span>
+    <span class="n">rest</span> <span class="o">=</span> <span class="n">getal</span><span class="o">%</span><span class="k">deler</span>
+    <span class="k">return</span> <span class="n">geheel</span><span class="p">,</span><span class="n">rest</span>
+
+<span class="c1"># Hier start de eigenlijke code</span>
+<span class="n">geheelGetalDeling</span><span class="p">,</span><span class="n">restNaDeling</span> <span class="o">=</span> <span class="n">myDivMod</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Als je 10 deelt door 3 bekom je </span><span class="si">{</span><span class="n">geheelGetalDeling</span><span class="si">}</span><span class="s2"> met als rest </span><span class="si">{</span><span class="n">restNaDeling</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Als je 10 deelt door 3 bekom je 3 met als rest 1
+</pre></div>
+</div>
+</div>
+</div>
+<p>In bovenstaand voorbeeld wordt de tuple die wordt teruggegeven door de functie <code class="docutils literal notranslate"><span class="pre">myDivMod()</span></code> opgesplitst naar twee variabelen. Je kon hier ook geopteerd hebben om de tuple op te slaan en gebruik te maken van <em>slicing</em> bij het printen, maar dit zou onleesbaardere code geven.</p>
 </section>
 </section>
 </section>
