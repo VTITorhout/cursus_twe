@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7. Functies &#8212; Cursus Python TW&amp;E</title>
+    <title>7. Functies en procedures &#8212; Cursus Python TW&amp;E</title>
   
   
   
@@ -182,7 +182,8 @@
 <li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_04_itereren.html">4. Itereerbare objecten</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_05_while.html">5. Voorwaardelijke herhaling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_06_for.html">6. De begrensde herhaling</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Functies</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Functies en procedures</a></li>
+
 
 </ul>
 
@@ -322,7 +323,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Functies</h1>
+    <h1>Functies en procedures</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -332,16 +333,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">7. Functies</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">7. Functies en procedures</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inleiding">7.1. Inleiding</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gebruik">7.2. Gebruik</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">7.2.1. Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#argumenten">7.2.1. Argumenten</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#return-values">7.2.2. Return values</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#foutafhandeling">8. Foutafhandeling</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#importeren">9. Importeren</a></li>
 </ul>
 
             </nav>
@@ -354,15 +356,90 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="functies">
-<h1><span class="section-number">7. </span>Functies<a class="headerlink" href="#functies" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="functies-en-procedures">
+<h1><span class="section-number">7. </span>Functies en procedures<a class="headerlink" href="#functies-en-procedures" title="Link to this heading">#</a></h1>
 <section id="inleiding">
 <h2><span class="section-number">7.1. </span>Inleiding<a class="headerlink" href="#inleiding" title="Link to this heading">#</a></h2>
+<p>Een gestructureerd programma is meestal opgebouwd uit een hoofdprogramma en een aantal functies die in het hoofdprogramma opgeroepen worden. Die functies moet je (net als het hoofdprogramma trouwens) uiteraard zelf schrijven. Daarvoor gebruik je het sleutelwoord <code class="docutils literal notranslate"><span class="pre">def</span></code>. De syntax ziet er als volgt uit:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="o">&lt;</span><span class="n">functienaam</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&lt;</span><span class="n">argument1</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">argument2</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">...</span> <span class="p">,</span><span class="o">&lt;</span><span class="n">argument</span> <span class="n">n</span><span class="o">&gt;</span><span class="p">):</span>
+    <span class="c1">#&lt;argument&gt; is nu beschikbaar om iets mee te doen</span>
+    <span class="o">&lt;</span><span class="n">deze</span> <span class="n">code</span> <span class="n">zal</span> <span class="n">wellicht</span> <span class="n">zaken</span> <span class="n">uitvoeren</span> <span class="n">met</span> <span class="n">de</span> <span class="n">meegegeven</span> <span class="n">argumenten</span><span class="o">&gt;</span> 
+    <span class="k">return</span> <span class="o">&lt;</span><span class="n">waarde1</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">waarde2</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">...</span> <span class="p">,</span><span class="o">&lt;</span><span class="n">waarde</span> <span class="n">n</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Kies voor <code class="docutils literal notranslate"><span class="pre">&lt;functienaam&gt;</span></code> een zinvolle naam die duidelijk maakt wat de functie inhoud</p></li>
+<li><p>De <code class="docutils literal notranslate"><span class="pre">&lt;argumenten&gt;</span></code> zijn optioneel. Je kan kiezen om geen mee te geven, slechts één, of zelfs meerdere</p></li>
+<li><p>Indien je meerdere <code class="docutils literal notranslate"><span class="pre">&lt;argumenten&gt;</span></code> meegeeft met de functie/procedure moeten deze gescheiden zijn door een komma (<code class="docutils literal notranslate"><span class="pre">,</span></code>)</p></li>
+<li><p>Een <code class="docutils literal notranslate"><span class="pre">&lt;argument&gt;</span></code> kan ook optioneel zijn. Je maakt een <code class="docutils literal notranslate"><span class="pre">&lt;argument&gt;</span></code> optioneel door er een standaard (default) waarde toe te kennen. Indien het <code class="docutils literal notranslate"><span class="pre">&lt;argument&gt;</span></code> dan niet wordt meegegeven bij de aanroep van de functie/procedure wordt de standaardwaarde ingevuld. Niet-optionele argumenten moeten altijd <strong>voor</strong> de optionele argumenten staan.</p></li>
+<li><p>De <code class="docutils literal notranslate"><span class="pre">return</span></code> op het einde van de functie is optioneel. Indien de functie geen <code class="docutils literal notranslate"><span class="pre">&lt;waarden&gt;</span></code> teruggeeft naar de oproeper wordt dit een procedure of subroutine genaamd.</p></li>
+<li><p>Er kunnen meerdere waarden teruggegeven worden naar de oproeper via de <code class="docutils literal notranslate"><span class="pre">return</span></code>. Deze waarden moeten gescheiden worden door een komma (<code class="docutils literal notranslate"><span class="pre">,</span></code>). <em>Er kan nooit meer dan één object teruggegeven worden. Python zal onder de motorkap deze verschillende waarden combineren in één object, namelijk een tuple. Bij ontvangst door de oproeper kan deze tuple ge-unpacked worden.</em></p></li>
+</ul>
 </section>
 <section id="gebruik">
 <h2><span class="section-number">7.2. </span>Gebruik<a class="headerlink" href="#gebruik" title="Link to this heading">#</a></h2>
-<section id="parameters">
-<h3><span class="section-number">7.2.1. </span>Parameters<a class="headerlink" href="#parameters" title="Link to this heading">#</a></h3>
+<p>Volgend voorbeeld demonstreert het gebruik:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myCoolFunction</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inside function&quot;</span><span class="p">)</span>
+
+<span class="c1"># Hier start de eigenlijke code</span>
+<span class="n">myCoolFunction</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Inside function
+</pre></div>
+</div>
+</div>
+</div>
+<p>Het is duidelijk dat bovenstaand voorbeeld van een procedure weinig nut heeft. Men kon evengoed gekozen hebben om de <code class="docutils literal notranslate"><span class="pre">print()</span></code> functie te plaatsen i.p.v. <code class="docutils literal notranslate"><span class="pre">myCoolFunction()</span></code>, wat hetzelfde resultaat zou gegeven hebben. Een functie/procedure zal dan ook pas nut hebben wanneer meerdere lijntjes code hierin gecombineerd worden, en dit meerdere malen in het programma moet gebruikt worden, om zo herhalende code te voorkomen met alle gevolgen van dien. <em>Dit is echter geen bindende voorwaarde. Ook wanneer de code slechts één keer moet uitgevoerd worden kan het gebruik van een functie/procedure een meerwaarde bieden, namelijk het overzichtelijk houden/maken van je code.</em></p>
+<section id="argumenten">
+<h3><span class="section-number">7.2.1. </span>Argumenten<a class="headerlink" href="#argumenten" title="Link to this heading">#</a></h3>
+<p>De eerder gedefiniëerde procedure <code class="docutils literal notranslate"><span class="pre">myCoolFunction()</span></code> kan echter uitgebreid worden door deze te voorzien van argumenten die met de functie/procedure kunnen meegegeven worden. Passen we onze procedure aan als volgt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myCoolFunction</span><span class="p">(</span><span class="n">naam</span><span class="p">,</span><span class="n">leeftijd</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">naam</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">leeftijd</span><span class="si">}</span><span class="s2"> jaar oud&quot;</span><span class="p">)</span>
+
+<span class="c1"># Hier start de eigenlijke code</span>
+<span class="n">myCoolFunction</span><span class="p">(</span><span class="s2">&quot;Koen&quot;</span><span class="p">,</span><span class="mi">39</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Koen is 39 jaar oud
+</pre></div>
+</div>
+</div>
+</div>
+<p>Als argument kunnen we dus een naam kiezen die we verder in onze functie/procedure wensen te gebruiken als variabele. De inhoud van de variabele wordt echter gekozen door de oproeper, die tussen de haken van de functie/procedure de gewenste waarde meegeeft. Indien meerdere argumenten moeten meegegeven worden is de <strong>volgorde van belang</strong>.</p>
+<div class="tip admonition">
+<p class="admonition-title">Named arguments</p>
+<p>Python ondersteunt echter <em>named arguments</em>. Dit betekent dat je met het argument de naam kan meegeven, en zo een willekeurige volgorde van argumenten gebruiken. Ons voorbeeld zou er dan als volgt kunnen uitzien:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myCoolFunction</span><span class="p">(</span><span class="n">naam</span><span class="p">,</span><span class="n">leeftijd</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">naam</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">leeftijd</span><span class="si">}</span><span class="s2"> jaar oud&quot;</span><span class="p">)</span>
+
+<span class="c1"># Hier start de eigenlijke code</span>
+<span class="n">myCoolFunction</span><span class="p">(</span><span class="n">leeftijd</span><span class="o">=</span><span class="mi">39</span><span class="p">,</span><span class="n">naam</span><span class="o">=</span><span class="s2">&quot;Koen&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><em>Weet dat dit echter in andere talen niet altijd wordt ondersteund.</em></p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Default values</p>
+<p>Zoals in de inleiding aangehaald kunnen er ook <em>default values</em> meegegeven worden met een functie/procedure. Deze kunnen dan bij het aanroepen van de functie achterwege gelaten worden. Let wel op dat je deze altijd op het einde plaatst, tenzij je natuurlijk werkt met <em>named arguments</em>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myCoolFunction</span><span class="p">(</span><span class="n">naam</span><span class="p">,</span><span class="n">leeftijd</span><span class="p">,</span><span class="n">geslacht</span><span class="o">=</span><span class="s2">&quot;X&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">naam</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">leeftijd</span><span class="si">}</span><span class="s2"> jaar oud, geslacht </span><span class="si">{</span><span class="n">geslacht</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Hier start de eigenlijke code</span>
+<span class="n">myCoolFunction</span><span class="p">(</span><span class="s2">&quot;Koen&quot;</span><span class="p">,</span><span class="mi">39</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><em>Standaard zal bovenstaande procedure het geslacht ‘X’ aangeven, tenzij het juiste geslacht meegegeven wordt tijdens het aanroepen van de procedure.</em></p>
+</div>
 </section>
 <section id="return-values">
 <h3><span class="section-number">7.2.2. </span>Return values<a class="headerlink" href="#return-values" title="Link to this heading">#</a></h3>
@@ -371,6 +448,11 @@ document.write(`
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="foutafhandeling">
 <h1><span class="section-number">8. </span>Foutafhandeling<a class="headerlink" href="#foutafhandeling" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="importeren">
+<h1><span class="section-number">9. </span>Importeren<a class="headerlink" href="#importeren" title="Link to this heading">#</a></h1>
+<p>Iets over import as
+Iets over <strong>main</strong></p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -428,16 +510,17 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">7. Functies</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">7. Functies en procedures</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inleiding">7.1. Inleiding</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gebruik">7.2. Gebruik</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">7.2.1. Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#argumenten">7.2.1. Argumenten</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#return-values">7.2.2. Return values</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#foutafhandeling">8. Foutafhandeling</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#importeren">9. Importeren</a></li>
 </ul>
 
   </nav></div>
