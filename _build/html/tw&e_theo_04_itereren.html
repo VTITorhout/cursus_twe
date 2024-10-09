@@ -184,7 +184,7 @@
 <li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_03_beslissingen.html">3. Beslissingen</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Itereerbare objecten</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_05_while.html">5. Voorwaardelijke herhaling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_06_for.html">6. De begrenzde herhaling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_06_for.html">6. De begrensde herhaling</a></li>
 </ul>
 
     </div>
@@ -556,8 +556,8 @@ VTI-Torhouk
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myTuple</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="mi">123</span><span class="p">,</span> <span class="kc">True</span><span class="p">);</span>
-<span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="mi">123</span><span class="p">,</span> <span class="kc">True</span><span class="p">];</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myTuple</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="mi">123</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="mi">123</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -608,13 +608,30 @@ VTI-Torhouk
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">divmod</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span> <span class="c1">#Deel 5 door 2</span>
 <span class="n">myList</span> <span class="o">+=</span> <span class="p">[</span><span class="s2">&quot;Sint-Aloysius&quot;</span><span class="p">]</span> <span class="c1">#Voeg een nieuwe element toe</span>
+<span class="n">myList</span> <span class="o">+=</span> <span class="s2">&quot;Sint-Aloysius&quot;</span> <span class="c1">#Voeg een itereerbaar item toe</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, 1)
-[&#39;string&#39;, 123, False, &#39;Sint-Aloysius&#39;]
+[&#39;string&#39;, 123, False, &#39;Sint-Aloysius&#39;, &#39;S&#39;, &#39;i&#39;, &#39;n&#39;, &#39;t&#39;, &#39;-&#39;, &#39;A&#39;, &#39;l&#39;, &#39;o&#39;, &#39;y&#39;, &#39;s&#39;, &#39;i&#39;, &#39;u&#39;, &#39;s&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="hint admonition">
+<p class="admonition-title">Tip</p>
+<p>In sommige oefeningen op Dodona wordt er soms gevraagd om de inhoud van een lijst weer te geven, maar dan zonder de vierkante haken die er rond staan. Dit is ingebouwd in de <code class="docutils literal notranslate"><span class="pre">print()</span></code> functie, en kan bereikt worden door de lijst te laten voorafgaan door een asteriks (<code class="docutils literal notranslate"><span class="pre">*</span></code>). Standaard wordt vervolgens tussen de elementen van de lijst een spatie geplaatst. Wil je echter een ander scheidingsteken tussen de elementen, dan kun je opteren voor de extra parameter <code class="docutils literal notranslate"><span class="pre">sep='&lt;scheidingsteken&gt;'</span></code>. Onderstaand voorbeeld demonstreert dit. <em>Je kan/mag dit gebruiken, maar weet dat je dit zelf kan implementeren a.d.h.v. herhalingen.</em></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">myList</span><span class="p">[:</span><span class="mi">3</span><span class="p">],</span><span class="n">sep</span><span class="o">=</span><span class="s2">&quot;_-_&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>string_-_123_-_False
 </pre></div>
 </div>
 </div>
@@ -805,7 +822,7 @@ VTI-Torhouk
 </div>
 </div>
 </div>
-<p>Hierboven is duidelijk op te merken dat de methode <code class="docutils literal notranslate"><span class="pre">keys()</span></code> iets levert die er uit ziet als een <em>lijst</em>, maar geen <em>lijst</em> is. De methode levert een itereerbaar object. Om er een lijst van te maken moeten we dit oject casten naar een lijst:</p>
+<p>Hierboven is duidelijk op te merken dat de methode <code class="docutils literal notranslate"><span class="pre">keys()</span></code> iets levert die er uit ziet als een <em>lijst</em>, maar geen <em>lijst</em> is. De methode levert een itereerbaar object. Om er een lijst van te maken moeten we dit object casten naar een lijst:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">myDict</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
