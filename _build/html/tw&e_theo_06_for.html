@@ -354,7 +354,7 @@ document.write(`
 <span id="for-target"></span><h1><span class="section-number">6. </span>De begrensde herhaling<a class="headerlink" href="#de-begrensde-herhaling" title="Link to this heading">#</a></h1>
 <section id="inleiding">
 <h2><span class="section-number">6.1. </span>Inleiding<a class="headerlink" href="#inleiding" title="Link to this heading">#</a></h2>
-<p>Heel dikwijls weten we reeds vooraf hoeveel keer de lus doorlopen zal moeten worden. Op dat moment spreken we niet meer van de voorwaardelijke herhaling (waar een expressie bepalend was of de lus moet herhaald worden), maar spreken we van de begrensde herhaling. De grenzen liggen al vast van voor we starten aan het herhalen. Er is dus geen expressie nodig die bepalend zal zijn of er moet herhaald worden. De meest typische voorbeelden die we zullen tegenkomen zijn verzamelingen van objecten die we willen doorlopen. Via de functie <code class="docutils literal notranslate"><span class="pre">len(&lt;object&gt;)</span></code> kunnen we vooraf reeds bepalen hoeveel keer herhaald zal moeten worden.</p>
+<p>Heel dikwijls weten we reeds vooraf hoeveel keer de lus doorlopen zal moeten worden. Op dat moment spreken we niet meer van de voorwaardelijke herhaling (waar een expressie bepalend was of de lus moet herhaald worden), maar spreken we van de begrensde herhaling. De grenzen liggen al vast van voor we starten aan het herhalen. Er is dus geen expressie nodig die bepalend zal zijn of er moet herhaald worden. De meest typische voorbeelden die we zullen tegenkomen zijn verzamelingen van objecten die we willen doorlopen. Via de functie <code class="docutils literal notranslate"><span class="pre">len(&lt;object&gt;)</span></code> kan er vooraf reeds bepaald worden hoeveel keer de herhaling moet uitgevoerd worden. <em>Dit gebeurt echter onder de motorkap door Python zelf, dus moeten we dit niet (of toch zelden) zelf uitvoeren. In veel andere programmeertalen zul je dit op deze manier moeten implementeren.</em></p>
 </section>
 <section id="opbouw">
 <h2><span class="section-number">6.2. </span>Opbouw<a class="headerlink" href="#opbouw" title="Link to this heading">#</a></h2>
@@ -367,7 +367,7 @@ document.write(`
 </div>
 <section id="range">
 <h3><span class="section-number">6.2.1. </span>Range<a class="headerlink" href="#range" title="Link to this heading">#</a></h3>
-<p>Als eerste voorbeeld halen we het itereerbare object <code class="docutils literal notranslate"><span class="pre">range</span></code> aan. Onderstaand voorbeeld geeft code die een begrensd aantal keren herhaald:</p>
+<p>Als eerste voorbeeld halen we het itereerbare object <code class="docutils literal notranslate"><span class="pre">range</span></code> aan. Onderstaand voorbeeld is code die een begrensd aantal keren herhaalt:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">):</span>
@@ -388,7 +388,7 @@ document.write(`
 <p>In het itereerbaar object <code class="docutils literal notranslate"><span class="pre">range</span></code> zit een verzameling van integers, gaande van 0 tot 4 (=5-1). Integer per integer wordt toegekend aan de variabele <code class="docutils literal notranslate"><span class="pre">element</span></code> iedere keer de <code class="docutils literal notranslate"><span class="pre">for</span></code> loop wordt doorlopen.</p>
 <div class="note admonition">
 <p class="admonition-title">Opmerking</p>
-<p>Enkel <code class="docutils literal notranslate"><span class="pre">for</span></code> en <code class="docutils literal notranslate"><span class="pre">in</span></code> zijn verplichte keywords. <code class="docutils literal notranslate"><span class="pre">element</span></code> kan gelijk welke naam zijn. Dit is een variabele die wordt aangemaakt terwijl de for loop wordt uitgevoerd, en die beschikbaar zal zijn in de scope van de for loop. Mocht de <code class="docutils literal notranslate"><span class="pre">&lt;verzameling&gt;</span></code> bijvoorbeeld namen van leerlingen bevatten, dan zou je kunnen schrijven <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">leerling</span> <span class="pre">in</span> <span class="pre">&lt;verzameling&gt;</span></code>, waarbij <code class="docutils literal notranslate"><span class="pre">leerling</span></code> iedere keer de naam van de leerling zal bevatten.</p>
+<p>Enkel <code class="docutils literal notranslate"><span class="pre">for</span></code> en <code class="docutils literal notranslate"><span class="pre">in</span></code> zijn verplichte keywords. <code class="docutils literal notranslate"><span class="pre">element</span></code> kan gelijk welke naam zijn. Dit is een variabele die wordt aangemaakt terwijl de for loop wordt uitgevoerd, en die beschikbaar zal zijn in de scope van de for loop. Mocht de <code class="docutils literal notranslate"><span class="pre">&lt;verzameling&gt;</span></code> bijvoorbeeld namen van leerlingen bevatten, dan zou je kunnen schrijven <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">leerling</span> <span class="pre">in</span> <span class="pre">&lt;verzameling&gt;</span></code>, waarbij <code class="docutils literal notranslate"><span class="pre">leerling</span></code> iedere keer de naam van de leerling zal bevatten. <em>Het itereerbare object <code class="docutils literal notranslate"><span class="pre">range</span></code> geeft echter altijd integers terug, die dikwijls niet nodig zijn verder in de code, omwille dat we gewoon een begrensde herhaling willen om iets uit te voeren. Indien dit zo is, kun je een onbeduidende variabele naam gebruiken, zoals <code class="docutils literal notranslate"><span class="pre">_</span></code>.</em></p>
 </div>
 </section>
 <section id="string">
@@ -474,6 +474,24 @@ n
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>De key is 5TW&amp;E en de value bedraagt 10.
 De key is 5ICW en de value bedraagt 7.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="hint admonition">
+<p class="admonition-title">loop teller</p>
+<p>Dikwijls kan het interessant zijn om te weten hoeveel keer een iteratie is uitgevoerd. Je zou dit zelf kunnen implementeren door voor de start van de loop een nieuwe variabele aan te maken, en deze in de loop te verhogen met één. Er is hiervoor echter een elegantere oplossing, namelijk de <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> functie. Deze zal bijhouden hoeveel keer er door een object is geïtereerd. Onderstaand voorbeeld demonsteert dit. <em>De enumerate functie neemt het itereren echter op zich, en zal intern zelf een loopcounter bijhouden. het geïtereerde object zal samen met de loopcounter als een tuple teruggegeven worden aan de oproeper.</em></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">cnt</span><span class="p">,(</span><span class="n">k</span><span class="p">,</span><span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">myDict</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Iteratie #</span><span class="si">{</span><span class="n">cnt</span><span class="si">}</span><span class="s2">: k=</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">, v=</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteratie #0: k=5TW&amp;E, v=10
+Iteratie #1: k=5ICW, v=7
 </pre></div>
 </div>
 </div>
