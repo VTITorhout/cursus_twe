@@ -1,6 +1,7 @@
 # In _config.yml
-title: Cursus Python TW&E
-author: Koen Geeraert
+title: "Cursus Python TW&E"
+author: "Koen Geeraert"
+copyright: "2024-2025"
 
 execute:
   execute_notebooks: auto

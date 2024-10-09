@@ -6,7 +6,9 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Zoeken - Cursus Python TW&E</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>7. Functies &#8212; Cursus Python TW&amp;E</title>
   
   
   
@@ -58,12 +60,10 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'search';</script>
-  <script src="_static/searchtools.js"></script>
-  <script src="_static/language_data.js"></script>
-  <script src="searchindex.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tw&e_theo_07_allerlei';</script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Zoeken" href="#" />
+    <link rel="search" title="Zoeken" href="search.html" />
+    <link rel="prev" title="6. De begrensde herhaling" href="tw%26e_theo_06_for.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="nl"/>
   </head>
@@ -95,7 +95,7 @@
     <div class="search-button__overlay"></div>
     <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
-      action="#"
+      action="search.html"
       method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
   <input type="search"
@@ -125,8 +125,6 @@
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -177,14 +175,14 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_01_sequentie_en_variabelen.html">1. Sequentie en variabelen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_02_operatoren.html">2. Operatoren</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_03_beslissingen.html">3. Beslissingen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_04_itereren.html">4. Itereerbare objecten</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_05_while.html">5. Voorwaardelijke herhaling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_06_for.html">6. De begrensde herhaling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_07_allerlei.html">7. Functies</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Functies</a></li>
 
 </ul>
 
@@ -230,6 +228,54 @@
 
 
 
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download deze pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/tw&e_theo_07_allerlei.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download het bronbestand"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Afdrukken naar pdf"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
 <button onclick="toggleFullScreen()"
   class="btn btn-sm btn-fullscreen-button"
   title="Volledig scherm"
@@ -263,7 +309,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -272,42 +320,81 @@ document.write(`
 </div>
               
               
-  <div class="bd-search-container">
-    <h1>Zoeken</h1>
-    <noscript>
-      <div class="admonition error">
-        <p class="admonition-title">Fout</p>
-        <p>Please activate JavaScript to enable the search functionality.</p>
-      </div>
-    </noscript>
-    
-<form class="bd-search d-flex align-items-center"
-      action="#"
-      method="get">
-  <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search"
-         class="form-control"
-         name="q"
-         id="search-input"
-         placeholder="Search this book..."
-         aria-label="Search this book..."
-         autocomplete="off"
-         autocorrect="off"
-         autocapitalize="off"
-         spellcheck="false"/>
-  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-    <div id="search-results"></div>
-  </div>
-  <script>
-    // Activate the search field on page load
-    let searchInput = document.querySelector("form.bd-search input");
-    if (searchInput) {
-        searchInput.focus();
-        searchInput.select();
-        console.log("[PST]: Set focus on search field.");
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Functies</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhoud </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">7. Functies</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inleiding">7.1. Inleiding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gebruik">7.2. Gebruik</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">7.2.1. Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#return-values">7.2.2. Return values</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#foutafhandeling">8. Foutafhandeling</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="functies">
+<h1><span class="section-number">7. </span>Functies<a class="headerlink" href="#functies" title="Link to this heading">#</a></h1>
+<section id="inleiding">
+<h2><span class="section-number">7.1. </span>Inleiding<a class="headerlink" href="#inleiding" title="Link to this heading">#</a></h2>
+</section>
+<section id="gebruik">
+<h2><span class="section-number">7.2. </span>Gebruik<a class="headerlink" href="#gebruik" title="Link to this heading">#</a></h2>
+<section id="parameters">
+<h3><span class="section-number">7.2.1. </span>Parameters<a class="headerlink" href="#parameters" title="Link to this heading">#</a></h3>
+</section>
+<section id="return-values">
+<h3><span class="section-number">7.2.2. </span>Return values<a class="headerlink" href="#return-values" title="Link to this heading">#</a></h3>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="foutafhandeling">
+<h1><span class="section-number">8. </span>Foutafhandeling<a class="headerlink" href="#foutafhandeling" title="Link to this heading">#</a></h1>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
     }
-  </script>
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
 
               
               
@@ -316,12 +403,46 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="tw%26e_theo_06_for.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">vorige</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>De begrensde herhaling</p>
+      </div>
+    </a>
 </div>
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhoud
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">7. Functies</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inleiding">7.1. Inleiding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gebruik">7.2. Gebruik</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">7.2.1. Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#return-values">7.2.2. Return values</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#foutafhandeling">8. Foutafhandeling</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
           </div>
