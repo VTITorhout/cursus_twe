@@ -348,9 +348,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">4.3. Dictionaries</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">4.3.1. Inleiding</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gebruik">4.3.2. Gebruik</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">4.3.3. Methodes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictmethodes-target">4.3.3. Methodes</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#itereerbaar-object-creeeren">4.4. Itereerbaar object creëeren</a></li>
 </ul>
             </nav>
         </div>
@@ -620,7 +621,7 @@ VTI-Torhouk
 </div>
 </div>
 </div>
-<div class="hint admonition">
+<div class="hint admonition" id="printlist-target">
 <p class="admonition-title">Tip</p>
 <p>In sommige oefeningen op Dodona wordt er soms gevraagd om de inhoud van een lijst weer te geven, maar dan zonder de vierkante haken die er rond staan. Dit is ingebouwd in de <code class="docutils literal notranslate"><span class="pre">print()</span></code> functie, en kan bereikt worden door de lijst te laten voorafgaan door een asteriks (<code class="docutils literal notranslate"><span class="pre">*</span></code>). Standaard wordt vervolgens tussen de elementen van de lijst een spatie geplaatst. Wil je echter een ander scheidingsteken tussen de elementen, dan kun je opteren voor de extra parameter <code class="docutils literal notranslate"><span class="pre">sep='&lt;scheidingsteken&gt;'</span></code>. Onderstaand voorbeeld demonstreert dit. <em>Je kan/mag dit gebruiken, maar weet dat je dit zelf kan implementeren a.d.h.v. herhalingen.</em></p>
 </div>
@@ -801,8 +802,8 @@ VTI-Torhouk
 <p>Omdat dictionaries ongeordend zijn, zijn vele concepten die gelden voor lists, niet van toepassing op dictionaries. Zo kan je bijvoorbeeld geen <em>subdictionary</em> maken door een key-bereik te definiëren (<em>slicing</em>), je kunt kunt een dictionary niet <em>sorteren</em> of <em>inverteren</em>. Dictionaries zijn daarom wat beperkt, maar ze kunnen nuttig zijn.</p>
 </div>
 </section>
-<section id="id4">
-<h3><span class="section-number">4.3.3. </span>Methodes<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<section id="dictmethodes-target">
+<span id="id4"></span><h3><span class="section-number">4.3.3. </span>Methodes<a class="headerlink" href="#dictmethodes-target" title="Link to this heading">#</a></h3>
 <p>Voor dictionaries zijn er verschillende methoden beschikbaar. Volgende methoden worden het meest gebruikt:</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;dictionary&gt;.keys()</span></code> levert een itereerbaar object dat alle keys van de dictionary genereert.</p></li>
@@ -859,6 +860,60 @@ Bestaat niet!
 </div>
 </div>
 </section>
+</section>
+<section id="itereerbaar-object-creeeren">
+<h2><span class="section-number">4.4. </span>Itereerbaar object creëeren<a class="headerlink" href="#itereerbaar-object-creeeren" title="Link to this heading">#</a></h2>
+<p>Indien we een itereerbaar object wensen, waarbij een zekere (vooraf vastgelegde) herhaling van toepassing moet zijn, kunnen we via de <code class="docutils literal notranslate"><span class="pre">range()</span></code> functie deze creëeren. De <code class="docutils literal notranslate"><span class="pre">range(&lt;start&gt;,&lt;stop&gt;,&lt;step&gt;)</span></code> functie gelijkt sterk op wat we bij <code class="docutils literal notranslate"><span class="pre">slicing</span></code> toepassen. Deze aanvaardt namelijk drie parameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;start&gt;</span></code>: vanaf welke integer waarde moet het itereerbare object starten? <em>Optioneel, indien niet meegegeven wordt gestart vanaf 0.</em></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;stop&gt;</span></code>: tot welke integer waarde moet het itereerbare object gaan?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;step&gt;</span></code>: in welke stappen moet het itereerbare object doorlopen worden? <em>Optioneel, indien niet meegegeven wordt de waarde per één verhoogd.</em></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myIterableObject</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">myIterableObject</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">myIterableObject</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;range&#39;&gt;
+range(0, 5)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Op zich gelijkt dit niet op een itereerbaar oject zoals wij die kennen. We kunnen dit object echter casten naar een lijst, zodat dit voor ons duidelijker wordt dat we hier toch wel te maken hebben met een itereerbaar object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">myIterableObject</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4]
+</pre></div>
+</div>
+</div>
+</div>
+<p>In bovenstaand voorbeeld kon je ook reeds opmerken dat het meegeven van een <code class="docutils literal notranslate"><span class="pre">&lt;step&gt;</span></code> waarde gelijk aan één weinig nut heeft. Onderstaande voorbeelden tonen de optionele parameters aan.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4]
+[2, 3, 4, 5]
+[0, 3, 6, 9]
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -941,9 +996,10 @@ Bestaat niet!
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">4.3. Dictionaries</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">4.3.1. Inleiding</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gebruik">4.3.2. Gebruik</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">4.3.3. Methodes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictmethodes-target">4.3.3. Methodes</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#itereerbaar-object-creeeren">4.4. Itereerbaar object creëeren</a></li>
 </ul>
   </nav></div>
 

@@ -307,7 +307,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -323,6 +325,22 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Inhoud </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inleiding">6.1. Inleiding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opbouw">6.2. Opbouw</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#range">6.2.1. Range</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string">6.2.2. String</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-tuple">6.2.3. List/tuple</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionary">6.2.4. Dictionary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keuzestress">6.3. Keuzestress</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -334,6 +352,138 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="de-begrensde-herhaling">
 <span id="for-target"></span><h1><span class="section-number">6. </span>De begrensde herhaling<a class="headerlink" href="#de-begrensde-herhaling" title="Link to this heading">#</a></h1>
+<section id="inleiding">
+<h2><span class="section-number">6.1. </span>Inleiding<a class="headerlink" href="#inleiding" title="Link to this heading">#</a></h2>
+<p>Heel dikwijls weten we reeds vooraf hoeveel keer de lus doorlopen zal moeten worden. Op dat moment spreken we niet meer van de voorwaardelijke herhaling (waar een expressie bepalend was of de lus moet herhaald worden), maar spreken we van de begrensde herhaling. De grenzen liggen al vast van voor we starten aan het herhalen. Er is dus geen expressie nodig die bepalend zal zijn of er moet herhaald worden. De meest typische voorbeelden die we zullen tegenkomen zijn verzamelingen van objecten die we willen doorlopen. Via de functie <code class="docutils literal notranslate"><span class="pre">len(&lt;object&gt;)</span></code> kunnen we vooraf reeds bepalen hoeveel keer herhaald zal moeten worden.</p>
+</section>
+<section id="opbouw">
+<h2><span class="section-number">6.2. </span>Opbouw<a class="headerlink" href="#opbouw" title="Link to this heading">#</a></h2>
+<p>Een begrensde herhaling wordt opgebouwd met het <code class="docutils literal notranslate"><span class="pre">for</span></code> sleutelwoord. Het ingesprongen programmablok onder het for sleutelwoord wordt uitgevoerd zolang er elementen aanwezig zijn <code class="docutils literal notranslate"><span class="pre">in</span></code> de verzameling, m.a.w. tot het itereerbare object volledig is doorlopen. Bij iedere herhaling wordt het volgend element uit de verzameling gehaald.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="o">&lt;</span><span class="n">element</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">iterable</span><span class="o">&gt;</span><span class="p">:</span>
+    <span class="c1">#&lt;element&gt; is nu beschikbaar om iets mee te doen</span>
+    <span class="o">&lt;</span><span class="n">deze</span> <span class="n">code</span> <span class="n">zal</span> <span class="n">wellicht</span> <span class="n">zaken</span> <span class="n">uitvoeren</span> <span class="n">met</span> <span class="n">element</span><span class="o">&gt;</span> 
+<span class="o">&lt;</span><span class="n">deze</span> <span class="n">code</span> <span class="n">wordt</span> <span class="n">uitgevoerd</span> <span class="n">wanneer</span> <span class="n">de</span> <span class="n">volledige</span> <span class="n">iterable</span> <span class="ow">is</span> <span class="n">doorlopen</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<section id="range">
+<h3><span class="section-number">6.2.1. </span>Range<a class="headerlink" href="#range" title="Link to this heading">#</a></h3>
+<p>Als eerste voorbeeld halen we het itereerbare object <code class="docutils literal notranslate"><span class="pre">range</span></code> aan. Onderstaand voorbeeld geeft code die een begrensd aantal keren herhaald:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+3
+4
+</pre></div>
+</div>
+</div>
+</div>
+<p>In het itereerbaar object <code class="docutils literal notranslate"><span class="pre">range</span></code> zit een verzameling van integers, gaande van 0 tot 4 (=5-1). Integer per integer wordt toegekend aan de variabele <code class="docutils literal notranslate"><span class="pre">element</span></code> iedere keer de <code class="docutils literal notranslate"><span class="pre">for</span></code> loop wordt doorlopen.</p>
+<div class="note admonition">
+<p class="admonition-title">Opmerking</p>
+<p>Enkel <code class="docutils literal notranslate"><span class="pre">for</span></code> en <code class="docutils literal notranslate"><span class="pre">in</span></code> zijn verplichte keywords. <code class="docutils literal notranslate"><span class="pre">element</span></code> kan gelijk welke naam zijn. Dit is een variabele die wordt aangemaakt terwijl de for loop wordt uitgevoerd, en die beschikbaar zal zijn in de scope van de for loop. Mocht de <code class="docutils literal notranslate"><span class="pre">&lt;verzameling&gt;</span></code> bijvoorbeeld namen van leerlingen bevatten, dan zou je kunnen schrijven <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">leerling</span> <span class="pre">in</span> <span class="pre">&lt;verzameling&gt;</span></code>, waarbij <code class="docutils literal notranslate"><span class="pre">leerling</span></code> iedere keer de naam van de leerling zal bevatten.</p>
+</div>
+</section>
+<section id="string">
+<h3><span class="section-number">6.2.2. </span>String<a class="headerlink" href="#string" title="Link to this heading">#</a></h3>
+<p>Aangezien een string een itereerbaar object is, kan ook een string aangeboden worden aan de for loop. Dit laat ons toe doorheen ieder karakter van de string te lopen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myStr</span> <span class="o">=</span> <span class="s2">&quot;Koen&quot;</span>
+<span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">myStr</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>K
+o
+e
+n
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="list-tuple">
+<h3><span class="section-number">6.2.3. </span>List/tuple<a class="headerlink" href="#list-tuple" title="Link to this heading">#</a></h3>
+<p>Hetzelfde geld voor lists en tuples. De eerder aangehaalde <a class="reference internal" href="tw%26e_theo_04_itereren.html#printlist-target"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">print(*&lt;list/tuple&gt;)</span></code></span></a> functie die de haken van rond een list en/of tuple verwijdert kan met een for loop eenvoudig zelf geïmplementeerd worden:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Koen&quot;</span><span class="p">,</span><span class="mi">39</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">myList</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">el</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Koen 39 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="dictionary">
+<h3><span class="section-number">6.2.4. </span>Dictionary<a class="headerlink" href="#dictionary" title="Link to this heading">#</a></h3>
+<p>Bij een dictionary is het gebruik van een for loop wellicht niet wat je zou verwachten:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myDict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;5TW&amp;E&quot;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;5ICW&quot;</span><span class="p">:</span><span class="mi">7</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">kv</span> <span class="ow">in</span> <span class="n">myDict</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">kv</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5TW&amp;E
+5ICW
+</pre></div>
+</div>
+</div>
+</div>
+<p>Men zou foutief kunnen veronderstellen dat het doorlopen van een dictionary de <code class="docutils literal notranslate"><span class="pre">key:value</span></code>-pairs (verder kv-pair genaamd) zou itereren. We krijgen echter bij het doorlopen van een dictionary enkel de keys. Bij de <a class="reference internal" href="tw%26e_theo_04_itereren.html#dictmethodes-target"><span class="std std-ref">methodes</span></a> die kunnen toegepast worden op dictionaries hebben we gezien dat we expliciet kunnen vragen naar de kv-pairs door de methode <code class="docutils literal notranslate"><span class="pre">.items()</span></code>, wat ons een itereerbaar object levert. Kiezen we niet voor deze methode, dan wordt standaard de methode <code class="docutils literal notranslate"><span class="pre">.keys()</span></code> aangeroepen, die ons eveneens een itereerbaar object levert, maar die enkel de keys bevat, zoals in bovenstaand voorbeeld kon opgemerkt worden.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">kv</span> <span class="ow">in</span> <span class="n">myDict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">kv</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;5TW&amp;E&#39;, 10)
+(&#39;5ICW&#39;, 7)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Bovenstaand voorbeeld levert dus de kv-pairs zoals gewenst. Aangezien zowel de key als de value een waarde is, wordt het kv-pair aangeleverd als een tuple. Je kan overigens meteen deze tuple gaan uitsplitsen in de key en de value als aparte variabele:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">myDict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;De key is </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2"> en de value bedraagt </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>De key is 5TW&amp;E en de value bedraagt 10.
+De key is 5ICW en de value bedraagt 7.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="keuzestress">
+<h2><span class="section-number">6.3. </span>Keuzestress<a class="headerlink" href="#keuzestress" title="Link to this heading">#</a></h2>
+<p>Nu we beide lussen hebben gezien (de <code class="docutils literal notranslate"><span class="pre">while</span></code> en de <code class="docutils literal notranslate"><span class="pre">for</span></code>) kun je je afvragen welke lus er in een gegeven toepassing moet gebruikt worden. Vaak zijn beide constructies mogelijk voor een gegeven toepassing. Het is overigens bijna altijd zo dat er niet één juiste oplossing is voor een probleem. Het is dikwijls een afgewogen keuze in functie van de leesbaarheid en de eenvoud van de oplossing die bepaalt of je voor de ene of de andere gaat. In regel is het echter zo dat wanneer je tijdens de lus beslist of de lus al dan niet verder gezet wordt, je meestal kiest voor een while statement.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -381,6 +531,29 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhoud
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inleiding">6.1. Inleiding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opbouw">6.2. Opbouw</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#range">6.2.1. Range</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string">6.2.2. String</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-tuple">6.2.3. List/tuple</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionary">6.2.4. Dictionary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keuzestress">6.3. Keuzestress</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
