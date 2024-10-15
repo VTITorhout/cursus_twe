@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>4. Itereerbare objecten &#8212; Cursus Python TW&amp;E</title>
+    <title>Itereerbare objecten &#8212; Cursus Python TW&amp;E</title>
   
   
   
@@ -62,11 +62,9 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'tw&e_theo_04_itereren';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tw&e_theo_04_itereren-koen';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Zoeken" href="search.html" />
-    <link rel="next" title="5. Voorwaardelijke herhaling" href="tw%26e_theo_05_while.html" />
-    <link rel="prev" title="3. Beslissingen" href="tw%26e_theo_03_beslissingen.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="nl"/>
   </head>
@@ -129,6 +127,8 @@
       
       
       
+        
+      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -178,11 +178,11 @@
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_01_sequentie_en_variabelen.html">1. Sequentie en variabelen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_02_operatoren.html">2. Operatoren</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_03_beslissingen.html">3. Beslissingen</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Itereerbare objecten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_04_itereren.html">4. Itereerbare objecten</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_05_while.html">5. Voorwaardelijke herhaling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_06_for.html">6. De begrensde herhaling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_07_allerlei.html">7. Functies en procedures</a></li>
@@ -242,7 +242,7 @@
       
       
       
-      <li><a href="_sources/tw&e_theo_04_itereren.ipynb" target="_blank"
+      <li><a href="_sources/tw&e_theo_04_itereren-koen.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download het bronbestand"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -336,25 +336,25 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">4.1. Strings</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexering">4.1.1. Indexering</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methodes">4.1.2. Methodes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexering">Indexering</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methodes">Methodes</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lijsten-en-tuples">4.2. Lijsten en tuples</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inleiding">4.2.1. Inleiding</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">4.2.2. Indexering</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functies">4.2.3. Functies</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">4.2.4. Methodes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lijsten-en-tuples">Lijsten en tuples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inleiding">Inleiding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Indexering</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functies">Functies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Methodes</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">4.3. Dictionaries</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">4.3.1. Inleiding</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gebruik">4.3.2. Gebruik</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictmethodes-target">4.3.3. Methodes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">Dictionaries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Inleiding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gebruik">Gebruik</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictmethodes-target">Methodes</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#itereerbaar-object-creeeren">4.4. Itereerbaar object creëeren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#itereerbaar-object-creeeren">Itereerbaar object creëeren</a></li>
 </ul>
             </nav>
         </div>
@@ -367,13 +367,13 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="itereerbare-objecten">
-<h1><span class="section-number">4. </span>Itereerbare objecten<a class="headerlink" href="#itereerbare-objecten" title="Link to this heading">#</a></h1>
+<h1>Itereerbare objecten<a class="headerlink" href="#itereerbare-objecten" title="Link to this heading">#</a></h1>
 <p>Bij het gebruik van data hebben we nood aan een ordentelijke manier om deze op te slaan. Indien we zouden beschikken over een 1000-tal meetgegevens, dan spreekt het voor zich dat we hier geen 1000 variabelen voor gaan instantiëren. Een verzameling van deze meetgegevens die we gaan opslaan in één variabele dringt zich dan ook aan. Binnen Python bestaan er verschillende manieren om dit te bewerkstellingen. We noemen deze dan de <em>itereerbare objecten</em>.</p>
 <section id="strings">
-<h2><span class="section-number">4.1. </span>Strings<a class="headerlink" href="#strings" title="Link to this heading">#</a></h2>
+<h2>Strings<a class="headerlink" href="#strings" title="Link to this heading">#</a></h2>
 <p>We hebben wel al gezien hoe we veel karakters kunnen bijhouden, namelijk in een <code class="docutils literal notranslate"><span class="pre">string</span></code>. Een string is op zich dus ook een verzameling van veel karakters.</p>
 <section id="indexering">
-<h3><span class="section-number">4.1.1. </span>Indexering<a class="headerlink" href="#indexering" title="Link to this heading">#</a></h3>
+<h3>Indexering<a class="headerlink" href="#indexering" title="Link to this heading">#</a></h3>
 <p>Of we nu werken met strings, lijsten of tuples, bij elk van deze verzamelingen zullen we te maken hebben met indexeringen. In de verzameling kunnen we ieder element bereiken door gebruik te maken van de <strong>juiste index</strong>, wat niet anders is dan op te geven in het <strong>hoeveelste element</strong> wij geïnteresseerd zijn. Aangezien wij op een computersysteem zitten is er één addertje onder het gras. <strong>Er wordt altijd geteld vanaf 0!</strong></p>
 <p>Stel dat we uitgaan van de string <code class="docutils literal notranslate"><span class="pre">VTI-Torhout</span></code>, dan zien we meteen dat deze string niets anders is dan een verzameling van 11 karakters. In de verzameling hebben we vervolgens een karakter met index 0, die overeenstemt met de eerste letter van de string, namelijk de <code class="docutils literal notranslate"><span class="pre">V</span></code>. Het tweede karakter, de letter <code class="docutils literal notranslate"><span class="pre">T</span></code>, heeft dan als index 1 enzoverder.</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -495,7 +495,7 @@ Torhout
 </div>
 </section>
 <section id="methodes">
-<h3><span class="section-number">4.1.2. </span>Methodes<a class="headerlink" href="#methodes" title="Link to this heading">#</a></h3>
+<h3>Methodes<a class="headerlink" href="#methodes" title="Link to this heading">#</a></h3>
 <p>Indien wij controleren wat het type variabele is van <code class="docutils literal notranslate"><span class="pre">myStr</span></code> krijgen wij het volgende:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -512,8 +512,8 @@ Torhout
 <p>We kunnen hier opmerken dat dit een <em>klasse</em> betreft. Op een klasse kunnen wij meestal verschillende methoden toepassen. Je kan deze aanroepen via de <code class="docutils literal notranslate"><span class="pre">.</span></code> operator die je laat volgen op een <em>object</em> van de desbetreffende klasse. In ons voorbeeld kan dit via <code class="docutils literal notranslate"><span class="pre">myStr.&lt;methode_naam&gt;</span></code>. Voor de klasse <code class="docutils literal notranslate"><span class="pre">str</span></code> zijn volgende methoden beschikbaar:</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">lower()</span></code>:  Zet een string om in kleine letters (de haakjes verwachten geen argument, maar methodes hebben altijd haakjes nodig om uitgevoerd te worden). Het spreekt voor zich dat er ook een <code class="docutils literal notranslate"><span class="pre">upper()</span></code> is die alles in hoofdletters zet.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">index(&lt;substring&gt;)</span></code>: Bepaalt op welke plaats een substring voor het eerst start in een string. Als optionele argumenten kan je twee getallen meegeven die bepalen van waar tot waar gezocht moet worden. Zie hiervoor <em><a class="reference internal" href="#slicing-target">slicing</a></em>. <em>Opgelet! Indien de substring niet gevonden wordt, zal een ValueError optreden. Gebruik om de dit te voorkomen liever de <code class="docutils literal notranslate"><span class="pre">find()</span></code> methode.</em></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">find(&lt;substring&gt;)</span></code>: Identiek zoals de methode <code class="docutils literal notranslate"><span class="pre">index()</span></code>, maar retourneert de waarde <code class="docutils literal notranslate"><span class="pre">-1</span></code> wanneer de substring niet gevonden wordt.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">index(&lt;substring&gt;)</span></code>: Bepaalt op welke plaats een substring voor het eerst start in een string. Als optionele argumenten kan je twee getallen meegeven die bepalen van waar tot waar gezocht moet worden. Zie hiervoor <em><a class="reference internal" href="#slicing-target">slicing</a></em>. <em>Opgelet! Indien de substring niet gevonden wordt, zal een fout gegenereerd worden. Dit vang je het best op met een try except. De methode <code class="docutils literal notranslate"><span class="pre">find()</span></code> zal geen fout genereren wanneer de string niet gevonden is.</em></p></li>
+<li><p>`find(</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">strip()</span></code>: Verwijdert spaties aan het begin en einde van een string, inclusief eventuele <em>newline</em> tekens en andere tekens die als spaties gezien kunnen worden. Als je iets anders dan spaties wilt verwijderen, kun je als parameter een string meegeven die bestaat uit alle te verwijderen tekens. Deze worden <em>gestript</em> aan het begin en einde van de string totdat een karakter voorkomt die niet in de meegegeven string staat.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">split()</span></code>: Splitst een string in delen. Hier zou je een argument kunnen invoeren (namelijk het scheidingsteken of delimiter), maar standaard wordt er gesplitst op spaties. Het resultaat van deze opsplitsing is een <a class="reference internal" href="#list-target">lijst</a> van woorden.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">join()</span></code>: De tegenhanger van <code class="docutils literal notranslate"><span class="pre">split()</span></code>. <code class="docutils literal notranslate"><span class="pre">join()</span></code> plakt een lijst van woorden aaneen tot een string, waarbij de woorden in de string van elkaar gescheiden zijn middels een specifieke separator, namelijk de string waarop de <code class="docutils literal notranslate"><span class="pre">join()</span></code> methode wordt toegepast. De parameter die je met de methode meegeeft betreft een lijst van woorden. De retourwaarde is de resulterende string.</p></li>
@@ -524,7 +524,6 @@ Torhout
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">myStr</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">myStr</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">myStr</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;Torhout&quot;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">myStr</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;Torhout&quot;</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">myStr</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;VTI-&quot;</span><span class="p">))</span>
 <span class="n">myList</span> <span class="o">=</span> <span class="n">myStr</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span>
@@ -537,7 +536,6 @@ Torhout
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>vti-torhout
 VTI-TORHOUT
 4
-4
 orhout
 [&#39;VTI&#39;, &#39;Torhout&#39;]
 VTI Torhout
@@ -546,46 +544,12 @@ VTI-Torhouk
 </div>
 </div>
 </div>
-<div class="danger admonition">
-<p class="admonition-title">Opgelet</p>
-<p>Zoals bij de methoden reeds aangehaald gebruik je best niet <code class="docutils literal notranslate"><span class="pre">index(&lt;substring&gt;)</span></code> als je niet zeker bent of de substring in de string voorkomt. Dit genereert een ValueError! Indien je wil testen of de substring voorkomt gebruik je beter <code class="docutils literal notranslate"><span class="pre">find(&lt;substring&gt;</span></code>. Deze methode zal de waarde <code class="docutils literal notranslate"><span class="pre">-1</span></code> teruggeven indien de substring niet gevonden kan worden in de string. Alle positieve waarden (inclusief <code class="docutils literal notranslate"><span class="pre">0</span></code>) duiden er op dat de substring wel is aangetroffen in de string.</p>
-<p>De <code class="docutils literal notranslate"><span class="pre">index()</span></code> methode heeft ook zeker zijn nut, aangezien deze methode transparant is voor meerdere itereerbare objecten (lijst &amp; tuple).</p>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">myStr</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;Koen&quot;</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">myStr</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;Koen&quot;</span><span class="p">))</span>
-
-<span class="ne">ValueError</span>: substring not found
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">myStr</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;Koen&quot;</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 </section>
 <section id="lijsten-en-tuples">
-<span id="list-target"></span><h2><span class="section-number">4.2. </span>Lijsten en tuples<a class="headerlink" href="#lijsten-en-tuples" title="Link to this heading">#</a></h2>
+<span id="list-target"></span><h2>Lijsten en tuples<a class="headerlink" href="#lijsten-en-tuples" title="Link to this heading">#</a></h2>
 <section id="inleiding">
-<h3><span class="section-number">4.2.1. </span>Inleiding<a class="headerlink" href="#inleiding" title="Link to this heading">#</a></h3>
+<h3>Inleiding<a class="headerlink" href="#inleiding" title="Link to this heading">#</a></h3>
 <p>Omdat ze zo sterk verwant zijn behandelen we <em>tuples</em> en <em>lijsten</em> samen. Lijsten en tuples zijn itereerbare objecten die dus een groep van elementen bevatten. Deze groep moet niet per se bestaan uit dezelfde datatypes. Het vormelijk onderscheid tussen een lijst en een tuple wordt gemaakt door de soort haakjes bij het invoeren:</p>
 <ul class="simple">
 <li><p>Ronde haakjes <code class="docutils literal notranslate"><span class="pre">(&lt;items&gt;)</span></code> dienen voor een <em>tuple</em></p></li>
@@ -605,7 +569,7 @@ VTI-Torhouk
 </div>
 </section>
 <section id="id1">
-<h3><span class="section-number">4.2.2. </span>Indexering<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<h3>Indexering<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>Je gebruikt elementen uit een lijst of een tuple precies zoals je dat doet met een string. Door het element te indexeren. De indices werken dan ook op dezelfde manier als bij strings. <em>Slicing</em> is hier eveneens mogelijk.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -632,7 +596,7 @@ VTI-Torhouk
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">myList</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">myTuple</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
 
@@ -679,7 +643,7 @@ VTI-Torhouk
 </div>
 </section>
 <section id="functies">
-<h3><span class="section-number">4.2.3. </span>Functies<a class="headerlink" href="#functies" title="Link to this heading">#</a></h3>
+<h3>Functies<a class="headerlink" href="#functies" title="Link to this heading">#</a></h3>
 <p>Voor tuples en lijsten zijn er enkele functies beschikbaar die als parameter een tuple/lijst aanvaarden.</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">len(&lt;object&gt;)</span></code> geeft het aantal elementen in de lijst/tuple.</p></li>
@@ -692,7 +656,7 @@ VTI-Torhouk
 </div>
 </section>
 <section id="id2">
-<h3><span class="section-number">4.2.4. </span>Methodes<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<h3>Methodes<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <div class="tip admonition">
 <p class="admonition-title">Opmerking</p>
 <p>De hieronder opgesomde methoden zijn enkel van toepassing op lijsten (tenzij anders vermeld). De reden hiervoor is dat enkel lijsten aanpasbaar zijn, en veel van deze methoden een wijziging aan de lijst doorvoeren.</p>
@@ -752,14 +716,14 @@ VTI-Torhouk
 </section>
 </section>
 <section id="dictionaries">
-<h2><span class="section-number">4.3. </span>Dictionaries<a class="headerlink" href="#dictionaries" title="Link to this heading">#</a></h2>
+<h2>Dictionaries<a class="headerlink" href="#dictionaries" title="Link to this heading">#</a></h2>
 <section id="id3">
-<h3><span class="section-number">4.3.1. </span>Inleiding<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<h3>Inleiding<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>Strings, tuples en lists zijn geordende data structuren, wat inhoudt dat ze via indices benaderd kunnen worden. Maar niet alle data verzamelingen hebben een natuurlijke manier van numeriek geordend te zijn en deze kunnen dus niet (gemakkelijk) geïndiceerd worden. Python biedt zogenaamde <em>dictionaries</em> aan als een manier om ongeordende data te structureren.</p>
 <p>Een dictionary is een ongeordende data structuur die een verzameling objecten bevat. Een dictionary is eigenlijk een verzameling van <em>keys</em> met geassocieerde waardes. Om een object te vinden, moet je de <em>key</em> van het object kennen. Ieder onveranderbaar data type (strings, tuples, …) mag gebruikt worden als <em>key</em>. Een veelgebruikt data type dat als <em>key</em> wordt ingezet is de string, wat natuurlijk te maken heeft met de leesbaarheid die hierdoor bevordert wordt.</p>
 </section>
 <section id="gebruik">
-<h3><span class="section-number">4.3.2. </span>Gebruik<a class="headerlink" href="#gebruik" title="Link to this heading">#</a></h3>
+<h3>Gebruik<a class="headerlink" href="#gebruik" title="Link to this heading">#</a></h3>
 <p>Dictionaries creëer je middels accolades <code class="docutils literal notranslate"><span class="pre">{}</span></code>, vergelijkbaar met hoe je lists creëert met vierkante haken en tuples met ronde haken. Je kan een dictionary met inhoud creëren door ieder element dat je erin wilt hebben tussen de accolades te plaatsen, met als syntax <code class="docutils literal notranslate"><span class="pre">&lt;key&gt;:&lt;value&gt;</span></code> en met komma’s tussen de elementen. <em>Men spreekt dan ook dikwijls over <strong>KV-pairs</strong>, waarmee natuurlijk <strong>K</strong>ey en <strong>V</strong>alue bedoeld wordt.</em></p>
 <p>Volgend voorbeeld verduidelijkt dit:</p>
 <div class="cell docutils container">
@@ -843,7 +807,7 @@ VTI-Torhouk
 </div>
 </section>
 <section id="dictmethodes-target">
-<span id="id4"></span><h3><span class="section-number">4.3.3. </span>Methodes<a class="headerlink" href="#dictmethodes-target" title="Link to this heading">#</a></h3>
+<span id="id4"></span><h3>Methodes<a class="headerlink" href="#dictmethodes-target" title="Link to this heading">#</a></h3>
 <p>Voor dictionaries zijn er verschillende methoden beschikbaar. Volgende methoden worden het meest gebruikt:</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;dictionary&gt;.keys()</span></code> levert een itereerbaar object dat alle keys van de dictionary genereert.</p></li>
@@ -902,7 +866,7 @@ Bestaat niet!
 </section>
 </section>
 <section id="itereerbaar-object-creeeren">
-<h2><span class="section-number">4.4. </span>Itereerbaar object creëeren<a class="headerlink" href="#itereerbaar-object-creeeren" title="Link to this heading">#</a></h2>
+<h2>Itereerbaar object creëeren<a class="headerlink" href="#itereerbaar-object-creeeren" title="Link to this heading">#</a></h2>
 <p>Indien we een itereerbaar object wensen, waarbij een zekere (vooraf vastgelegde) herhaling van toepassing moet zijn, kunnen we via de <code class="docutils literal notranslate"><span class="pre">range()</span></code> functie deze creëeren. De <code class="docutils literal notranslate"><span class="pre">range(&lt;start&gt;,&lt;stop&gt;,&lt;step&gt;)</span></code> functie gelijkt sterk op wat we bij <code class="docutils literal notranslate"><span class="pre">slicing</span></code> toepassen. Deze aanvaardt namelijk drie parameters:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;start&gt;</span></code>: vanaf welke integer waarde moet het itereerbare object starten? <em>Optioneel, indien niet meegegeven wordt gestart vanaf 0.</em></p></li>
@@ -987,24 +951,6 @@ range(0, 5)
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="tw%26e_theo_03_beslissingen.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">vorige</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>Beslissingen</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="tw%26e_theo_05_while.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">volgende</p>
-        <p class="prev-next-title"><span class="section-number">5. </span>Voorwaardelijke herhaling</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -1021,25 +967,25 @@ range(0, 5)
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">4.1. Strings</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexering">4.1.1. Indexering</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methodes">4.1.2. Methodes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexering">Indexering</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methodes">Methodes</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lijsten-en-tuples">4.2. Lijsten en tuples</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inleiding">4.2.1. Inleiding</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">4.2.2. Indexering</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functies">4.2.3. Functies</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">4.2.4. Methodes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lijsten-en-tuples">Lijsten en tuples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inleiding">Inleiding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Indexering</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functies">Functies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Methodes</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">4.3. Dictionaries</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">4.3.1. Inleiding</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gebruik">4.3.2. Gebruik</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictmethodes-target">4.3.3. Methodes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">Dictionaries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Inleiding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gebruik">Gebruik</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictmethodes-target">Methodes</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#itereerbaar-object-creeeren">4.4. Itereerbaar object creëeren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#itereerbaar-object-creeeren">Itereerbaar object creëeren</a></li>
 </ul>
   </nav></div>
 

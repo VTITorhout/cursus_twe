@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="_static/_static/mystyle.css" />
@@ -418,7 +418,7 @@ n
 </section>
 <section id="list-tuple">
 <h3><span class="section-number">6.2.3. </span>List/tuple<a class="headerlink" href="#list-tuple" title="Link to this heading">#</a></h3>
-<p>Hetzelfde geld voor lists en tuples. De eerder aangehaalde <a class="reference internal" href="tw%26e_theo_04_itereren.html#printlist-target"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">print(*&lt;list/tuple&gt;)</span></code></span></a> functie die de haken van rond een list en/of tuple verwijdert kan met een for loop eenvoudig zelf geïmplementeerd worden:</p>
+<p>Hetzelfde geld voor lists en tuples. De eerder aangehaalde <a class="reference internal" href="tw%26e_theo_04_itereren-koen.html#printlist-target"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">print(*&lt;list/tuple&gt;)</span></code></span></a> functie die de haken van rond een list en/of tuple verwijdert kan met een for loop eenvoudig zelf geïmplementeerd worden:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Koen&quot;</span><span class="p">,</span><span class="mi">39</span><span class="p">]</span>
@@ -452,7 +452,7 @@ n
 </div>
 </div>
 </div>
-<p>Men zou foutief kunnen veronderstellen dat het doorlopen van een dictionary de <code class="docutils literal notranslate"><span class="pre">key:value</span></code>-pairs (verder kv-pair genaamd) zou itereren. We krijgen echter bij het doorlopen van een dictionary enkel de keys. Bij de <a class="reference internal" href="tw%26e_theo_04_itereren.html#dictmethodes-target"><span class="std std-ref">methodes</span></a> die kunnen toegepast worden op dictionaries hebben we gezien dat we expliciet kunnen vragen naar de kv-pairs door de methode <code class="docutils literal notranslate"><span class="pre">.items()</span></code>, wat ons een itereerbaar object levert. Kiezen we niet voor deze methode, dan wordt standaard de methode <code class="docutils literal notranslate"><span class="pre">.keys()</span></code> aangeroepen, die ons eveneens een itereerbaar object levert, maar die enkel de keys bevat, zoals in bovenstaand voorbeeld kon opgemerkt worden.</p>
+<p>Men zou foutief kunnen veronderstellen dat het doorlopen van een dictionary de <code class="docutils literal notranslate"><span class="pre">key:value</span></code>-pairs (verder kv-pair genaamd) zou itereren. We krijgen echter bij het doorlopen van een dictionary enkel de keys. Bij de <a class="reference internal" href="tw%26e_theo_04_itereren-koen.html#dictmethodes-target"><span class="std std-ref">methodes</span></a> die kunnen toegepast worden op dictionaries hebben we gezien dat we expliciet kunnen vragen naar de kv-pairs door de methode <code class="docutils literal notranslate"><span class="pre">.items()</span></code>, wat ons een itereerbaar object levert. Kiezen we niet voor deze methode, dan wordt standaard de methode <code class="docutils literal notranslate"><span class="pre">.keys()</span></code> aangeroepen, die ons eveneens een itereerbaar object levert, maar die enkel de keys bevat, zoals in bovenstaand voorbeeld kon opgemerkt worden.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">kv</span> <span class="ow">in</span> <span class="n">myDict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
