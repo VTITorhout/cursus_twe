@@ -342,7 +342,11 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#foutafhandeling">8. Foutafhandeling</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#scope">8. Scope</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-scope">8.1. Global scope</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-scope">8.2. Local scope</a></li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#importeren">9. Importeren</a></li>
 </ul>
 
@@ -372,7 +376,7 @@ document.write(`
 <li><p>De <code class="docutils literal notranslate"><span class="pre">&lt;argumenten&gt;</span></code> zijn optioneel. Je kan kiezen om geen mee te geven, slechts één, of zelfs meerdere</p></li>
 <li><p>Indien je meerdere <code class="docutils literal notranslate"><span class="pre">&lt;argumenten&gt;</span></code> meegeeft met de functie/procedure moeten deze gescheiden zijn door een komma (<code class="docutils literal notranslate"><span class="pre">,</span></code>)</p></li>
 <li><p>Een <code class="docutils literal notranslate"><span class="pre">&lt;argument&gt;</span></code> kan ook optioneel zijn. Je maakt een <code class="docutils literal notranslate"><span class="pre">&lt;argument&gt;</span></code> optioneel door er een standaard (default) waarde toe te kennen. Indien het <code class="docutils literal notranslate"><span class="pre">&lt;argument&gt;</span></code> dan niet wordt meegegeven bij de aanroep van de functie/procedure wordt de standaardwaarde ingevuld. Niet-optionele argumenten moeten altijd <strong>voor</strong> de optionele argumenten staan.</p></li>
-<li><p>De <code class="docutils literal notranslate"><span class="pre">return</span></code> op het einde van de functie is optioneel. Indien de functie geen <code class="docutils literal notranslate"><span class="pre">&lt;waarden&gt;</span></code> teruggeeft naar de oproeper wordt dit een procedure of subroutine genaamd.</p></li>
+<li><p>De <code class="docutils literal notranslate"><span class="pre">return</span></code> op het einde van de functie is optioneel. Indien de functie geen <code class="docutils literal notranslate"><span class="pre">&lt;waarden&gt;</span></code> teruggeeft naar de oproeper wordt dit een procedure of subroutine genaamd. <em>Opgelet! Op de achtergrond wordt altijd een waarde teruggegeven (al kiest men hier zelf niet voor), namelijk <code class="docutils literal notranslate"><span class="pre">None</span></code>.</em></p></li>
 <li><p>Er kunnen meerdere waarden teruggegeven worden naar de oproeper via de <code class="docutils literal notranslate"><span class="pre">return</span></code>. Deze waarden moeten gescheiden worden door een komma (<code class="docutils literal notranslate"><span class="pre">,</span></code>). <em>Er kan nooit meer dan één object teruggegeven worden. Python zal onder de motorkap deze verschillende waarden combineren in één object, namelijk een tuple. Bij ontvangst door de oproeper kan deze tuple ge-unpacked worden.</em></p></li>
 </ul>
 </section>
@@ -426,7 +430,7 @@ document.write(`
 <span class="n">myCoolFunction</span><span class="p">(</span><span class="n">leeftijd</span><span class="o">=</span><span class="mi">39</span><span class="p">,</span><span class="n">naam</span><span class="o">=</span><span class="s2">&quot;Koen&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><em>Weet dat dit echter in andere talen niet altijd wordt ondersteund.</em></p>
+<p><em>Weet dat dit echter in andere talen niet altijd wordt ondersteund. Eveneens zal op hardware (MicroPython) dit uit den boze zijn aangezien dit zorgt voor een te grote implementatiecode.</em></p>
 </div>
 <div class="tip admonition">
 <p class="admonition-title">Default values</p>
@@ -487,13 +491,171 @@ document.write(`
 </section>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="foutafhandeling">
-<h1><span class="section-number">8. </span>Foutafhandeling<a class="headerlink" href="#foutafhandeling" title="Link to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="scope">
+<h1><span class="section-number">8. </span>Scope<a class="headerlink" href="#scope" title="Link to this heading">#</a></h1>
+<p>Functies/methoden laten toe om variabelen en objecten te encapsuleren tot een bepaald stukje van de code. Men spreekt hier over de <em>scope</em> van de variabele of het object. Op zich bestaan er twee verschillende <em>scopes</em>, namelijk de <em>globale</em> en <em>lokale</em> scope. Het correct gebruik van de scope zal zorgen dat een programma werkt zoals gewenst.</p>
+<div class="note admonition">
+<p class="admonition-title">Regels van good practice</p>
+<p>Een goeie programmeur zal zelden variabelen/objecten declaren in de globale scope, tenzij hij echt niet anders kan. Variabelen en objecten moeten gedeclareerd worden in de lokale scope. Indien informatie moet uitgewisseld worden tussen verschillende stukken code (scopes) moet dit gebeuren door gebruik te maken van <em>argumenten</em> en <em>return values</em> bij functies en methoden. In de uitleg die hieronder staat wordt hierop dieper ingegaan.</p>
+</div>
+<section id="global-scope">
+<h2><span class="section-number">8.1. </span>Global scope<a class="headerlink" href="#global-scope" title="Link to this heading">#</a></h2>
+<p>De globale scope is eenvoudig te definiëren. Alle variabelen/objecten die aangemaakt worden en niet behoren tot een functie en/of methode zijn globaal gedeclareerd. Dit betekent dat ze toegankelijk zijn vanuit iedere functie/methode. Volgend voorbeeld demonstreert dit:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Functies/methoden</span>
+<span class="k">def</span> <span class="nf">myCoolFunction</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">naam</span><span class="p">)</span>
+
+<span class="c1">#Volgende variabele is globaal gedeclareerd</span>
+<span class="n">naam</span> <span class="o">=</span> <span class="s2">&quot;Koen&quot;</span>
+
+<span class="c1">#Voer een functie uit</span>
+<span class="n">myCoolFunction</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Koen
+</pre></div>
+</div>
+</div>
+</div>
+<p>Voor een beginnend programmeur is de werking van bovenstaande code een evidentie. Maar wat indien we een globale en lokale scope beginnen te mengen? Volgend stukje code demonstreert het probleem:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Functies/methoden</span>
+<span class="k">def</span> <span class="nf">myCoolFunction</span><span class="p">(</span><span class="n">naam</span><span class="p">):</span>
+    <span class="c1">#naam is lokaal gedefinieerd (in deze functie)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">naam</span><span class="p">)</span>
+
+<span class="c1">#Volgende variabele is globaal gedeclareerd</span>
+<span class="n">naam</span> <span class="o">=</span> <span class="s2">&quot;Koen&quot;</span>
+
+<span class="c1">#Voer een functie uit</span>
+<span class="n">myCoolFunction</span><span class="p">(</span><span class="s2">&quot;Geeraert&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">naam</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Geeraert
+Koen
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hier is op te merken dat de lokale scope de variabele <code class="docutils literal notranslate"><span class="pre">naam</span></code> verandert van waarde. Dit is echter niet zo, want op het einde van het programma wordt de variabele <code class="docutils literal notranslate"><span class="pre">naam</span></code> nog eens afgedrukt, en is duidelijk te zien dat deze nog altijd de oorspronkelijke (globale) inhoud bevat. Men kan zeggen dat de lokale scope de globale scope met identieke naamgeving verbergt. Vanuit de lokale scope kunnen we dus niet meer aan een variabele of object met een zelfde naamgeving.</p>
+<div class="danger admonition">
+<p class="admonition-title">Opgelet</p>
+<p>Voor kleine programma’s is dit nog overkomelijk door een andere naam te gebruiken voor de variabele of het object, maar indien de code zal beginnen bestaan uit een resem van verschillende stukken code door verschillende mensen geschreven wordt de kans dat een identieke naam wordt gebruikt groter. <strong>Het wordt dus ten stelligste afgeraden variabelen en objecten globaal te declareren wil je de werking van jouw stuk code kunnen garanderen!</strong></p>
+</div>
+<div class="hint admonition">
+<p class="admonition-title">Thonny’s Assistant</p>
+<p>In Thonny zit een mogelijkheid ingebakken om hiervoor (en eveneens voor nog veel meer) gewaarschuwd te worden. Bij het tabblad <em>Weergave</em> kun je kiezen voor <em>Assistant</em>. Dit activeren zal er voor zorgen dat aan de zijkant van je scherm een extra venster wordt weergegeven. Standaard zul je hier weinig of niets zien. Er zal pas informatie worden weergegeven als aan volgende zaken is voldaan:</p>
+<ul class="simple">
+<li><p>Je code is opgeslagen</p></li>
+<li><p>Je code moet minimaal één keer uitgevoerd zijn.</p></li>
+<li><p>Je code wordt niet (meer) uitgevoerd. <em>Wanneer je een eindeloze lus toepast zal de Assistant niets weergeven. Je moet dan verplicht eerst op het Stop symbool klikken (of gebruik maken van de toetsencombinatie <code class="docutils literal notranslate"><span class="pre">ctrl</span></code> + <code class="docutils literal notranslate"><span class="pre">c</span></code>) zodat de code stopt met uitgevoerd te worden.</em></p></li>
+</ul>
+<figure class="myblockimg align-left" id="id1">
+<a class="reference internal image-reference" href="_images/thonny_assistant.png"><img alt="_images/thonny_assistant.png" src="_images/thonny_assistant.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 8.1 </span><span class="caption-text">De assistant van Thonny had ons al gewaarschuwd voor mogelijke problemen.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Als we kijken naar de <em>waarschuwing</em> zien we een probleem op lijn 2. De assistant vermeld duidelijk dat de lokale variabele de globale variabele (met dezelfde naam) verbergt, en dat je deze niet meer kan gebruiken in je code. Het stukje tekst <em>“Most likely there is nothing wrong with this. I just wanted to remind you that you can’t access the global variabele like this. If you kwew it then please ignore the warning.”</em> dekt de lading.</p>
+<p>Goeie code zou in de assistant geen enkele waarschuwing mogen geven. Maak er dan ook een gewoonte van om alle waarschuwingen weg te werken, en dit door <strong>jouw code aan te passen</strong> en niet door de waarschuwing af te vinken…</p>
+</div>
+</section>
+<section id="local-scope">
+<h2><span class="section-number">8.2. </span>Local scope<a class="headerlink" href="#local-scope" title="Link to this heading">#</a></h2>
+<p>Een definitie van de lokale scope is ondertussen wellicht nutteloos. Het is duidelijk dat wanneer een variabele of object wordt aangemaakt in een functie of methode deze lokaal gedeclareerd is. Je kunt je dan afvragen hoe dit dan moet voor een programma? Herschrijven we ons programma van hierboven op de juiste manier:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Functies/methoden</span>
+<span class="k">def</span> <span class="nf">myCoolFunction</span><span class="p">(</span><span class="n">naam</span><span class="p">):</span>
+    <span class="c1">#naam is lokaal gedefinieerd (in deze functie)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">naam</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span> <span class="c1">#hier start ons hoofdprogramma</span>
+    <span class="c1">#Volgende variabele is globaal gedeclareerd</span>
+    <span class="n">naam</span> <span class="o">=</span> <span class="s2">&quot;Koen&quot;</span>
+    <span class="c1">#Voer een functie uit</span>
+    <span class="n">myCoolFunction</span><span class="p">(</span><span class="s2">&quot;Geeraert&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">naam</span><span class="p">)</span>
+
+<span class="c1">#start het hoofdprogramma</span>
+<span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Geeraert
+Koen
+</pre></div>
+</div>
+</div>
+</div>
+<p>In de assistant is te zien dat de waarschuwing van eerder is verdwenen.</p>
+<figure class="myblockimg align-left" id="id2">
+<a class="reference internal image-reference" href="_images/thonny_assistant2.png"><img alt="_images/thonny_assistant2.png" src="_images/thonny_assistant2.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 8.2 </span><span class="caption-text">Deze code ziet er goed uit.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Je kan je nu wel gaan afvragen hoe we in de functie <code class="docutils literal notranslate"><span class="pre">myCoolFunction</span></code> nu aan de variabele <code class="docutils literal notranslate"><span class="pre">naam</span></code> geraken die in de functie <code class="docutils literal notranslate"><span class="pre">main</span></code> is gedeclareerd. Wel, zoals in de inleiding reeds aangehaald moet je alle variabelen die nodig zijn in de functie/methode meegeven met de <em>function call</em> als argumenten. Het oproepen van de functie <code class="docutils literal notranslate"><span class="pre">myCoolFunction(naam)</span></code> geeft dus de inhoud van de <em>“globale”</em> variabele mee als argument, en kan vervolgens gebruikt worden als een <em>“lokale”</em> variabele. <em>Merk op dat hier bewust gebruik is gemaakt van <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> rond het type variabelen, aangezien er geen globale variabelen worden gebruikt. Als je echter naar de hierarchie in de code kijkt worden er enkel <em>function calls</em> uitgevoerd van de <code class="docutils literal notranslate"><span class="pre">main</span></code> naar de <code class="docutils literal notranslate"><span class="pre">myCoolFunction</span></code>. De <code class="docutils literal notranslate"><span class="pre">main</span></code> staat dus boven <code class="docutils literal notranslate"><span class="pre">myCoolFunction</span></code> in de hierarchie, en de variabelen in de <code class="docutils literal notranslate"><span class="pre">main</span></code> kunnen dan ook eerder als globaal aanschouwd worden voor de <code class="docutils literal notranslate"><span class="pre">myCoolFunction</span></code>.</em></p>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="importeren">
 <h1><span class="section-number">9. </span>Importeren<a class="headerlink" href="#importeren" title="Link to this heading">#</a></h1>
-<p>Iets over import as
-Iets over <strong>main</strong></p>
+<p>Bij het onwerp van complexere programma’s wordt er meestal modulair gewerkt. Het totale programma wordt opgesplitst in bruikbare/bevatbare onderdelen. Deze deeloplossingen kunnen door verscheidene programmeurs samen ontworpen worden (met alle risico’s betreffende de globale scope, zie hiervoor eerder). Uiteindelijk moeten deze deeloplossingen terug samen komen in de overkoepelende code.</p>
+<p>Om deze manier van aanpak te kunnen bewerkstelligen moet er gebruik gemaakt worden van het <code class="docutils literal notranslate"><span class="pre">import</span></code> commando, die op zijn beurt de import functie aanroept (en nog verschillende andere zaken uitvoert). Het eerste voorbeeld demonstreert (in beperkte mate) deze manier van werken. Geleidelijk aan wordt dit beperkte voorbeeld uitgebreid tot een volledig werkend geheel.</p>
+<p>Gaan we als voorbeeld uit van een toepassing op complex rekenen, waarbij het omzetten van carthesiaanse notatie naar polaire notatie en vice versa meerdere malen moet gebeuren. Het is dan ook logisch dat we deze omzettingen zodanig gaan schrijven dat het hergebruik er van mogelijk wordt.</p>
+<p>Ontwerpen we hiervoor eerst een script (<code class="docutils literal notranslate"><span class="pre">cpx.py</span></code>) met volgende (beperkte) inhoud:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%writefile</span> cpx.py
+<span class="k">def</span> <span class="nf">car2pol</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+    <span class="c1">#convert carthesian (a+j.b) to polair (mod/arg)</span>
+    <span class="n">car</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2">+</span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2">j&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="n">car</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overwriting cpx.py
+</pre></div>
+</div>
+</div>
+</div>
+<p>Het bovenstaande script bevat één definitie die toelaat een complex getal in carthesiaanse notatie via argumenten mee te geven, en waarbij de modulus van de polaire voorstelling wordt teruggeven. <em>Deze functie is momenteel nog niet compleet aangezien niet alle nodige wiskundige bewerkingen standaard ingebakken zitten in Python. We zullen hiervoor eveneens een <code class="docutils literal notranslate"><span class="pre">import</span></code> moeten uitvoeren, maar aangezien dit stukje cursus over <code class="docutils literal notranslate"><span class="pre">import</span></code> gaat kan dit (tot nu toe) nog niet gebruikt worden.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Import (volledig)</span>
+
+
+<span class="c1">## Import (deel)</span>
+
+<span class="c1">## Import (als)</span>
+
+
+<span class="n">Iets</span> <span class="n">over</span> <span class="kn">import</span> <span class="nn">as</span>
+<span class="n">Iets</span> <span class="n">over</span> <span class="n">__main__</span>
+
+<span class="c1"># Foutafhandeling</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">9</span>
+    <span class="n">Iets</span> <span class="n">over</span> <span class="kn">import</span> <span class="nn">as</span>
+         <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -560,7 +722,11 @@ Iets over <strong>main</strong></p>
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#foutafhandeling">8. Foutafhandeling</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#scope">8. Scope</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-scope">8.1. Global scope</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-scope">8.2. Local scope</a></li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#importeren">9. Importeren</a></li>
 </ul>
 
