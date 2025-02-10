@@ -16,3 +16,5 @@ chapters:
   title: Allerlei
 - file: tw&e_lab_00_installatie
 - file: tw&e_lab_01_basis
+- file: tw&e_lab_02_gpio
+- file: tw&e_lab_03_tijd

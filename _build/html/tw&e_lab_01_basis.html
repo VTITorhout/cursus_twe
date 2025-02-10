@@ -189,8 +189,6 @@
 <li class="toctree-l1"><a class="reference internal" href="tw%26e_lab_00_installatie.html">11. Installatie</a></li>
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">13. “Hello World” of blink</a></li>
-
-
 </ul>
 
     </div>
@@ -339,7 +337,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">13. “Hello World” of blink</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skeleton">13.1. Skeleton</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hello-world">13.1.1. Hello World</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blink">13.1.2. Blink</a></li>
@@ -347,27 +344,6 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keyboard-interrupt">13.2. Keyboard interrupt</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tijd">14. Tijd</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-klasse">14.1. time klasse</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#timers">14.2. Timers</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cores">14.3. Cores</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#asyncio">14.4. AsyncIO</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coroutines">14.4.1. Coroutines</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#awaitables">14.4.2. Awaitables</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tasks">14.4.3. Tasks</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runner-loop-scheduler">14.4.4. Runner/Loop (scheduler)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gpio">15. GPIO</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outputs">15.1. Outputs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inputs">15.2. Inputs</a></li>
-</ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -389,17 +365,12 @@ document.write(`
 
 <span class="c1">#functies/definities</span>
 
-<span class="c1">#setup</span>
-<span class="k">def</span> <span class="nf">setup</span><span class="p">():</span>
-    <span class="k">pass</span>
-
 <span class="c1">#main</span>
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="k">pass</span>
 
 <span class="c1">#oproepen main</span>
 <span class="k">if</span><span class="p">(</span><span class="vm">__name__</span><span class="o">==</span><span class="s2">&quot;__main__&quot;</span><span class="p">):</span>
-    <span class="n">setup</span><span class="p">()</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -416,34 +387,25 @@ document.write(`
 <span class="k">def</span> <span class="nf">loop</span><span class="p">():</span>
     <span class="k">pass</span>
 
-<span class="c1">#oproepen setup en loop</span>
+<span class="c1">#controle op main</span>
 <span class="k">if</span><span class="p">(</span><span class="vm">__name__</span><span class="o">==</span><span class="s2">&quot;__main__&quot;</span><span class="p">):</span>
     <span class="n">setup</span><span class="p">()</span>
     <span class="k">while</span><span class="p">(</span><span class="kc">True</span><span class="p">):</span>
         <span class="n">loop</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>De commentaar hoeft natuurlijk niet altijd er bijgeplaatst worden, maar deze volgorde van implementatie moet wel zichtbaar zijn. Nu deze afspraak gemaakt is kunnen we meteen overgaan op ons voorbeeld “Hello World”.</p>
+<p>De commentaar hoeft er natuurlijk niet altijd bijgeplaatst te worden, maar deze volgorde van implementatie moet wel zichtbaar zijn. Nu deze afspraak gemaakt is kunnen we meteen overgaan op ons voorbeeld “Hello World”.</p>
 <section id="hello-world">
 <h3><span class="section-number">13.1.1. </span>Hello World<a class="headerlink" href="#hello-world" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">setup</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">)</span>
-
-<span class="c1">#loop</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#loop</span>
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="k">pass</span>
 
-<span class="c1">#oproepen setup en loop</span>
+<span class="c1">#uitvoeren indien main</span>
 <span class="k">if</span><span class="p">(</span><span class="vm">__name__</span><span class="o">==</span><span class="s2">&quot;__main__&quot;</span><span class="p">):</span>
-    <span class="n">setup</span><span class="p">()</span>
     <span class="n">main</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello World
 </pre></div>
 </div>
 </div>
@@ -451,7 +413,7 @@ document.write(`
 </section>
 <section id="blink">
 <h3><span class="section-number">13.1.2. </span>Blink<a class="headerlink" href="#blink" title="Link to this heading">#</a></h3>
-<p>Het blink voorbeeld vereist extra functionaliteiten die moeten ingeladen worden. Deze komen aan bod bij het onderdeel output.</p>
+<p>Het blink voorbeeld vereist extra functionaliteiten die moeten ingeladen worden. Deze komen aan bod bij de module <a class="reference internal" href="#gpio"><span class="xref myst">GPIO</span></a>.</p>
 </section>
 </section>
 <section id="keyboard-interrupt">
@@ -467,320 +429,6 @@ document.write(`
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;While gestopt door gebruiker&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="tijd">
-<h1><span class="section-number">14. </span>Tijd<a class="headerlink" href="#tijd" title="Link to this heading">#</a></h1>
-<p>Heel dikwijls moet er in code eventjes gewacht worden vooraleer de code mag/kan doorgaan. Volgende voorbeelden komen in projecten frequent voor:</p>
-<ul class="simple">
-<li><p>Knipperen van een LED met een bepaalde periode</p></li>
-<li><p>Wachten op een input van de gebruiker voor een bepaalde tijd</p></li>
-<li><p>Aansturen van een motor voor een bepaalde tijd</p></li>
-<li><p>…</p></li>
-</ul>
-<p>Ook op hardware bestaat deze mogelijkheid tot wachten, maar houd wel rekening dat tijdens het wachten het sequentieel proces stil staat tot de tijd gepasseerd is. Dit veroorzaakt op hardware soms ongewenste neveneffecten. Ingangen worden niet meer ingelezen, buscommunicatie valt stil, netwerkcommunicatie valt uit, … allerlei zaken die eigenlijk ongewenst zijn.</p>
-<p>Een goed programma wordt echter zodanig geschreven dat wachten op een correcte manier wordt geïmplementeerd.</p>
-<ol class="arabic simple">
-<li><p>In alle hardware lukt dit bijna a.d.h.v. timers, waarbij een callback functie aan de interrupt wordt gekoppeld. In het onderdeel Timers wordt dit uitgelegd.</p></li>
-<li><p>Een tweede manier, die heden ten dage veel wordt toegepast, is het gebruik van threads. Meestal zitten we op een multi threading systeem die toelaat verschillende stukken code naast elkaar te draaien, waarbij er door het RTOS (Real Time Operating System) voortdurend gewisseld wordt tussen de verschillende threads. Iedere thread krijgt dus een deel van de processorcapaciteit. Deze manier van werken wordt uitgelegd bij het onderdeel AsyncIO.</p></li>
-<li><p>Op een multicore processor systeem kan er een thread aan iedere fysische core worden toegekend. Iedere thread krijgt op die manier 100% van de processortijd. Op de ESP32 zitten er twee fysische cores, dus kunnen er simultaan twee threads worden gerund. Dit wordt uitgelegd in het onderdeel Cores.</p></li>
-</ol>
-<p>In eerste instantie wordt het puur wachten uitgelegd a.d.h.v. de <code class="docutils literal notranslate"><span class="pre">time</span></code> klasse, die standaard ingebakken zit in Python (en ook in MicroPython).</p>
-<section id="time-klasse">
-<h2><span class="section-number">14.1. </span>time klasse<a class="headerlink" href="#time-klasse" title="Link to this heading">#</a></h2>
-<p>In de <a class="reference external" href="https://docs.micropython.org/en/latest/library/time.html">klasse <code class="docutils literal notranslate"><span class="pre">time</span></code></a> zitten allerlei methoden inzake tijd, waaronder ook enkele interessante methoden om het sequentieel proces te onderbreken.</p>
-<ol class="arabic simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">sleep(&lt;seconden&gt;)</span></code> laat toe het proces te onderbreken voor het gegeven aantal <code class="docutils literal notranslate"><span class="pre">&lt;seconden&gt;</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sleep_ms(&lt;milliseconden&gt;)</span></code> laat toe het proces te onderbreken voor het gegeven aantal <code class="docutils literal notranslate"><span class="pre">&lt;milliseconden&gt;</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sleep_us(&lt;microseconden&gt;)</span></code> laat toe het proces te onderbreken voor het gegeven aantal <code class="docutils literal notranslate"><span class="pre">&lt;microseconden&gt;</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ticks_ms()</span></code> geeft de verlopen tijd in milliseconden terug sedert dat het systeem is opgestart. <em>Dit stemt overeen met de <code class="docutils literal notranslate"><span class="pre">millis()</span></code> functie die de meeste leerlingen kennen vanuit de Arduino omgeving.</em></p></li>
-</ol>
-<p>Volgend voorbeeld demonstreert het gebruik:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="k">while</span><span class="p">(</span><span class="kc">True</span><span class="p">):</span>
-        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-
-<span class="k">if</span><span class="p">(</span><span class="vm">__name__</span><span class="o">==</span><span class="s2">&quot;__main__&quot;</span><span class="p">):</span>
-    <span class="n">main</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Indien je graag de beschikking wil hebben over de Arduino functie <code class="docutils literal notranslate"><span class="pre">millis()</span></code> kan dit als volgt bereikt worden:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">ticks_ms</span> <span class="k">as</span> <span class="n">millis</span>
-<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="k">while</span><span class="p">(</span><span class="kc">True</span><span class="p">):</span>
-        <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;millis=</span><span class="si">{</span><span class="n">millis</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="k">if</span><span class="p">(</span><span class="vm">__name__</span><span class="o">==</span><span class="s2">&quot;__main__&quot;</span><span class="p">):</span>
-    <span class="n">main</span><span class="p">()</span>
-</pre></div>
-</div>
-</section>
-<section id="timers">
-<h2><span class="section-number">14.2. </span>Timers<a class="headerlink" href="#timers" title="Link to this heading">#</a></h2>
-<p>Zoals in de inleiding aangehaald bevatten de meeste processor verschillende timer blokken. Op de door ons gebruikte hardware (ESP32) zitten in totaal vier 64-bit timers.</p>
-<div class="info admonition">
-<p class="admonition-title">Timers</p>
-<p>Een timer is een hardware blok die meestal bestaat uit enkele stukken hardware:</p>
-<ul class="simple">
-<li><p>Deze bevatten in essentie altijd een teller die meestal in de mogelijkheid is om opwaarts te tellen (current counter). Soms kunnen deze ook neerwaarts tellen.</p></li>
-<li><p>De meeste timers bevatten naast de teller ook nog een vergelijkingsgeheugen (comparison counter).</p></li>
-<li><p>Indien de teller op 0 geraakt of <em>overflowt</em> genereert deze blok (optioneel) een interrupt.</p></li>
-<li><p>Indien de teller een telwaarde bereikt die overeenstemt met het vergelijkingsgeheugen genereert deze blok (optioneel) een interrupt.</p></li>
-<li><p>De telwaarde kan initieel ingesteld worden op een bepaalde waarde (reload counter).</p></li>
-<li><p>Heel dikwijls kan de tellerblok zodanig ingesteld worden dat (enkele) uitgangen kunnen aangestuurd worden wanneer de interrupt zou gegenereerd moeten worden. Dit voorkomt dat er interactie met de CPU moet gebeuren (tijdskritische zaken).</p></li>
-<li><p>Afhankelijk van de resolutie die nodig is in de timer kan de systeemklok gedeeld worden naar een lagere klok, zodat een grote tijdspanne overschreden kan worden.</p></li>
-</ul>
-<figure class="myblockimg align-left" id="id1">
-<a class="reference internal image-reference" href="_images/timers.png"><img alt="_images/timers.png" src="_images/timers.png" style="width: 500px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 14.1 </span><span class="caption-text">Standaard structuur van een generieke hardware timer.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-</div>
-<p>De verschillende timers zijn beschikbaar in <a class="reference external" href="https://docs.micropython.org/en/latest/library/machine.Timer.html">MicroPython</a> door te kiezen voor een <code class="docutils literal notranslate"><span class="pre">timer(id)</span></code>, waarbij <code class="docutils literal notranslate"><span class="pre">id</span></code> gelegen is in het bereik <code class="docutils literal notranslate"><span class="pre">[0,3]</span></code>. Kies je een <code class="docutils literal notranslate"><span class="pre">id</span></code> die buiten dit bereik ligt, dan zal dit leiden tot een foutmelding. De enige uitzondering dat je kan kiezen is gebruik maken van de <code class="docutils literal notranslate"><span class="pre">id</span></code> met als waarde <code class="docutils literal notranslate"><span class="pre">-1</span></code>. Door deze <code class="docutils literal notranslate"><span class="pre">id</span></code> te kiezen zal de timer geïmplementeerd worden in software. Het gevolg hiervan is dat de nauwkeurigheid kleiner zal zijn, dit omdat er geen interrupts zullen gebruikt worden. <em>Het gebruik van interrupts, die bij hardware timers voorkomen, laat toe het sequentieel proces van de CPU te onderbreken en binnen een vaste tijd gepast te reageren.</em></p>
-<p>Volgend voorbeeld demonstreert het gebruik van een periodieke timer:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Timer</span>
-<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span><span class="p">,</span><span class="n">sleep_ms</span>
-<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">ticks_ms</span> <span class="k">as</span> <span class="n">millis</span>
-
-<span class="c1">#definieer een &#39;callback&#39; die opgeroepen wordt wanneer een timer afloopt</span>
-<span class="k">def</span> <span class="nf">timerTask</span><span class="p">(</span><span class="n">timer</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">millis</span><span class="p">()</span><span class="si">}</span><span class="s2">: Timer task&quot;</span><span class="p">)</span>
-    
-<span class="c1">#maak de timer aan</span>
-<span class="n">myTimer</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">myTimer</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="n">Timer</span><span class="o">.</span><span class="n">PERIODIC</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">timerTask</span><span class="p">)</span>
-
-<span class="c1">#hoofdprogramma</span>
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">sleep_ms</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
-    <span class="k">while</span><span class="p">(</span><span class="kc">True</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">millis</span><span class="p">()</span><span class="si">}</span><span class="s2">: Main&quot;</span><span class="p">)</span>
-        <span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="k">if</span><span class="p">(</span><span class="vm">__name__</span><span class="o">==</span><span class="s2">&quot;__main__&quot;</span><span class="p">):</span>
-    <span class="n">main</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Als je bovenstaande code uitvoert zul je duidelijk merken dat de tijd waarop de <code class="docutils literal notranslate"><span class="pre">timerTaks</span></code> uitgevoerd wordt altijd tot op de milliseconde correct zal zijn (interval 1000ms), daar de timer blijft werken zelfs indien de <code class="docutils literal notranslate"><span class="pre">callback</span></code> wordt uitgevoerd. De tijd waarop de <code class="docutils literal notranslate"><span class="pre">main</span></code> wordt uitgevoerd zal iedere iteratie toenemen, aangezien de totale tijd nodig voor het <code class="docutils literal notranslate"><span class="pre">print</span></code> commando en het <code class="docutils literal notranslate"><span class="pre">sleep(2)</span></code> commando meer dan 2000ms bedraagt.</p>
-<ol class="arabic simple">
-<li><p>I.p.v. het named argument <code class="docutils literal notranslate"><span class="pre">period</span></code> kun je ook kiezen voor het named argument <code class="docutils literal notranslate"><span class="pre">freq</span></code>, die toelaat een frequentie in Hertz op te geven.</p></li>
-<li><p>In 99% van de gevallen zal een <em>periodieke</em> timer gebruikt worden, maar soms is er ook nood aan een methode/functie die slechts één keer uitgevoerd moet worden na een bepaalde tijd. Voor de <code class="docutils literal notranslate"><span class="pre">mode</span></code> van de timer kunnen we ook kiezen voor <code class="docutils literal notranslate"><span class="pre">Timer.ONE_SHOT</span></code>. Hier kan enkel voor het named argument <code class="docutils literal notranslate"><span class="pre">period</span></code> gekozen worden die de tussentijd tussen activeren en uitvoeren bedraagt.</p></li>
-<li><p>Merk op dat de timers (eenmaal ze geactiveerd zijn) blijven werken op de achtergrond, en de interrupts naar de <code class="docutils literal notranslate"><span class="pre">callback</span></code> in principe blijven uitgevoerd worden. Het is niet slecht dat bij het stoppen van het programma deze timers worden vernietigd/uitgeschakeld. Volgende aanpassing aan de main verwezenlijkt dit.</p></li>
-</ol>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="vm">__name__</span><span class="o">==</span><span class="s2">&quot;__main__&quot;</span><span class="p">):</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">main</span><span class="p">()</span>
-    <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
-        <span class="n">myTimer</span><span class="o">.</span><span class="n">deinit</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;timer deactivated&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<ol class="arabic simple" start="4">
-<li><p>Bij timers moet er rekening gehouden worden dat bij het uitvoeren van de <em>callback</em> functie er geen bovenliggende <em>scope</em> meer is. Dit betekent dat alle variabelen die (al dan niet) globaal in ons script worden aangemaakt niet behoren tot de <em>scope</em> van de <em>callback</em> functie. Volgende code zal dus niet werken zoals verwacht:</p></li>
-</ol>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Timer</span>
-
-<span class="n">myTimer</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
-
-<span class="k">def</span> <span class="nf">timerIsr</span><span class="p">(</span><span class="n">timer</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span>
-    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">myTimer</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="n">Timer</span><span class="o">.</span><span class="n">PERIODIC</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">timerIsr</span><span class="p">)</span>
-    <span class="k">while</span><span class="p">(</span><span class="kc">True</span><span class="p">):</span>
-        <span class="k">pass</span>
-    
-<span class="n">main</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>We krijgen volgende foutmelding te zien: <code class="docutils literal notranslate"><span class="pre">NameError:</span> <span class="pre">local</span> <span class="pre">variable</span> <span class="pre">referenced</span> <span class="pre">before</span> <span class="pre">assignment</span></code>. Dit betekent dat we proberen de variabele <code class="docutils literal notranslate"><span class="pre">counter</span></code> te benaderen vanuit de <em>callback</em>, maar deze behoort tot de <em>scope</em> van ons script, en niet tot de <em>scope</em> van de <em>callback</em>. Hiervoor moeten we expliciet in de <em>callback</em> aangeven dat de variabele bestaat, maar is gedeclareerd in ons script (globaal). Dit kan via het codewoorde <code class="docutils literal notranslate"><span class="pre">global</span></code> als volgt:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">timerIsr</span><span class="p">(</span><span class="n">timer</span><span class="p">):</span>
-    <span class="k">global</span> <span class="n">counter</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span>
-    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
-</pre></div>
-</div>
-</section>
-<section id="cores">
-<h2><span class="section-number">14.3. </span>Cores<a class="headerlink" href="#cores" title="Link to this heading">#</a></h2>
-<p>Indien we beschikken over een multicore CPU systeem kunnen we de taaklast verdelen over meerdere processoren. De ESP32 heeft twee <em>cores</em> ter beschikking. Standaard wordt alles op de 1ste core uitgevoerd. We kunnen echter op volgende manier een taak starten op de 2de core:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
-<span class="kn">import</span> <span class="nn">_thread</span>
-
-<span class="k">def</span> <span class="nf">core1_thread</span><span class="p">():</span>
-    <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span><span class="p">(</span><span class="kc">True</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span>
-        <span class="n">counter</span> <span class="o">+=</span> <span class="mi">2</span>
-        <span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">core0_thread</span><span class="p">():</span>
-    <span class="n">counter</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">while</span><span class="p">(</span><span class="kc">True</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span>
-        <span class="n">counter</span> <span class="o">+=</span> <span class="mi">2</span>
-        <span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="c1">#start core1_thread on second core</span>
-    <span class="n">second_thread</span> <span class="o">=</span> <span class="n">_thread</span><span class="o">.</span><span class="n">start_new_thread</span><span class="p">(</span><span class="n">core1_thread</span><span class="p">,</span> <span class="p">())</span>
-    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    <span class="c1">#start core0_thread on first core</span>
-    <span class="n">core0_thread</span><span class="p">()</span>
-
-<span class="k">if</span><span class="p">(</span><span class="vm">__name__</span><span class="o">==</span><span class="s2">&quot;__main__&quot;</span><span class="p">):</span>
-    <span class="n">main</span><span class="p">()</span>
-</pre></div>
-</div>
-<ol class="arabic simple">
-<li><p>Merk op dat in bovenstaande code er twee <code class="docutils literal notranslate"><span class="pre">while(True)</span></code> lussen zijn opgenomen. Op een single core systeem is dit niet mogelijk.</p></li>
-<li><p>De cores werken onafhankelijk van elkaar. Data uitwisselen tussen de cores moet op een correcte manier gebeuren, en dit a.d.h.v. mutexen/lock en/of semaphores. Dit is echter geen onderdeel van deze cursus voor TW&amp;E, maar eerder voor de richting ICW (en dan nog eerder leerstof hoger onderwijs).</p></li>
-<li><p>Deze manier van werken kan interessant zijn indien de processor intensief belast wordt (encoderen data, lokale server, …), maar in de meeste gevallen zal de leerling voldoende hebben met de <code class="docutils literal notranslate"><span class="pre">AsyncIO</span></code> die verder uitgelegd staat.</p></li>
-<li><p>Het is nog niet lang dat multithreading op MicroPython wordt toegelaten. Op volgende <a class="reference external" href="https://bytesnbits.co.uk/multi-thread-coding-on-the-raspberry-pi-pico-in-micropython/">website</a> staat extra informatie over hoe dit <em>correct</em> kan gebruikt worden.</p></li>
-</ol>
-</section>
-<section id="asyncio">
-<h2><span class="section-number">14.4. </span>AsyncIO<a class="headerlink" href="#asyncio" title="Link to this heading">#</a></h2>
-<p>Als laatste mogelijkheid wordt het gebruik van <code class="docutils literal notranslate"><span class="pre">AsyncIO</span></code> toegelicht. Vooraleer deze implementatie toegelicht wordt, wordt eerst het principe toegelicht van deze implementatie. Wellicht zullen leerlingen een identieke manier nog gebruikt hebben in eerdere lessen. Indien niet volgt hier een toelichting:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">ticks_ms</span> <span class="k">as</span> <span class="n">millis</span>
-
-<span class="k">def</span> <span class="nf">task1</span><span class="p">(</span><span class="n">period</span><span class="p">,</span><span class="n">lastExe</span><span class="p">):</span>
-    <span class="k">if</span><span class="p">((</span><span class="n">lastExe</span><span class="o">+</span><span class="n">period</span><span class="p">)</span><span class="o">&lt;</span><span class="n">millis</span><span class="p">()):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">millis</span><span class="p">()</span><span class="si">}</span><span class="s2">: task1&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">millis</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">lastExe</span>
-
-<span class="k">def</span> <span class="nf">task2</span><span class="p">(</span><span class="n">period</span><span class="p">,</span><span class="n">lastExe</span><span class="p">):</span>
-    <span class="k">if</span><span class="p">((</span><span class="n">lastExe</span><span class="o">+</span><span class="n">period</span><span class="p">)</span><span class="o">&lt;</span><span class="n">millis</span><span class="p">()):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">millis</span><span class="p">()</span><span class="si">}</span><span class="s2">: task2&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">millis</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">lastExe</span>
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">task1_period</span> <span class="o">=</span> <span class="mi">500</span>
-    <span class="n">task2_period</span> <span class="o">=</span> <span class="mi">1000</span>
-    <span class="n">task1_lastExe</span> <span class="o">=</span> <span class="n">millis</span><span class="p">()</span>
-    <span class="n">task2_lastExe</span> <span class="o">=</span> <span class="n">millis</span><span class="p">()</span>
-    <span class="c1">#schedule tasks</span>
-    <span class="k">while</span><span class="p">(</span><span class="kc">True</span><span class="p">):</span>
-        <span class="n">task1_lastExe</span> <span class="o">=</span> <span class="n">task1</span><span class="p">(</span><span class="n">task1_period</span><span class="p">,</span><span class="n">task1_lastExe</span><span class="p">)</span>
-        <span class="n">task2_lastExe</span> <span class="o">=</span> <span class="n">task2</span><span class="p">(</span><span class="n">task2_period</span><span class="p">,</span><span class="n">task2_lastExe</span><span class="p">)</span>
-
-<span class="k">if</span><span class="p">(</span><span class="vm">__name__</span><span class="o">==</span><span class="s2">&quot;__main__&quot;</span><span class="p">):</span>
-    <span class="n">main</span><span class="p">()</span>
-</pre></div>
-</div>
-<ol class="arabic simple">
-<li><p>De <code class="docutils literal notranslate"><span class="pre">main()</span></code> wordt voortdurend doorlopen. Er wordt voordurend afgewisseld tussen de verschillende taken die opgenomen zijn in de <code class="docutils literal notranslate"><span class="pre">main()</span></code>.</p></li>
-<li><p>Iedere taak beslist zelf of er iets moet gebeuren terwijl deze tijd krijgt van de <code class="docutils literal notranslate"><span class="pre">main()</span></code>. Indien er iets moet gebeuren neemt de taak enkel de nodige tijd hiervoor nodig. Indien niets moet gebeuren wordt de taak terug verlaten.</p></li>
-<li><p>Zowel in de <code class="docutils literal notranslate"><span class="pre">main()</span></code> als in de <code class="docutils literal notranslate"><span class="pre">tasks</span></code> mogen geen vertragingen staan. Het gebruik van <code class="docutils literal notranslate"><span class="pre">sleep()</span></code> en varianten is dus uit den boze!</p></li>
-<li><p>Het gebruik van een <code class="docutils literal notranslate"><span class="pre">while(&lt;expressie&gt;)</span></code> met een foutieve <code class="docutils literal notranslate"><span class="pre">&lt;expressie&gt;</span></code> kan leiden tot code die niet werkt zoals het hoort, aangezien de <code class="docutils literal notranslate"><span class="pre">while()</span></code> pas verlaten zal worden indien aan de <code class="docutils literal notranslate"><span class="pre">&lt;expressie&gt;</span></code> niet meer wordt voldaan. Het is veiliger hier gebruik te maken van een <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.</p></li>
-</ol>
-<p>Bovenstaande manier vormt dus de basis om meerdere taken quasi parallel uit te voeren, en dit op voorwaarde dat iedere taak niet te veel tijd in beslag neemt. De main bevat eigenlijk een <em>scheduler</em> die de taken afhandelt. We kunnen dit ook echter eleganter laten oplossen door een implementatie genaamd <code class="docutils literal notranslate"><span class="pre">AsyncIO</span></code>, waarbij de werkwijze die we zullen moeten toepassen hieronder wordt beschreven.</p>
-<section id="coroutines">
-<h3><span class="section-number">14.4.1. </span>Coroutines<a class="headerlink" href="#coroutines" title="Link to this heading">#</a></h3>
-<p>De meeste functies kunnen via AsyncIO worden uitgevoerd, op voorwaarde dat we dit aangeven dat deze moeten uitgevoerd worden door AsyncIO. Dit gebeurd door deze te laten vooraf gaan door het keyword <code class="docutils literal notranslate"><span class="pre">async</span></code>, waardoor ze een <code class="docutils literal notranslate"><span class="pre">coroutine</span> <span class="pre">object</span></code> worden.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
-
-<span class="k">async</span> <span class="k">def</span> <span class="nf">myFunction</span><span class="p">(</span><span class="n">tekst</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">tekst</span><span class="p">)</span>
-
-<span class="n">myFunction</span><span class="p">(</span><span class="s2">&quot;Koen&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Het aanroepen van zo’n functie zal niet werken zoals verwacht, aangezien deze door de AsyncIO <em>scheduler</em> moeten behandeld worden. Dit kan gebeuren door gebruik te maken van <code class="docutils literal notranslate"><span class="pre">asyncio.run(&lt;coroutine&gt;)</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
-
-<span class="k">async</span> <span class="k">def</span> <span class="nf">myFunction</span><span class="p">(</span><span class="n">tekst</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">tekst</span><span class="p">)</span>
-
-<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">myFunction</span><span class="p">(</span><span class="s2">&quot;Koen&quot;</span><span class="p">))</span>
-</pre></div>
-</div>
-<p>Men zou zich nu kunnen afvragen welk nut dit heeft. <em>Dit werkt net identiek als een normale functie?</em> Dit klopt, maar hier is wel de aanzet gegeven om correcte code te schrijven die toelaat verschillende <code class="docutils literal notranslate"><span class="pre">coroutines</span></code> <em>“simultaan”</em> te laten werken.</p>
-</section>
-<section id="awaitables">
-<h3><span class="section-number">14.4.2. </span>Awaitables<a class="headerlink" href="#awaitables" title="Link to this heading">#</a></h3>
-<p>Om ons vorig voorbeeld van verschillende taken werkende te krijgen hebben we nog nood aan een tweede iets, namelijk <code class="docutils literal notranslate"><span class="pre">awaitables</span></code>. In normale code gebruiken we de <code class="docutils literal notranslate"><span class="pre">sleep()</span></code> functie om te wachten. Aangezien dit zorgt dat de processor hierdoor stopt met code uit te voeren is gebruik van deze functie niet toegelaten. In de AsyncIO zit wel een gelijke methode, die onder de motorkap goed gelijkt op onze eerdere implementatie met millis. De code wordt voortdurend doorlopen door de <em>scheduler</em>, en tijdens iedere passage wordt gecontroleerd of er voldoende tijd is verstreken. Indien dit zo is wordt de code verder uitgevoerd. Het schrijven van <code class="docutils literal notranslate"><span class="pre">await</span> <span class="pre">asyncio.sleep(&lt;tijd&gt;)</span></code> in onze code laat toe dat de <em>scheduler</em> de code pauzeert totdat de tijd is gepasseerd. Dit wil echter niet zeggen dat de volledige processor stopt met code uit te voeren! De <em>scheduler</em> van Asyncio zal andere <code class="docutils literal notranslate"><span class="pre">coroutines</span></code> en <code class="docutils literal notranslate"><span class="pre">tasks</span></code> nog altijd van processor tijd voorzien zodat deze niet stoppen. Pas wanneer de <code class="docutils literal notranslate"><span class="pre">asyncio.sleep()</span></code> voorbij is wordt de code van onze functie verder uitgevoerd.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
-
-<span class="k">async</span> <span class="k">def</span> <span class="nf">myFunction</span><span class="p">(</span><span class="n">tekst</span><span class="p">):</span>
-    <span class="k">while</span><span class="p">(</span><span class="kc">True</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">tekst</span><span class="p">)</span>
-        <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">myFunction</span><span class="p">(</span><span class="s2">&quot;Koen&quot;</span><span class="p">))</span>
-</pre></div>
-</div>
-<p>Er bestaan nog tal van andere <code class="docutils literal notranslate"><span class="pre">awaitables</span></code>. Deze kunnen teruggevonden worden in de documentatie van <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#awaitables">AsyncIO</a>.</p>
-</section>
-<section id="tasks">
-<h3><span class="section-number">14.4.3. </span>Tasks<a class="headerlink" href="#tasks" title="Link to this heading">#</a></h3>
-<p>De laatste stap die we moeten nemen om meerdere <code class="docutils literal notranslate"><span class="pre">tasks</span></code> te laten runnen op een single core systeem is het plaatsen van verschillende <code class="docutils literal notranslate"><span class="pre">coroutines</span></code> in de <em>scheduler</em>. Dit gebeurd a.d.h.v. het commando <code class="docutils literal notranslate"><span class="pre">asyncio.create_task(&lt;coroutine&gt;)</span></code>. Voor iedere <code class="docutils literal notranslate"><span class="pre">coroutine</span></code> roepen we de <code class="docutils literal notranslate"><span class="pre">create_task()</span></code> methode aan.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
-
-<span class="k">async</span> <span class="k">def</span> <span class="nf">task1</span><span class="p">():</span>
-    <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span><span class="p">(</span><span class="kc">True</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span>
-        <span class="n">counter</span> <span class="o">+=</span> <span class="mi">2</span>
-        <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="k">async</span> <span class="k">def</span> <span class="nf">task2</span><span class="p">():</span>
-    <span class="n">counter</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">while</span><span class="p">(</span><span class="kc">True</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span>
-        <span class="n">counter</span> <span class="o">+=</span> <span class="mi">2</span>
-        <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">task1</span><span class="p">())</span>
-    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">task2</span><span class="p">())</span>
-
-<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
-</pre></div>
-</div>
-<p>Bovenstaande code werkt echter niet zoals verwacht. De code in <code class="docutils literal notranslate"><span class="pre">main()</span></code> wordt namelijk slechts één keer uitgevoerd. Men zou (verkeerdelijk) kunnen veronderstellen dat het plaatsen van een <code class="docutils literal notranslate"><span class="pre">while(True)</span></code> in de <code class="docutils literal notranslate"><span class="pre">main()</span></code> soelaas zal bieden, maar dit is niet zo. Het is de <em>scheduler</em> die moet blijven werken, en wanneer de <code class="docutils literal notranslate"><span class="pre">coroutine</span></code> beïndigd wordt, stopt eveneens de uitvoering van <code class="docutils literal notranslate"><span class="pre">tasks</span></code> die gestart zijn in deze <code class="docutils literal notranslate"><span class="pre">coroutine</span></code>. Een oneindige lange <code class="docutils literal notranslate"><span class="pre">asyncio.sleep()</span></code> op het einde zou de <em>scheduler</em> verder laten lopen. Dit is echter wel geen elegante manier van programmeren.</p>
-</section>
-<section id="runner-loop-scheduler">
-<h3><span class="section-number">14.4.4. </span>Runner/Loop (scheduler)<a class="headerlink" href="#runner-loop-scheduler" title="Link to this heading">#</a></h3>
-<p>Om vorig probleem elegant op te lossen bespreken we nog kort de <code class="docutils literal notranslate"><span class="pre">runner</span></code> en de <code class="docutils literal notranslate"><span class="pre">loop</span></code>, die in vorige tekst voortdurend de <em>scheduler</em> waren genoemd. Het oproepen van de code <code class="docutils literal notranslate"><span class="pre">asyncio.run(&lt;coroutine&gt;)</span></code> geeft dit door aan de <code class="docutils literal notranslate"><span class="pre">runner</span></code>, die eigenlijk de eerder genoemde <em>scheduler</em> is. Dit process blijft op de achtergrond voortdurend draaien en controleert of er <code class="docutils literal notranslate"><span class="pre">coroutines</span></code> tijd moeten krijgen om verder te werken. Deze krijgen om beurt 100% CPU tijd tussen <code class="docutils literal notranslate"><span class="pre">awaitables</span></code>. Bij een <code class="docutils literal notranslate"><span class="pre">awaitable</span></code> verliezen deze de CPU tijd, en wordt de CPU tijd  aan de volgende <code class="docutils literal notranslate"><span class="pre">coroutine</span></code> gegeven. Het is dus belangrijk dat iedere <code class="docutils literal notranslate"><span class="pre">task</span></code> voldoende <code class="docutils literal notranslate"><span class="pre">awaitables</span></code> opneemt om de CPU niet volledig op te eisen, zodat meerdere <code class="docutils literal notranslate"><span class="pre">tasks</span></code> simultaan kunnen uitgevoerd worden. Deze <code class="docutils literal notranslate"><span class="pre">tasks</span></code> zullen allen dus een bepaalde CPU tijd krijgen, waarbij niet iedere <code class="docutils literal notranslate"><span class="pre">task</span></code> evenveel tijd krijgt. Dit hangt volledig af van de gebruiker en het gebruik van <code class="docutils literal notranslate"><span class="pre">awaitables</span></code>. De verschillende <code class="docutils literal notranslate"><span class="pre">tasks</span></code> worden dus asynchroon afgehandeld, en dit in verschil met <em>synchrone</em> afhandeling waarbij iedere <code class="docutils literal notranslate"><span class="pre">task</span></code> evenveel CPU tijd krijgt.</p>
-<p>De huidige <code class="docutils literal notranslate"><span class="pre">runner</span></code> kunnen we bekomen via de methode <code class="docutils literal notranslate"><span class="pre">get_event_loop()</span></code>. Aan deze <code class="docutils literal notranslate"><span class="pre">runner</span></code> kunnen we onze <code class="docutils literal notranslate"><span class="pre">main()</span></code> koppelen als taak, en vervolgens kunnen we via de methode <code class="docutils literal notranslate"><span class="pre">run_forever()</span></code> de <code class="docutils literal notranslate"><span class="pre">runner</span></code> in een oneindige lus plaatsen.</p>
-<p>Vervangen we dus in eerder voorbeeld het laatste lijntje code (<code class="docutils literal notranslate"><span class="pre">asyncio.run(main())</span></code>) door het volgende:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="vm">__name__</span><span class="o">==</span><span class="s2">&quot;__main__&quot;</span><span class="p">):</span>
-    <span class="n">loop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span>  
-    <span class="n">loop</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
-    <span class="n">loop</span><span class="o">.</span><span class="n">run_forever</span><span class="p">()</span>
-</pre></div>
-</div>
-</section>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="gpio">
-<h1><span class="section-number">15. </span>GPIO<a class="headerlink" href="#gpio" title="Link to this heading">#</a></h1>
-<p>De ESP32 heeft redelijk wat GPIO (General Purpose Input Output) pinnen. Sommige pinnen ondersteunen enkel één richting, sommige zijn strapping pins, nog andere hebben alternatieve functies, …  Op de website van <a class="reference external" href="https://randomnerdtutorials.com/esp32-pinout-reference-gpios/">RandomNerdTurtorials</a> staat hierover veel informatie. Indien tijd (over) wordt dit overgenomen in deze cursus.</p>
-<section id="outputs">
-<h2><span class="section-number">15.1. </span>Outputs<a class="headerlink" href="#outputs" title="Link to this heading">#</a></h2>
-<p>Om het voorbeeld Blink werkende te krijgen is dit gedeelte al summier opgenomen. Voor iedere processor zijn er additionale klasses opgenomen bij Python (daarom dat ook de juiste versie van MicroPython moet geïnstalleerd worden). Voor de ESP32 beschik je als gebruik over de klasse <code class="docutils literal notranslate"><span class="pre">machine.Pin</span></code>. Deze bevat volgende methoden die bruikbaar zijn voor een output:</p>
-<ol class="arabic simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">.on()</span></code> maakt de pin hoog. <em>Opgelet, via <code class="docutils literal notranslate"><span class="pre">machine.Signal</span></code> kan de werking van de pin geïnverteerd worden. Een <code class="docutils literal notranslate"><span class="pre">.on()</span></code> zal dan resulteren in een pin die laag gemaakt wordt.</em></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">.off()</span></code> maakt de pin laag. <em>Ook hier geldt dezelfde opmerking.</em></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">.value(1)</span></code> of <code class="docutils literal notranslate"><span class="pre">.value(0)</span></code> maakt de pin respectievelijk hoog of laag.</p></li>
-<li></li>
-</ol>
-</section>
-<section id="inputs">
-<h2><span class="section-number">15.2. </span>Inputs<a class="headerlink" href="#inputs" title="Link to this heading">#</a></h2>
 </section>
 </section>
 
@@ -839,7 +487,6 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">13. “Hello World” of blink</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skeleton">13.1. Skeleton</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hello-world">13.1.1. Hello World</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blink">13.1.2. Blink</a></li>
@@ -847,27 +494,6 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keyboard-interrupt">13.2. Keyboard interrupt</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tijd">14. Tijd</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-klasse">14.1. time klasse</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#timers">14.2. Timers</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cores">14.3. Cores</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#asyncio">14.4. AsyncIO</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coroutines">14.4.1. Coroutines</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#awaitables">14.4.2. Awaitables</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tasks">14.4.3. Tasks</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runner-loop-scheduler">14.4.4. Runner/Loop (scheduler)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gpio">15. GPIO</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outputs">15.1. Outputs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inputs">15.2. Inputs</a></li>
-</ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>

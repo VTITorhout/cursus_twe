@@ -1,0 +1,653 @@
+
+<!DOCTYPE html>
+
+
+<html lang="nl" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>14. GPIO &#8212; Cursus Python TW&amp;E</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/_static/mystyle.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystyle.css?v=67192463" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=b028fc25"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/translations.js?v=5ce3cdba"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tw&e_lab_02_gpio';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Zoeken" href="search.html" />
+    <link rel="next" title="15. Tijd" href="tw%26e_lab_03_tijd.html" />
+    <link rel="prev" title="13. “Hello World” of blink" href="tw%26e_lab_01_basis.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="nl"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="tw%26e_theo_00_inleiding.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Cursus Python TW&E</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Zoeken</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="tw%26e_theo_00_inleiding.html">
+                    Inleiding Python
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_01_sequentie_en_variabelen.html">1. Sequentie en variabelen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_02_operatoren.html">2. Operatoren</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_03_beslissingen.html">3. Beslissingen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_04_itereren.html">4. Itereerbare objecten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_05_while.html">5. Voorwaardelijke herhaling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_06_for.html">6. De begrensde herhaling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tw%26e_theo_07_allerlei.html">7. Functies en procedures</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="tw%26e_lab_00_installatie.html">11. Installatie</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="tw%26e_lab_01_basis.html">13. “Hello World” of blink</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">14. GPIO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tw%26e_lab_03_tijd.html">15. Tijd</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download deze pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/tw&e_lab_02_gpio.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download het bronbestand"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Afdrukken naar pdf"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Volledig scherm"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>GPIO</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhoud </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#espduino32">14.1. ESPDuino32</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-only">14.1.1. Input only</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#capacitive-touch">14.1.2. Capacitive touch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analog-to-digital-adc">14.1.3. Analog to Digital (ADC)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-to-analog-dac">14.1.4. Digital to Analog (DAC)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pwm">14.1.5. PWM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strapping-pins">14.1.6. Strapping pins</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inputs">14.2. Inputs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#digitaal">14.2.1. Digitaal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interrupts">14.2.2. Interrupts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analoog">14.2.3. Analoog</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outputs">14.3. Outputs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">14.3.1. Digitaal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">14.3.2. PWM</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="gpio">
+<h1><span class="section-number">14. </span>GPIO<a class="headerlink" href="#gpio" title="Link to this heading">#</a></h1>
+<section id="espduino32">
+<h2><span class="section-number">14.1. </span>ESPDuino32<a class="headerlink" href="#espduino32" title="Link to this heading">#</a></h2>
+<p>De ESP32 heeft redelijk wat GPIO (General Purpose Input Output) pinnen. Sommige pinnen ondersteunen enkel één richting, sommige zijn strapping pins, nog andere hebben alternatieve functies, …  Op de website van <a class="reference external" href="https://randomnerdtutorials.com/esp32-pinout-reference-gpios/">RandomNerdTurtorials</a> staat hierover veel informatie, en een heel handig overzicht in tabelvorm. De belangrijkste zaken zijn hieronder overgenomen:</p>
+<figure class="myblockimg align-left" id="id3">
+<a class="reference internal image-reference" href="_images/esp32_pinout.png"><img alt="_images/esp32_pinout.png" src="_images/esp32_pinout.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 14.1 </span><span class="caption-text">ESP32 en mogelijkheden per GPIO.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="input-only">
+<h3><span class="section-number">14.1.1. </span>Input only<a class="headerlink" href="#input-only" title="Link to this heading">#</a></h3>
+<p>De pinnen 34, 35, 36 en 39 zijn enkel ingangen. Deze kunnen niet gebruikt worden als uitgang. Er zal echter geen fout optreden indien we dit proberen. Er zal simpelweg niets veranderen aan de logische toestand van de pin. Deze pinnen bevatten eveneens geen pull-up of pull-down weerstanden. Indien je dit nodig hebt zul je deze zelf extern moeten toevoegen.</p>
+</section>
+<section id="capacitive-touch">
+<h3><span class="section-number">14.1.2. </span>Capacitive touch<a class="headerlink" href="#capacitive-touch" title="Link to this heading">#</a></h3>
+<p>De pinnen 0, 2, 4, 12, 13, 14, 15, 27, 22 en 33 (10 in totaal) hebben de mogelijkheid om elektrostatische lading te detecteren. Indien een lange kabel, een stukje metaal of gelijk welk geleidend materiaal wordt aangebracht aan deze pin, kan het aanraken met de hand van deze de lading veranderen. Dit kan vervolgens gedetecteerd worden in de ESP. Opgelet, veel van deze pinnen zijn <em>strapping pins</em>. Zie hiervoor verder.</p>
+</section>
+<section id="analog-to-digital-adc">
+<h3><span class="section-number">14.1.3. </span>Analog to Digital (ADC)<a class="headerlink" href="#analog-to-digital-adc" title="Link to this heading">#</a></h3>
+<p>Er zijn in totaal 18 pinnen voor ADC beschikbaar, en dit verdeeld over twee banken (ADC1 en ADC2). In principe zitten er dus slecht twee ADC convertoren in de ESP, die vooraf worden gegaan door een multiplexer. De ADC1 heeft een multiplexer met 8 beschikbare ingangen, de ADC2 een multiplexer met 10 beschikbare ingangen. De voorkeur moet gegeven worden aan ADC1, aangezien enkel deze beschikbaar is wanneer WiFi wordt gebruikt. Voor IoT toepassingen zal WiFi altijd nodig zijn, dus is de keuze voor de ADC1 aangewezen. Indien men toch meer analoge ingangen nodig heeft zal de WiFi (tijdelijk) moeten gedeactiveerd worden.</p>
+<ul class="simple">
+<li><p>ADC1: 32, 33, 34, 35, 36, 37, 38, 39</p></li>
+<li><p>ADC2: 0, 2, 4, 12, 13, 14, 15, 25, 26, 27 (veel van deze stemmen overeen met de capacitive touch)</p></li>
+</ul>
+</section>
+<section id="digital-to-analog-dac">
+<h3><span class="section-number">14.1.4. </span>Digital to Analog (DAC)<a class="headerlink" href="#digital-to-analog-dac" title="Link to this heading">#</a></h3>
+<p>Voor de omgekeerde weg zijn er slechts twee mogelijkheden (zonder demultiplexer), namelijk DAC1 (pin 25) en DAC2  (pin 26). Herrouteren van deze signalen is moeilijk, dus deze pinnen moeten hiervoor altijd gebruikt worden.</p>
+</section>
+<section id="pwm">
+<h3><span class="section-number">14.1.5. </span>PWM<a class="headerlink" href="#pwm" title="Link to this heading">#</a></h3>
+<p>De ESP32 heeft intern 16 PWM controllers, waarbij iedere uitgangspin kan gebruikt worden om één van de 16 controller uitgangen mee te verbinden.</p>
+</section>
+<section id="strapping-pins">
+<h3><span class="section-number">14.1.6. </span>Strapping pins<a class="headerlink" href="#strapping-pins" title="Link to this heading">#</a></h3>
+<p>Iets die speciaal/eigenaardig is aan de ESP zijn de <em>strapping pins</em>. Dit zijn pinnen die tijdens het booten op logisch niveau worden ingelezen. Door een specifiek logisch niveau aan te leggen op deze pinnen wordt de ESP in een bepaalde <em>boot mode</em> gebracht. <em>De belangrijkste boot mode voor ons is 0x13 (SPI_FAST_FLASH_BOOT), die het programma laadt vanuit flash geheugen. Het “programma” die voor ons interessant is, is MicroPython.</em></p>
+<figure class="myblockimg align-left" id="id4">
+<a class="reference internal image-reference" href="_images/bootmode.png"><img alt="_images/bootmode.png" src="_images/bootmode.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 14.2 </span><span class="caption-text">Indicatie van bootmode op de CLI tijdens booten van de ESP32.</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Mocht MicroPython niet starten zoals verwacht, dan kan in de CLI gecontroleerd worden wat fout loopt. Meestal zal de <em>boot mode</em> afwijken van de verwachtte 0x13, en dit wellicht te wijten aan een elektrische verbindingen aangebracht op de <em>strapping pins</em>.</p>
+<p>Volgende pinnen met hun overeenkomstige boot waarde bestaan:</p>
+<ul class="simple">
+<li><p>0x01: GPIO5</p></li>
+<li><p>0x02: GPIO15</p></li>
+<li><p>0x04: GPIO4</p></li>
+<li><p>0x08: GPIO2</p></li>
+<li><p>0x10: GPIO0</p></li>
+<li><p>0x20: GPIO12</p></li>
+</ul>
+<p>Om 0x13 te bekomen hebben we nood aan 0x10 + 0x02 + 0x01. Dit betekent dat GPIO0, GPIO15 en GPIO5 tijdens het booten logisch 1 moeten zijn (gestrapped naar de voeding), en alle andere pinnen logisch 0 (gestrapped naar de massa). Mocht er per ongeluk een van de pinnen foutief hoog of laag gemaakt zijn tijdens het booten, dan zal een andere boot mode getoond worden. Via bovenstaand overzicht zou het probleem snel achterhaald moeten kunnen worden.</p>
+</section>
+</section>
+<section id="inputs">
+<h2><span class="section-number">14.2. </span>Inputs<a class="headerlink" href="#inputs" title="Link to this heading">#</a></h2>
+<p>Om gebruik te kunnen maken van de GPIO functionaliteiten in MicroPython moeten we allereerst de klasse <code class="docutils literal notranslate"><span class="pre">Pin</span></code> importeren vanuit de <code class="docutils literal notranslate"><span class="pre">machine</span></code> klasse. Deze klasse omvat alle functionaliteiten die een standaard GPIO aanbiedt (dus basis in- en uitgang). Dit is identiek voor zowel een in- als een uitgang op de ESP.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+</pre></div>
+</div>
+<section id="digitaal">
+<h3><span class="section-number">14.2.1. </span>Digitaal<a class="headerlink" href="#digitaal" title="Link to this heading">#</a></h3>
+<p>Een toepasselijk voorbeeld voor een digitale input is het binnenlezen van de status van een drukknop. Deze drukknop kan (elektrisch) op twee verschillende manieren aangesloten zijn op de hardware:</p>
+<figure class="myblockimg align-left" id="id5">
+<a class="reference internal image-reference" href="_images/digital_input.png"><img alt="_images/digital_input.png" src="_images/digital_input.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 14.3 </span><span class="caption-text">Mogelijkheden tot aansluiten van een drukknop.</span><a class="headerlink" href="#id5" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Bovenstaande methoden zullen beiden ongeveer identiek werken, m.u.v. het ingelezen logische niveau tijdens bediening. De rechtste implementatie zal een logische 1 genereren wanneer ingedrukt, terwijl de linkse implementatie een logische 0 zal generen. De (optionele) weerstand R1 is hierbij een <em>pullup</em> of <em>pulldown</em> weerstand. De (optionele) weerstand R2 een stroombeveiliging, en dit wanneer de eindgebruiker foutief een ingang als uitgang zou definiëren. <em>In beide gevallen wordt gemeld dat de weerstand optioneel is. Men kan opteren om beide weg te laten indien de code correct wordt geschreven. In uiteindelijke implementaties zorgen minder componenten voor grotere <a class="reference external" href="https://nl.wikipedia.org/wiki/Mean_time_between_failures">MTBF</a> cijfers, wat natuurlijk altijd een meerwaarde is voor het product.</em></p>
+<p>Als eerst moeten we een object aanmaken van de klasse <code class="docutils literal notranslate"><span class="pre">Pin</span></code> die onze digitale ingang voorstelt. Dit kan als volgt:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">GPIO26</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Voor bijna alle pinnen, m.u.v. de pinnen 34, 35, 36 &amp; 39, kan er geopteerd worden om een pullup of pulldown weerstand intern in de ESP te activeren, zodat de externe weerstand kan weggelaten worden. Dit kan door de constructor van de <code class="docutils literal notranslate"><span class="pre">Pin</span></code> uit te breiden als volgt:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">GPIO26</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span> <span class="c1">#Pin.PULL_DOWN bestaat eveneens</span>
+</pre></div>
+</div>
+<p>Het binnenlezen van de logische waarde kan vervolgens via de methode <code class="docutils literal notranslate"><span class="pre">value()</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">GPIO26</span><span class="o">.</span><span class="n">value</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="interrupts">
+<h3><span class="section-number">14.2.2. </span>Interrupts<a class="headerlink" href="#interrupts" title="Link to this heading">#</a></h3>
+<p>De voortdurende controle of een ingang al dan niet van logische waarde verandert vraagt redelijk wat CPU tijd. Deze methode wordt in het vakjargon <em>polling</em> genaamd, waarbij de status van de ingangspin in de <code class="docutils literal notranslate"><span class="pre">main()</span></code> voortdurend wordt afgevraagd (<em>gepolled</em>). Dit kan voorkomen worden door aan de ingangspin een callback (IRQ, Interrupt ReQuest) te koppelen die wordt opgeroepen wanneer de toestand van de <code class="docutils literal notranslate"><span class="pre">Pin</span></code> wijzigt.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">GPIO26</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="o">&lt;</span><span class="n">callback</span> <span class="n">functie</span><span class="o">&gt;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Volgende implementatie toont de waarde van de pin wanneer deze wijzigt van toestand:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+
+<span class="n">GPIO26</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">button_isr</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">value</span><span class="p">())</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">GPIO26</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">button_isr</span><span class="p">)</span>
+    <span class="k">while</span><span class="p">(</span><span class="kc">True</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<span class="k">if</span><span class="p">(</span><span class="vm">__name__</span><span class="o">==</span><span class="s2">&quot;__main__&quot;</span><span class="p">):</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Bovenstaande implementatie kan nog uitgebreid worden. Volgende zaken zijn nog van belang bij de <code class="docutils literal notranslate"><span class="pre">irq</span></code> methode:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">trigger</span></code> laat toe om de <code class="docutils literal notranslate"><span class="pre">callback</span></code> slechts op te roepen bij een overgang van/naar een bepaald logisch niveau. via <code class="docutils literal notranslate"><span class="pre">Pin.IRQ_FALLING</span></code> en/of <code class="docutils literal notranslate"><span class="pre">Pin.IRQ_RISING</span></code> kan er geselecteerd worden op een <em>rising</em> of <em>falling</em> edge.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">priority</span></code> laat toe een prioriteit te geven aan de interrupt. Hoe hoger het getal, hoe groter de prioriteit.</p></li>
+</ul>
+<p>Pas gerust als test bovenstaande code aan als volgt:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">GPIO26</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">button_isr</span><span class="p">,</span><span class="n">trigger</span><span class="o">=</span><span class="n">Pin</span><span class="o">.</span><span class="n">IRQ_FALLING</span><span class="p">,</span><span class="n">hard</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="analoog">
+<h3><span class="section-number">14.2.3. </span>Analoog<a class="headerlink" href="#analoog" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section id="outputs">
+<h2><span class="section-number">14.3. </span>Outputs<a class="headerlink" href="#outputs" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h3><span class="section-number">14.3.1. </span>Digitaal<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Om het voorbeeld Blink werkende te krijgen is dit gedeelte al summier opgenomen. Voor iedere processor zijn er additionale klasses opgenomen bij Python (daarom dat ook de juiste versie van MicroPython moet geïnstalleerd worden). Voor de ESP32 beschik je als gebruik over de klasse <code class="docutils literal notranslate"><span class="pre">machine.Pin</span></code>. Deze bevat volgende methoden die bruikbaar zijn voor een output:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.on()</span></code> maakt de pin hoog. <em>Opgelet, via <code class="docutils literal notranslate"><span class="pre">machine.Signal</span></code> kan de werking van de pin geïnverteerd worden. Een <code class="docutils literal notranslate"><span class="pre">.on()</span></code> zal dan resulteren in een pin die laag gemaakt wordt.</em></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.off()</span></code> maakt de pin laag. <em>Ook hier geldt dezelfde opmerking.</em></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.value(1)</span></code> of <code class="docutils literal notranslate"><span class="pre">.value(0)</span></code> maakt de pin respectievelijk hoog of laag.</p></li>
+<li></li>
+</ol>
+</section>
+<section id="id2">
+<h3><span class="section-number">14.3.2. </span>PWM<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="tw%26e_lab_01_basis.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">vorige</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>“Hello World” of blink</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="tw%26e_lab_03_tijd.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">volgende</p>
+        <p class="prev-next-title"><span class="section-number">15. </span>Tijd</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhoud
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#espduino32">14.1. ESPDuino32</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-only">14.1.1. Input only</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#capacitive-touch">14.1.2. Capacitive touch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analog-to-digital-adc">14.1.3. Analog to Digital (ADC)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-to-analog-dac">14.1.4. Digital to Analog (DAC)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pwm">14.1.5. PWM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strapping-pins">14.1.6. Strapping pins</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inputs">14.2. Inputs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#digitaal">14.2.1. Digitaal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interrupts">14.2.2. Interrupts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analoog">14.2.3. Analoog</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outputs">14.3. Outputs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">14.3.1. Digitaal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">14.3.2. PWM</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Door Koen Geeraert
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024-2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
