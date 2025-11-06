@@ -60,6 +60,8 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'tw&e_lab_02_gpio';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Zoeken" href="search.html" />
@@ -340,7 +342,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#espduino32">14.1. ESPDuino32</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#espduino32-pinnen">14.1. ESPDuino32 pinnen</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-only">14.1.1. Input only</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#capacitive-touch">14.1.2. Capacitive touch</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analog-to-digital-adc">14.1.3. Analog to Digital (ADC)</a></li>
@@ -349,15 +351,22 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strapping-pins">14.1.6. Strapping pins</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inputs">14.2. Inputs</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#digitaal">14.2.1. Digitaal</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interrupts">14.2.2. Interrupts</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analoog">14.2.3. Analoog</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gpio-klasse">14.2. GPIO klasse</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import">14.2.1. Import</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#object">14.2.2. Object</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methoden">14.2.3. Methoden</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outputs">14.3. Outputs</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">14.3.1. Digitaal</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">14.3.2. PWM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#digitaal-blink">14.3.1. Digitaal (blink)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">14.3.2. PWM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analoog-dac">14.3.3. Analoog (DAC)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inputs">14.4. Inputs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#digitaal">14.4.1. Digitaal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interrupts">14.4.2. Interrupts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analoog-adc">14.4.3. Analoog (ADC)</a></li>
 </ul>
 </li>
 </ul>
@@ -372,14 +381,14 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="gpio">
-<h1><span class="section-number">14. </span>GPIO<a class="headerlink" href="#gpio" title="Link to this heading">#</a></h1>
-<section id="espduino32">
-<h2><span class="section-number">14.1. </span>ESPDuino32<a class="headerlink" href="#espduino32" title="Link to this heading">#</a></h2>
+<span id="gpio-target"></span><h1><span class="section-number">14. </span>GPIO<a class="headerlink" href="#gpio" title="Link to this heading">#</a></h1>
+<section id="espduino32-pinnen">
+<h2><span class="section-number">14.1. </span>ESPDuino32 pinnen<a class="headerlink" href="#espduino32-pinnen" title="Link to this heading">#</a></h2>
 <p>De ESP32 heeft redelijk wat GPIO (General Purpose Input Output) pinnen. Sommige pinnen ondersteunen enkel één richting, sommige zijn strapping pins, nog andere hebben alternatieve functies, …  Op de website van <a class="reference external" href="https://randomnerdtutorials.com/esp32-pinout-reference-gpios/">RandomNerdTurtorials</a> staat hierover veel informatie, en een heel handig overzicht in tabelvorm. De belangrijkste zaken zijn hieronder overgenomen:</p>
-<figure class="myblockimg align-left" id="id3">
+<figure class="myblockimg align-left" id="id2">
 <a class="reference internal image-reference" href="_images/esp32_pinout.png"><img alt="_images/esp32_pinout.png" src="_images/esp32_pinout.png" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 14.1 </span><span class="caption-text">ESP32 en mogelijkheden per GPIO.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 14.1 </span><span class="caption-text">ESP32 en mogelijkheden per GPIO.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <section id="input-only">
@@ -400,7 +409,7 @@ document.write(`
 </section>
 <section id="digital-to-analog-dac">
 <h3><span class="section-number">14.1.4. </span>Digital to Analog (DAC)<a class="headerlink" href="#digital-to-analog-dac" title="Link to this heading">#</a></h3>
-<p>Voor de omgekeerde weg zijn er slechts twee mogelijkheden (zonder demultiplexer), namelijk DAC1 (pin 25) en DAC2  (pin 26). Herrouteren van deze signalen is moeilijk, dus deze pinnen moeten hiervoor altijd gebruikt worden.</p>
+<p>Voor de omgekeerde weg zijn er slechts twee mogelijkheden (zonder demultiplexer), namelijk DAC1 (pin 25) en DAC2  (pin 26). Herrouteren van deze signalen is moeilijk, dus deze pinnen moeten hiervoor altijd gebruikt worden. Deze zitten overigens enkel en alleen maar op de ESP32, en niet op de light varianten (ESP32-S en ESP32-C). Indien je voor een project gebruik maakt van een alternatieve ESP32 wordt hier best rekening mee gehouden.</p>
 </section>
 <section id="pwm">
 <h3><span class="section-number">14.1.5. </span>PWM<a class="headerlink" href="#pwm" title="Link to this heading">#</a></h3>
@@ -409,10 +418,10 @@ document.write(`
 <section id="strapping-pins">
 <h3><span class="section-number">14.1.6. </span>Strapping pins<a class="headerlink" href="#strapping-pins" title="Link to this heading">#</a></h3>
 <p>Iets die speciaal/eigenaardig is aan de ESP zijn de <em>strapping pins</em>. Dit zijn pinnen die tijdens het booten op logisch niveau worden ingelezen. Door een specifiek logisch niveau aan te leggen op deze pinnen wordt de ESP in een bepaalde <em>boot mode</em> gebracht. <em>De belangrijkste boot mode voor ons is 0x13 (SPI_FAST_FLASH_BOOT), die het programma laadt vanuit flash geheugen. Het “programma” die voor ons interessant is, is MicroPython.</em></p>
-<figure class="myblockimg align-left" id="id4">
+<figure class="myblockimg align-left" id="id3">
 <a class="reference internal image-reference" href="_images/bootmode.png"><img alt="_images/bootmode.png" src="_images/bootmode.png" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 14.2 </span><span class="caption-text">Indicatie van bootmode op de CLI tijdens booten van de ESP32.</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 14.2 </span><span class="caption-text">Indicatie van bootmode op de CLI tijdens booten van de ESP32.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Mocht MicroPython niet starten zoals verwacht, dan kan in de CLI gecontroleerd worden wat fout loopt. Meestal zal de <em>boot mode</em> afwijken van de verwachtte 0x13, en dit wellicht te wijten aan een elektrische verbindingen aangebracht op de <em>strapping pins</em>.</p>
@@ -428,37 +437,177 @@ document.write(`
 <p>Om 0x13 te bekomen hebben we nood aan 0x10 + 0x02 + 0x01. Dit betekent dat GPIO0, GPIO15 en GPIO5 tijdens het booten logisch 1 moeten zijn (gestrapped naar de voeding), en alle andere pinnen logisch 0 (gestrapped naar de massa). Mocht er per ongeluk een van de pinnen foutief hoog of laag gemaakt zijn tijdens het booten, dan zal een andere boot mode getoond worden. Via bovenstaand overzicht zou het probleem snel achterhaald moeten kunnen worden.</p>
 </section>
 </section>
-<section id="inputs">
-<h2><span class="section-number">14.2. </span>Inputs<a class="headerlink" href="#inputs" title="Link to this heading">#</a></h2>
-<p>Om gebruik te kunnen maken van de GPIO functionaliteiten in MicroPython moeten we allereerst de klasse <code class="docutils literal notranslate"><span class="pre">Pin</span></code> importeren vanuit de <code class="docutils literal notranslate"><span class="pre">machine</span></code> klasse. Deze klasse omvat alle functionaliteiten die een standaard GPIO aanbiedt (dus basis in- en uitgang). Dit is identiek voor zowel een in- als een uitgang op de ESP.</p>
+<section id="gpio-klasse">
+<h2><span class="section-number">14.2. </span>GPIO klasse<a class="headerlink" href="#gpio-klasse" title="Link to this heading">#</a></h2>
+<p>(micro)Python werkt op de achtergrond altijd met klasses. We konden dit reeds eerder zien via de functie <code class="docutils literal notranslate"><span class="pre">type()</span></code> die ons het type van variabelen liet achterhalen. Volgend voorbeeld geeft ons het type van een string terug.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myStr</span> <span class="o">=</span> <span class="s2">&quot;Koen&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">myStr</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;str&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hier is duidelijk te zien dat het type van een string eigenlijk een specifieke klasse is. Van iedere klasse kunnen er objecten gemaakt worden. <code class="docutils literal notranslate"><span class="pre">myStr</span></code> is dus een object van de klasse <code class="docutils literal notranslate"><span class="pre">str</span></code>, en bij deze klasse komen automatisch een aantal methoden die op het object kunnen gebruikt worden.</p>
+<section id="import">
+<h3><span class="section-number">14.2.1. </span>Import<a class="headerlink" href="#import" title="Link to this heading">#</a></h3>
+<p>Om gebruik te kunnen maken van de GPIO functionaliteiten in MicroPython moeten we allereerst de klasse <code class="docutils literal notranslate"><span class="pre">Pin</span></code> importeren vanuit de <code class="docutils literal notranslate"><span class="pre">machine</span></code> klasse. Deze klasse omvat alle functionaliteiten die een standaard GPIO aanbiedt (dus basis in- en uitgang). Deze klasse is identiek voor zowel een in- als een uitgang op de ESP.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
 </pre></div>
 </div>
+<p>Deze manier geeft ons meteen toegang tot de <code class="docutils literal notranslate"><span class="pre">Pin</span></code>-klasse. Indien je ook nog andere zaken van de <code class="docutils literal notranslate"><span class="pre">machine</span></code> bibliotheek wil gebruiken kun je ook opteren om gewoon deze volledig te importeren.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">machine</span>
+</pre></div>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Opgelet</p>
+<p>Door volledig <code class="docutils literal notranslate"><span class="pre">machine</span></code> te importeren moet je nu wel gebruik maken van de correcte/volledige <em>namespace</em>. Deze wordt nu <code class="docutils literal notranslate"><span class="pre">machine.Pin</span></code>, en niet meer <code class="docutils literal notranslate"><span class="pre">Pin</span></code> alleen.</p>
+</div>
+</section>
+<section id="object">
+<h3><span class="section-number">14.2.2. </span>Object<a class="headerlink" href="#object" title="Link to this heading">#</a></h3>
+<p>Het aanmaken van een object van de klasse <code class="docutils literal notranslate"><span class="pre">Pin</span></code> bestaat door het aanroepen van de constructor. De constructor verwacht echter een aantal argumenten.</p>
+<p><code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">machine.Pin(id,</span> <span class="pre">mode=-1,</span> <span class="pre">pull=-1,</span> <span class="pre">*,</span> <span class="pre">value=None,</span> <span class="pre">drive=0,</span> <span class="pre">alt=-1)</span></code></p>
+<p>De constructor heeft één verplicht argument (die geen <em>default value</em> heeft), namelijk het argument <code class="docutils literal notranslate"><span class="pre">id</span></code>. De overige argumenten worden ingesteld op de waarde die er bij staat, maar kan door de gebruiker <em>overschreven</em> worden door deze ook op te geven.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> is verplicht en kan een willekeurige integer zijn die het juiste pinnummer op de ESP32 aangeeft. Het gedeelte <code class="docutils literal notranslate"><span class="pre">IO</span></code> die voor het pinnummer staat mag niet mee opgegeven worden.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mode</span></code> stelt de juiste mode in van hoe de pin zich moet gedragen. Volgende modes zijn beschikbaar:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Pin.IN</span></code>: Wordt gebruikt als je de pin wil gebruiken als een ingang (om bijvoorbeeld een drukknop of sensor in te lezen). De impedantie van de pin wordt hierdoor hoog.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Pin.OUT</span></code>: wordt gebruikt als je de pin wil gebruiken als een uitgang (om bijvoorbeeld een LED of een motor aan te sturen).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Pin.OPEN_DRAIN</span></code>: Wordt gebruikt als je de pin wil gebruiken als een uitgang die geen stroom kan sourcen (enkel maar sinken). Dit stemt overeen met een <em>open collector</em> uitgang die wordt behandeld op het einde van het 2de leerjaar van de 3de graad. Typische toepassingen is bij buscommunicatie of het aansturen van actuatoren op een hogere spanning dan deze van de mircocontroller zelf.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pull</span></code> laat toe een interne zwakke <em>pull-up</em> of interne <em>pull-down</em> weerstand te verbinden met de pin, zodat je als gebruik extern zelf geen hoeft aan te sluiten. Zie hiervoor verder bij het onderdeel <a class="reference internal" href="#output-target">outputs</a>.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code> laat de pin zwevend (hoog impedant).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Pin.PULL_UP</span></code> activeert een hoog-ohmige <em>pull-up</em> weerstand.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Pin.PULL_DOWN</span></code> activeert een hoog-ohmige <em>pull-down</em> weerstand.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code> is enkel geldig wanneer je te maken hebt met een <code class="docutils literal notranslate"><span class="pre">Pin.OUT</span></code> of <code class="docutils literal notranslate"><span class="pre">Pin.OPEN_DRAIN</span></code>, en plaatst de pin op een specifieke waarde (logisch 0 of logisch 1). Indien niets opgegeven wordt zal de waarde onveranderd blijven. Bij het aanmaken van het object zal dit op een specifieke waarde worden geplaatst (wellicht logisch 0), maar dit kan handig zijn bij herinitialisatie.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">drive</span></code> laat toe de uitgangsimpedantie te wijzigen. Je kan dit zien als een Thévenin bron die 3,3V levert, maar waarbij de Thévenin weerstand instelbaar is op enkele vaste waarden. Standaard staat dit op <code class="docutils literal notranslate"><span class="pre">DRIVE_0</span></code>. Er is geen reden dit anders in te stellen!</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Pin.DRIVE_0</span></code> <span class="math notranslate nohighlight">\(I_k=11mA\)</span>, wat ongeveer overeen komt met een <span class="math notranslate nohighlight">\(R_{th}=300\mathsf{\Omega}\)</span></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Pin.DRIVE_1</span></code> <span class="math notranslate nohighlight">\(I_k=23mA\)</span>, wat ongeveer overeen komt met een <span class="math notranslate nohighlight">\(R_{th}=150\mathsf{\Omega}\)</span></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Pin.DRIVE_2</span></code> <span class="math notranslate nohighlight">\(I_k=46mA\)</span>, wat ongeveer overeen komt met een <span class="math notranslate nohighlight">\(R_{th}=75\mathsf{\Omega}\)</span></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Pin.DRIVE_3</span></code> <span class="math notranslate nohighlight">\(I_k=92mA\)</span>, wat ongeveer overeen komt met een <span class="math notranslate nohighlight">\(R_{th}=37\mathsf{\Omega}\)</span></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="methoden">
+<h3><span class="section-number">14.2.3. </span>Methoden<a class="headerlink" href="#methoden" title="Link to this heading">#</a></h3>
+<p>De methoden hangen af van of je de pin gebruikt als een in- of een output. Volgende methoden zijn beschikbaar (NOG TOE TE LICHTEN):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Pin.init(...)</span></code></p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">Pin.value(x)</span></code></strong></p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">Pin.on()</span></code></strong></p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">Pin.off()</span></code></strong></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Pin.irq(...)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Pin.mode(x)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Pin.pull(x)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Pin.drive(x)</span></code></p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">Pin.toggle()</span></code></strong></p></li>
+</ul>
+</section>
+</section>
+<section id="outputs">
+<span id="output-target"></span><h2><span class="section-number">14.3. </span>Outputs<a class="headerlink" href="#outputs" title="Link to this heading">#</a></h2>
+<section id="digitaal-blink">
+<h3><span class="section-number">14.3.1. </span>Digitaal (blink)<a class="headerlink" href="#digitaal-blink" title="Link to this heading">#</a></h3>
+<p>Als eerste toepassing (die jullie nog te goed hadden) volgt hierbij de code die nodig is om een digitale uitgang aan te sturen, en die we meteen gaan uitbreiden naar een eerste toepassing, namelijk het laten knipperen van een LED.</p>
+<p>De code bestaat uit enkele stappen:</p>
+<ol class="arabic simple">
+<li><p>Inladen GPIO functionaliteit</p></li>
+<li><p>Inladen tijdsfunctionaliteit (zie hiervoor <a class="reference internal" href="#tijd-target"><span class="xref myst">tijd</span></a>)</p></li>
+<li><p>Aanmaken Pin object</p></li>
+<li><p>Pin object togglen in een loop</p></li>
+</ol>
+<p>Gebruiken we eerder geziene skeleton:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#imports</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep_ms</span> <span class="k">as</span> <span class="n">delay</span>
+
+<span class="c1">#constants &amp; objects</span>
+<span class="n">LED</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">myDbgLed</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="n">LED</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+
+<span class="c1">#main</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">while</span><span class="p">(</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">myDbgLed</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
+        <span class="n">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">)</span>
+
+<span class="c1">#oproepen main</span>
+<span class="k">if</span><span class="p">(</span><span class="vm">__name__</span><span class="o">==</span><span class="s2">&quot;__main__&quot;</span><span class="p">):</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="id1">
+<h3><span class="section-number">14.3.2. </span>PWM<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>TODO</p>
+</section>
+<section id="analoog-dac">
+<h3><span class="section-number">14.3.3. </span>Analoog (DAC)<a class="headerlink" href="#analoog-dac" title="Link to this heading">#</a></h3>
+<p>TODO</p>
+</section>
+</section>
+<section id="inputs">
+<h2><span class="section-number">14.4. </span>Inputs<a class="headerlink" href="#inputs" title="Link to this heading">#</a></h2>
 <section id="digitaal">
-<h3><span class="section-number">14.2.1. </span>Digitaal<a class="headerlink" href="#digitaal" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.4.1. </span>Digitaal<a class="headerlink" href="#digitaal" title="Link to this heading">#</a></h3>
 <p>Een toepasselijk voorbeeld voor een digitale input is het binnenlezen van de status van een drukknop. Deze drukknop kan (elektrisch) op twee verschillende manieren aangesloten zijn op de hardware:</p>
-<figure class="myblockimg align-left" id="id5">
+<figure class="myblockimg align-left" id="id4">
 <a class="reference internal image-reference" href="_images/digital_input.png"><img alt="_images/digital_input.png" src="_images/digital_input.png" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 14.3 </span><span class="caption-text">Mogelijkheden tot aansluiten van een drukknop.</span><a class="headerlink" href="#id5" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 14.3 </span><span class="caption-text">Mogelijkheden tot aansluiten van een drukknop.</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Bovenstaande methoden zullen beiden ongeveer identiek werken, m.u.v. het ingelezen logische niveau tijdens bediening. De rechtste implementatie zal een logische 1 genereren wanneer ingedrukt, terwijl de linkse implementatie een logische 0 zal generen. De (optionele) weerstand R1 is hierbij een <em>pullup</em> of <em>pulldown</em> weerstand. De (optionele) weerstand R2 een stroombeveiliging, en dit wanneer de eindgebruiker foutief een ingang als uitgang zou definiëren. <em>In beide gevallen wordt gemeld dat de weerstand optioneel is. Men kan opteren om beide weg te laten indien de code correct wordt geschreven. In uiteindelijke implementaties zorgen minder componenten voor grotere <a class="reference external" href="https://nl.wikipedia.org/wiki/Mean_time_between_failures">MTBF</a> cijfers, wat natuurlijk altijd een meerwaarde is voor het product.</em></p>
+<p>Bovenstaande methoden zullen beiden ongeveer identiek werken, m.u.v. het ingelezen logische niveau tijdens bediening. De rechtste implementatie zal een logische 1 genereren wanneer ingedrukt, terwijl de linkse implementatie een logische 0 zal generen. De (optionele) weerstand <span class="math notranslate nohighlight">\(R_1\)</span> is hierbij een <em>pullup</em> of <em>pulldown</em> weerstand. De (optionele) weerstand <span class="math notranslate nohighlight">\(R_2\)</span> een stroombeveiliging, en dit wanneer de eindgebruiker foutief een ingang als uitgang zou definiëren. <em>In beide gevallen wordt gemeld dat de weerstand optioneel is. Men kan opteren om beide weg te laten indien de code correct wordt geschreven. In uiteindelijke implementaties zorgen minder componenten voor grotere <a class="reference external" href="https://nl.wikipedia.org/wiki/Mean_time_between_failures">MTBF</a> cijfers, wat natuurlijk altijd een meerwaarde is voor het product.</em></p>
 <p>Als eerst moeten we een object aanmaken van de klasse <code class="docutils literal notranslate"><span class="pre">Pin</span></code> die onze digitale ingang voorstelt. Dit kan als volgt:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">GPIO26</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DRUKKNOP</span> <span class="o">=</span> <span class="mi">26</span>
+<span class="n">myPushButton</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="n">DRUKKNOP</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Voor bijna alle pinnen, m.u.v. de pinnen 34, 35, 36 &amp; 39, kan er geopteerd worden om een pullup of pulldown weerstand intern in de ESP te activeren, zodat de externe weerstand kan weggelaten worden. Dit kan door de constructor van de <code class="docutils literal notranslate"><span class="pre">Pin</span></code> uit te breiden als volgt:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">GPIO26</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span> <span class="c1">#Pin.PULL_DOWN bestaat eveneens</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">myPushButton</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="n">DRUKKNOP</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">pull</span><span class="o">=</span><span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span> <span class="c1">#Pin.PULL_DOWN bestaat eveneens</span>
 </pre></div>
 </div>
 <p>Het binnenlezen van de logische waarde kan vervolgens via de methode <code class="docutils literal notranslate"><span class="pre">value()</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">GPIO26</span><span class="o">.</span><span class="n">value</span><span class="p">())</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">myPushButton</span><span class="o">.</span><span class="n">value</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Indien we deze code nu opnemen in onze skeleton, en nog uitbreiden met een herhaling krijgen we volgende implementatie:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#imports</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+
+<span class="c1">#constants &amp; objects</span>
+<span class="n">DRUKKNOP</span> <span class="o">=</span> <span class="mi">26</span>
+<span class="n">myPushButton</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="n">DRUKKNOP</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">pull</span><span class="o">=</span><span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span>
+
+<span class="c1">#main</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">lastValue</span> <span class="o">=</span> <span class="n">myPushButton</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+    <span class="k">while</span><span class="p">(</span><span class="kc">True</span><span class="p">):</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">lastValue</span> <span class="o">!=</span> <span class="n">myPushButton</span><span class="o">.</span><span class="n">value</span><span class="p">()):</span>
+            <span class="n">lastValue</span> <span class="o">=</span> <span class="n">myPushButton</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">lastValue</span><span class="p">)</span>
+
+<span class="c1">#oproepen main</span>
+<span class="k">if</span><span class="p">(</span><span class="vm">__name__</span><span class="o">==</span><span class="s2">&quot;__main__&quot;</span><span class="p">):</span>
+    <span class="n">main</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
 <section id="interrupts">
-<h3><span class="section-number">14.2.2. </span>Interrupts<a class="headerlink" href="#interrupts" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.4.2. </span>Interrupts<a class="headerlink" href="#interrupts" title="Link to this heading">#</a></h3>
 <p>De voortdurende controle of een ingang al dan niet van logische waarde verandert vraagt redelijk wat CPU tijd. Deze methode wordt in het vakjargon <em>polling</em> genaamd, waarbij de status van de ingangspin in de <code class="docutils literal notranslate"><span class="pre">main()</span></code> voortdurend wordt afgevraagd (<em>gepolled</em>). Dit kan voorkomen worden door aan de ingangspin een callback (IRQ, Interrupt ReQuest) te koppelen die wordt opgeroepen wanneer de toestand van de <code class="docutils literal notranslate"><span class="pre">Pin</span></code> wijzigt.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">GPIO26</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="o">&lt;</span><span class="n">callback</span> <span class="n">functie</span><span class="o">&gt;</span><span class="p">)</span>
 </pre></div>
@@ -490,24 +639,9 @@ document.write(`
 </pre></div>
 </div>
 </section>
-<section id="analoog">
-<h3><span class="section-number">14.2.3. </span>Analoog<a class="headerlink" href="#analoog" title="Link to this heading">#</a></h3>
-</section>
-</section>
-<section id="outputs">
-<h2><span class="section-number">14.3. </span>Outputs<a class="headerlink" href="#outputs" title="Link to this heading">#</a></h2>
-<section id="id1">
-<h3><span class="section-number">14.3.1. </span>Digitaal<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
-<p>Om het voorbeeld Blink werkende te krijgen is dit gedeelte al summier opgenomen. Voor iedere processor zijn er additionale klasses opgenomen bij Python (daarom dat ook de juiste versie van MicroPython moet geïnstalleerd worden). Voor de ESP32 beschik je als gebruik over de klasse <code class="docutils literal notranslate"><span class="pre">machine.Pin</span></code>. Deze bevat volgende methoden die bruikbaar zijn voor een output:</p>
-<ol class="arabic simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">.on()</span></code> maakt de pin hoog. <em>Opgelet, via <code class="docutils literal notranslate"><span class="pre">machine.Signal</span></code> kan de werking van de pin geïnverteerd worden. Een <code class="docutils literal notranslate"><span class="pre">.on()</span></code> zal dan resulteren in een pin die laag gemaakt wordt.</em></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">.off()</span></code> maakt de pin laag. <em>Ook hier geldt dezelfde opmerking.</em></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">.value(1)</span></code> of <code class="docutils literal notranslate"><span class="pre">.value(0)</span></code> maakt de pin respectievelijk hoog of laag.</p></li>
-<li></li>
-</ol>
-</section>
-<section id="id2">
-<h3><span class="section-number">14.3.2. </span>PWM<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<section id="analoog-adc">
+<h3><span class="section-number">14.4.3. </span>Analoog (ADC)<a class="headerlink" href="#analoog-adc" title="Link to this heading">#</a></h3>
+<p>TODO</p>
 </section>
 </section>
 </section>
@@ -576,7 +710,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#espduino32">14.1. ESPDuino32</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#espduino32-pinnen">14.1. ESPDuino32 pinnen</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-only">14.1.1. Input only</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#capacitive-touch">14.1.2. Capacitive touch</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analog-to-digital-adc">14.1.3. Analog to Digital (ADC)</a></li>
@@ -585,15 +719,22 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strapping-pins">14.1.6. Strapping pins</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inputs">14.2. Inputs</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#digitaal">14.2.1. Digitaal</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interrupts">14.2.2. Interrupts</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analoog">14.2.3. Analoog</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gpio-klasse">14.2. GPIO klasse</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import">14.2.1. Import</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#object">14.2.2. Object</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methoden">14.2.3. Methoden</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outputs">14.3. Outputs</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">14.3.1. Digitaal</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">14.3.2. PWM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#digitaal-blink">14.3.1. Digitaal (blink)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">14.3.2. PWM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analoog-dac">14.3.3. Analoog (DAC)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inputs">14.4. Inputs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#digitaal">14.4.1. Digitaal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interrupts">14.4.2. Interrupts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analoog-adc">14.4.3. Analoog (ADC)</a></li>
 </ul>
 </li>
 </ul>
